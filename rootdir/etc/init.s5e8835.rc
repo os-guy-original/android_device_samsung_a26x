@@ -1,0 +1,16 @@
+# Copyright (C) 2025 The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# init.s5e8835.rc - Samsung Galaxy A26 device-specific init overrides
+
+on early-init
+    # Set up symlink for device-specific modules if needed
+
+on init
+    # Device-specific properties and settings
+
+on post-fs-data
+    # Create additional directories if needed
+
+on boot
+    # Device-specific boot settings

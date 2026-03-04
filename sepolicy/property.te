@@ -1,0 +1,14 @@
+# Samsung vendor properties
+type vendor_samsung_prop, property_type;
+type vendor_samsung_camera_prop, property_type;
+type vendor_samsung_radio_prop, property_type;
+type vendor_samsung_audio_prop, property_type;
+type vendor_samsung_display_prop, property_type;
+type vendor_samsung_fingerprint_prop, property_type;
+type vendor_samsung_wifi_prop, property_type;
+type vendor_samsung_bluetooth_prop, property_type;
+type vendor_samsung_nfc_prop, property_type;
+type vendor_samsung_power_prop, property_type;
+type vendor_samsung_hqm_prop, property_type;
+type vendor_samsung_health_prop, property_type;
+type vendor_samsung_biometric_prop, property_type;

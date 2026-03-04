@@ -1,0 +1,52 @@
+# Samsung vendor properties
+ro.vendor.samsung.    u:object_r:vendor_samsung_prop:s0
+vendor.samsung.       u:object_r:vendor_samsung_prop:s0
+
+# Camera properties
+ro.vendor.camera.     u:object_r:vendor_samsung_camera_prop:s0
+vendor.camera.        u:object_r:vendor_samsung_camera_prop:s0
+
+# Radio/modem properties
+ro.vendor.radio.      u:object_r:vendor_samsung_radio_prop:s0
+vendor.radio.         u:object_r:vendor_samsung_radio_prop:s0
+ro.ril.               u:object_r:vendor_samsung_radio_prop:s0
+
+# Audio properties
+ro.vendor.audio.      u:object_r:vendor_samsung_audio_prop:s0
+vendor.audio.         u:object_r:vendor_samsung_audio_prop:s0
+
+# Display properties
+ro.vendor.display.    u:object_r:vendor_samsung_display_prop:s0
+vendor.display.       u:object_r:vendor_samsung_display_prop:s0
+
+# Fingerprint properties
+ro.vendor.fingerprint. u:object_r:vendor_samsung_fingerprint_prop:s0
+vendor.fingerprint.    u:object_r:vendor_samsung_fingerprint_prop:s0
+
+# WiFi properties
+ro.vendor.wifi.       u:object_r:vendor_samsung_wifi_prop:s0
+vendor.wifi.          u:object_r:vendor_samsung_wifi_prop:s0
+
+# Bluetooth properties
+ro.vendor.bluetooth.  u:object_r:vendor_samsung_bluetooth_prop:s0
+vendor.bluetooth.     u:object_r:vendor_samsung_bluetooth_prop:s0
+
+# NFC properties
+ro.vendor.nfc.        u:object_r:vendor_samsung_nfc_prop:s0
+vendor.nfc.           u:object_r:vendor_samsung_nfc_prop:s0
+
+# Power management properties
+ro.vendor.power.      u:object_r:vendor_samsung_power_prop:s0
+vendor.power.         u:object_r:vendor_samsung_power_prop:s0
+
+# HQM (Hardware Quality Manager) properties
+ro.vendor.hqm.        u:object_r:vendor_samsung_hqm_prop:s0
+vendor.hqm.           u:object_r:vendor_samsung_hqm_prop:s0
+
+# Health properties
+ro.vendor.health.     u:object_r:vendor_samsung_health_prop:s0
+vendor.health.        u:object_r:vendor_samsung_health_prop:s0
+
+# Biometric properties
+ro.vendor.biometric.  u:object_r:vendor_samsung_biometric_prop:s0
+vendor.biometric.     u:object_r:vendor_samsung_biometric_prop:s0

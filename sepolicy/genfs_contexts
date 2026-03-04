@@ -1,0 +1,52 @@
+# SELinux filesystem contexts for Samsung Exynos devices
+
+# sysfs contexts
+genfscon sysfs/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:0/block/sda          u:object_r:sysfs_block_device:s0
+genfscon sysfs/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:1/block/sdb          u:object_r:sysfs_block_device:s0
+genfscon sysfs/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:2/block/sdc          u:object_r:sysfs_block_device:s0
+
+# Power supply contexts
+genfscon sysfs/class/power_supply/battery                                                    u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs/class/power_supply/usb                                                        u:object_r:sysfs_usb_supply:s0
+genfscon sysfs/class/power_supply/ac                                                         u:object_r:sysfs_ac_supply:s0
+
+# LED contexts
+genfscon sysfs/class/leds                                                                    u:object_r:sysfs_leds:s0
+genfscon sysfs/devices/virtual/leds                                                          u:object_r:sysfs_leds:s0
+
+# Camera sysfs
+genfscon sysfs/devices/platform/soc/1a000000.qcom,cam-req-mgr                                u:object_r:sysfs_camera:s0
+
+# GPU sysfs
+genfscon sysfs/devices/platform/soc/1f00000.qcom,kgsl-3d0                                    u:object_r:sysfs_gpu:s0
+
+# DRM/KMS sysfs
+genfscon sysfs/devices/virtual/graphics/fb0                                                  u:object_r:sysfs_graphics:s0
+
+# Bluetooth sysfs
+genfscon sysfs/devices/platform/soc/soc:bt                                                   u:object_r:sysfs_bluetooth:s0
+
+# WiFi sysfs
+genfscon sysfs/devices/platform/soc/soc:wifi                                                 u:object_r:sysfs_wifi:s0
+
+# Modem/RIL sysfs
+genfscon sysfs/devices/platform/soc/soc:modem                                                u:object_r:sysfs_modem:s0
+
+# Thermal zones
+genfscon sysfs/class/thermal                                                                 u:object_r:sysfs_thermal:s0
+genfscon sysfs/devices/virtual/thermal                                                       u:object_r:sysfs_thermal:s0
+
+# Input device contexts
+genfscon sysfs/devices/virtual/input                                                         u:object_r:sysfs_input:s0
+
+# Vibrator
+genfscon sysfs/devices/virtual/timed_output/vibrator                                         u:object_r:sysfs_vibrator:s0
+
+# Samsung specific sysfs
+genfscon sysfs/devices/platform/soc/samsung                                                  u:object_r:sysfs_samsung:s0
+genfscon sysfs/class/sec                                                                     u:object_r:sysfs_sec:s0
+genfscon sysfs/devices/samsung                                                               u:object_r:sysfs_samsung_device:s0
+
+# Proc contexts
+genfscon proc/bootconfig                                                                     u:object_r:proc_bootconfig:s0
+genfscon proc/driver                                                                         u:object_r:proc_driver:s0

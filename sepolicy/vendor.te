@@ -1,0 +1,74 @@
+# Vendor domain declarations
+type vendor_hal_samsung;
+type vendor_hal_samsung_camera;
+type vendor_hal_samsung_radio;
+type vendor_hal_samsung_audio;
+type vendor_hal_samsung_fingerprint;
+type vendor_hal_samsung_biometrics;
+type vendor_hal_samsung_sensorhub;
+type vendor_hal_samsung_display;
+
+# Vendor service types
+type vendor_samsung_service, service_manager_type;
+type vendor_samsung_camera_service, service_manager_type;
+
+# Vendor app domains
+type vendor_samsung_app, domain, coredomain;
+type vendor_samsung_camera_app, domain, coredomain;
+
+# Allow vendor domain to access vendor files
+allow vendor_init vendor_file:file { open read getattr map };
+
+# Allow vendor domains to access Samsung-specific file types
+allow vendor_init efs_file:dir { create read write open add_name remove_name search };
+allow vendor_init efs_file:file { create read write open getattr setattr unlink };
+
+allow vendor_init sec_efs_file:dir { create read write open add_name remove_name search };
+allow vendor_init sec_efs_file:file { create read write open getattr setattr unlink };
+
+allow vendor_init param_file:dir { create read write open add_name remove_name search };
+allow vendor_init param_file:file { create read write open getattr setattr unlink };
+
+allow vendor_init cpefs_file:dir { create read write open add_name remove_name search };
+allow vendor_init cpefs_file:file { create read write open getattr setattr unlink };
+
+# Allow vendor domains to read Samsung properties
+get_prop(vendor_init, vendor_samsung_prop)
+get_prop(vendor_init, vendor_samsung_radio_prop)
+get_prop(vendor_init, vendor_samsung_camera_prop)
+
+# Allow system_server to access Samsung properties
+get_prop(system_server, vendor_samsung_prop)
+get_prop(system_server, vendor_samsung_camera_prop)
+get_prop(system_server, vendor_samsung_radio_prop)
+
+# Allow hal_camera_default to access camera files
+allow hal_camera_default camera_fw_file:dir search;
+allow hal_camera_default camera_fw_file:file { open read getattr map };
+
+# Allow hal_bluetooth_default to access BT firmware
+allow hal_bluetooth_default bt_firmware_file:dir search;
+allow hal_bluetooth_default bt_firmware_file:file { open read getattr map };
+
+# Allow hal_wifi_default to access WiFi firmware
+allow hal_wifi_default wifi_firmware_file:dir search;
+allow hal_wifi_default wifi_firmware_file:file { open read getattr map };
+
+# Allow rild to access modem firmware
+allow rild modem_fw_file:dir search;
+allow rild modem_fw_file:file { open read getattr map };
+
+# Allow vendor_init to create Samsung property contexts
+set_prop(vendor_init, vendor_samsung_prop)
+set_prop(vendor_init, vendor_samsung_camera_prop)
+set_prop(vendor_init, vendor_samsung_radio_prop)
+set_prop(vendor_init, vendor_samsung_audio_prop)
+set_prop(vendor_init, vendor_samsung_display_prop)
+set_prop(vendor_init, vendor_samsung_fingerprint_prop)
+set_prop(vendor_init, vendor_samsung_wifi_prop)
+set_prop(vendor_init, vendor_samsung_bluetooth_prop)
+set_prop(vendor_init, vendor_samsung_nfc_prop)
+set_prop(vendor_init, vendor_samsung_power_prop)
+set_prop(vendor_init, vendor_samsung_hqm_prop)
+set_prop(vendor_init, vendor_samsung_health_prop)
+set_prop(vendor_init, vendor_samsung_biometric_prop)

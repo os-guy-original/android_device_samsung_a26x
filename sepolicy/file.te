@@ -1,0 +1,35 @@
+# EFS partition file types
+type efs_file, file_type, vendor_file_type;
+type sec_efs_file, file_type, vendor_file_type;
+
+# Samsung-specific partition file types
+type param_file, file_type, vendor_file_type;
+type optics_file, file_type, vendor_file_type;
+type prism_file, file_type, vendor_file_type;
+
+# CP EFS file type
+type cpefs_file, file_type, vendor_file_type;
+
+# Camera firmware files
+type camera_fw_file, file_type, vendor_file_type;
+
+# Bluetooth firmware files
+type bt_firmware_file, file_type, vendor_file_type;
+
+# WiFi firmware files
+type wifi_firmware_file, file_type, vendor_file_type;
+
+# Modem firmware files
+type modem_fw_file, file_type, vendor_file_type;
+
+# Persistent data partition
+type persist_file, file_type, vendor_file_type;
+
+# Optics calibration data
+type optics_calib_file, file_type, vendor_file_type;
+
+# Prism calibration data
+type prism_calib_file, file_type, vendor_file_type;
+
+# BOTA (Boot OTA) partition
+type bota_file, file_type, vendor_file_type;

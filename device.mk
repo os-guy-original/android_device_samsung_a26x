@@ -44,12 +44,15 @@ PRODUCT_PACKAGES += \
     mx_logger_dump.sh \
 
 PRODUCT_PACKAGES += \
+    fstab.s5e8835 \
     fstab.ramplus \
     init.recovery.s5e8835.rc \
     init.recovery.samsung.rc \
+    init.s5e8835.rc
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.ramplus:$(TARGET_COPY_OUT_RAMDISK)/fstab.ramplus
+    $(LOCAL_PATH)/rootdir/etc/fstab.ramplus:$(TARGET_COPY_OUT_RAMDISK)/fstab.ramplus \
+    $(LOCAL_PATH)/rootdir/etc/fstab.s5e8835:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.s5e8835
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

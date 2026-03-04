@@ -1,0 +1,31 @@
+# Samsung hardware device types
+type sec_block_device, dev_type;
+type param_device, dev_type;
+type efs_block_device, dev_type;
+type prism_device, dev_type;
+type optics_device, dev_type;
+type bota_device, dev_type;
+type cpefs_device, dev_type;
+type dump_device, dev_type;
+
+# Radio/modem devices
+type mif_device, dev_type;
+type mimo_device, dev_type;
+
+# GPIO device for Samsung hardware
+type gpio_device, dev_type;
+
+# Samsung hardware monitoring devices
+type hwmon_device, dev_type;
+
+# Mcrypt device for secure boot
+type mcrypt_device, dev_type;
+
+# SEC timestamp device
+type sec_timestamp_device, dev_type;
+
+# VTS (Voice Trigger Service) device
+type vts_device, dev_type;
+
+# Earjack device
+type earjack_device, dev_type;
