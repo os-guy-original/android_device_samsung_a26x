@@ -6,6 +6,9 @@
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
+# Virtual A/B
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/vabc_features.mk)
+
 # API levels
 PRODUCT_SHIPPING_API_LEVEL := 35
 
@@ -19,6 +22,15 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
+
+# Virtual A/B OTA
+PRODUCT_PACKAGES += \
+    checkpoint_gc \
+    otapreopt_script \
+    snapuserd \
+    snapuserd_recovery \
+    update_engine \
+    update_verifier
 
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := true

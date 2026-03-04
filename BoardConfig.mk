@@ -24,6 +24,11 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 TARGET_BOOTLOADER_BOARD_NAME := s5e8835
 TARGET_NO_BOOTLOADER := true
 
+# Boot devices (UFS)
+BOARD_SUPER_PARTITION_DEVICE := sda
+BOARD_USES_UFS := true
+TARGET_USES_UFS_OTA := true
+
 # Display
 TARGET_SCREEN_DENSITY := 450
 
@@ -59,11 +64,35 @@ BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 16777216
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 33554432
 BOARD_SUPER_PARTITION_SIZE := 13421772800
 BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product odm
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product odm system_dlkm vendor_dlkm
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 13417570304
+
+# A/B - Virtual A/B (VABC) - Android 15 (API 35) Baseline
+AB_OTA_UPDATER := true
+ENABLE_VIRTUAL_AB := true
+BOARD_VIRTUAL_AB_COMPRESSION := true
+
+# Galaxy A26 uses ZSTD by default for better compression ratios on API 35
+BOARD_VIRTUAL_AB_COMPRESSION_METHOD := zstd
+
+# Confirmed Userspace Snapshot Support
+BOARD_USE_USERSPACE_SNAPSHOT := true
+
+# Samsung specific optimizations (Matching stock props)
+BOARD_VIRTUAL_AB_BATCH_WRITES := true
+
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    init_boot \
+    vbmeta \
+    vbmeta_system \
+    vendor_boot \
+    vendor_dlkm
 
 # Platform
 TARGET_BOARD_PLATFORM := erd8835
+BOARD_BUILD_GKI_BOOT_IMAGE := true
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
