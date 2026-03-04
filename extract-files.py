@@ -10,15 +10,15 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/samsung/essi',
+    "device/samsung/a26x",
 ]
 
 module = ExtractUtilsModule(
-    'essi',
-    'samsung',
+    "a26x",
+    "samsung",
     namespace_imports=namespace_imports,
 )
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     utils = ExtractUtils.device(module)
     utils.run()

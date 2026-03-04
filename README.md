@@ -1,4 +1,4 @@
-# Android device tree for samsung SM-A266B (essi)
+# Android device tree for samsung SM-A266B (a26x)
 
 ```
 #
