@@ -22,7 +22,7 @@ ERRORS=0
 WARNINGS=0
 
 # 1. VINTF manifest conflicts
-echo "[1/5] Checking VINTF manifests..."
+echo "[1/6] Checking VINTF manifests..."
 VINTF_DIR="${VENDOR_TREE}/proprietary/vendor/etc/vintf/manifest"
 if [ -d "$VINTF_DIR" ]; then
     for xml in "$VINTF_DIR"/*.xml; do
@@ -40,7 +40,7 @@ fi
 echo -e "  ${GREEN}Done${NC}"
 
 # 2. APEX in PRODUCT_COPY_FILES
-echo "[2/5] Checking APEX copies..."
+echo "[2/6] Checking APEX copies..."
 for mk in "$DEVICE_TREE"/*.mk "$VENDOR_TREE"/*.mk; do
     [ -f "$mk" ] || continue
     if grep -q "\.apex:" "$mk" 2>/dev/null; then
@@ -51,7 +51,7 @@ done
 echo -e "  ${GREEN}Done${NC}"
 
 # 3. VNDK conflicts
-echo "[3/5] Checking VNDK..."
+echo "[3/6] Checking VNDK..."
 for mk in "$DEVICE_TREE"/*.mk "$VENDOR_TREE"/*.mk; do
     [ -f "$mk" ] || continue
     if grep "PRODUCT_COPY_FILES" "$mk" 2>/dev/null | grep -q "com\.android\.vndk"; then
@@ -61,8 +61,31 @@ for mk in "$DEVICE_TREE"/*.mk "$VENDOR_TREE"/*.mk; do
 done
 echo -e "  ${GREEN}Done${NC}"
 
-# 4. Check install map if it exists
-echo "[4/5] Checking install map..."
+# 4. Check for AOSP binaries in PRODUCT_COPY_FILES
+echo "[4/6] Checking for AOSP binaries in PRODUCT_COPY_FILES..."
+AOSP_BINARIES="android.hidl.allocator
+hwservicemanager
+android.hardware.wifi
+android.hardware.bluetooth
+android.hardware.audio
+android.hardware.camera
+android.hardware.graphics
+android.hardware.media"
+
+for mk in "$DEVICE_TREE"/*.mk "$VENDOR_TREE"/*.mk; do
+    [ -f "$mk" ] || continue
+    for bin in $AOSP_BINARIES; do
+        if grep "PRODUCT_COPY_FILES" "$mk" 2>/dev/null | grep -q "$bin"; then
+            echo -e "  ${RED}ERROR${NC}: AOSP binary '$bin' in PRODUCT_COPY_FILES: $mk"
+            grep -n "$bin" "$mk" | grep "PRODUCT_COPY_FILES" | head -2 | sed 's/^/    /'
+            ((ERRORS++))
+        fi
+    done
+done
+echo -e "  ${GREEN}Done${NC}"
+
+# 5. Check install map if it exists
+echo "[5/6] Checking install map..."
 INSTALLS_MK="out/soong/installs-lineage_${DEVICE}.mk"
 if [ -f "$INSTALLS_MK" ]; then
     dups=$(grep -oP '^out/target/product/[^:]+(?=:)' "$INSTALLS_MK" 2>/dev/null | sort | uniq -d)
@@ -76,8 +99,8 @@ else
 fi
 echo -e "  ${GREEN}Done${NC}"
 
-# 5. Summary
-echo "[5/5] Summary..."
+# 6. Summary
+echo "[6/6] Summary..."
 echo ""
 
 if [ $ERRORS -gt 0 ]; then
