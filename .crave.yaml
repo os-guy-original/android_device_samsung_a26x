@@ -1,0 +1,28 @@
+# Crave Configuration for Samsung Galaxy A26
+# https://crave.io
+
+device:
+  name: a26x
+  vendor: samsung
+  product: lineage_a26x
+
+# Build configuration
+build:
+  target: lineage_a26x
+  type: userdebug
+  
+# Pre-build checks (run before main build)
+# These scripts must exit 0 for build to proceed
+prebuild_hooks:
+  - path: device/samsung/a26x/tools/prebuild_check.sh
+    required: true
+    timeout: 60
+
+# Post-build checks (optional)
+postbuild_hooks:
+  - path: device/samsung/a26x/tools/check_install_map.sh
+    required: false
+
+# Environment variables
+env:
+  ALLOW_MISSING_DEPENDENCIES: "true"
