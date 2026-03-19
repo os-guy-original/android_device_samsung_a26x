@@ -1,4 +1,5 @@
-<manifest version="5.0" type="device" target-level="7">
+<manifest version="5.0" type="device" target-level="9">
+    <!-- Audio -->
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
@@ -9,37 +10,56 @@
         <transport>hwbinder</transport>
         <fqname>@7.0::IEffectsFactory/default</fqname>
     </hal>
+    <hal format="hidl">
+        <name>android.hardware.soundtrigger</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.3::ISoundTriggerHw/default</fqname>
+    </hal>
+
+    <!-- Biometrics -->
     <hal format="aidl">
         <name>android.hardware.biometrics.face</name>
         <fqname>IFace/default</fqname>
     </hal>
+    <hal format="aidl">
+        <name>android.hardware.biometrics.fingerprint</name>
+        <fqname>IFingerprint/default</fqname>
+    </hal>
+
+    <!-- Bluetooth -->
     <hal format="hidl">
         <name>android.hardware.bluetooth</name>
         <transport>hwbinder</transport>
         <fqname>@1.1::IBluetoothHci/default</fqname>
     </hal>
+
+    <!-- CAS -->
     <hal format="hidl">
         <name>android.hardware.cas</name>
         <transport>hwbinder</transport>
         <fqname>@1.2::IMediaCasService/default</fqname>
     </hal>
+
+    <!-- Camera -->
     <hal format="aidl">
         <name>android.hardware.camera.provider</name>
         <fqname>ICameraProvider/internal/0</fqname>
     </hal>
+
+    <!-- DRM -->
     <hal format="aidl">
         <name>android.hardware.drm</name>
         <fqname>IDrmFactory/clearkey</fqname>
     </hal>
+
+    <!-- Gatekeeper -->
     <hal format="hidl">
         <name>android.hardware.gatekeeper</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IGatekeeper/default</fqname>
     </hal>
-    <hal format="aidl">
-        <name>android.hardware.gnss</name>
-        <fqname>IGnss/default</fqname>
-    </hal>
+
+    <!-- Graphics -->
     <hal format="hidl">
         <name>android.hardware.graphics.allocator</name>
         <transport>hwbinder</transport>
@@ -55,36 +75,14 @@
         <transport arch="32+64">passthrough</transport>
         <fqname>@4.0::IMapper/default</fqname>
     </hal>
-    <hal format="hidl">
-        <name>android.hardware.media.c2</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.2::IComponentStore/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.media.omx</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IOmx/default</fqname>
-        <fqname>@1.0::IOmxStore/default</fqname>
-    </hal>
+
+    <!-- Health -->
     <hal format="aidl">
-        <name>android.hardware.neuralnetworks</name>
-        <fqname>IDevice/shim-1</fqname>
+        <name>android.hardware.health</name>
+        <fqname>IHealth/default</fqname>
     </hal>
-    <hal format="hidl">
-        <name>android.hardware.nfc</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.2::INfc/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.renderscript</name>
-        <transport arch="32+64">passthrough</transport>
-        <fqname>@1.0::IDevice/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.sensors</name>
-        <transport>hwbinder</transport>
-        <fqname>@2.0::ISensors/default</fqname>
-    </hal>
+
+    <!-- KeyMint -->
     <hal format="aidl">
         <name>android.hardware.security.keymint</name>
         <fqname>IKeyMintDevice/default</fqname>
@@ -98,27 +96,64 @@
         <name>android.hardware.security.sharedsecret</name>
         <fqname>ISharedSecret/default</fqname>
     </hal>
-    <hal format="hidl">
-        <name>android.hardware.soundtrigger</name>
-        <transport>hwbinder</transport>
-        <fqname>@2.3::ISoundTriggerHw/default</fqname>
+
+    <!-- Neural Networks -->
+    <hal format="aidl">
+        <name>android.hardware.neuralnetworks</name>
+        <fqname>IDevice/shim-1</fqname>
     </hal>
+
+    <!-- NFC -->
     <hal format="hidl">
-        <name>android.hardware.thermal</name>
+        <name>android.hardware.nfc</name>
         <transport>hwbinder</transport>
-        <fqname>@1.0::IThermal/default</fqname>
-        <fqname>@2.0::IThermal/default</fqname>
+        <fqname>@1.2::INfc/default</fqname>
     </hal>
+
+    <!-- Power -->
+    <hal format="aidl">
+        <name>android.hardware.power</name>
+        <fqname>IPower/default</fqname>
+    </hal>
+
+    <!-- Sensors -->
+    <hal format="hidl">
+        <name>android.hardware.sensors</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.0::ISensors/default</fqname>
+    </hal>
+
+    <!-- USB -->
     <hal format="hidl">
         <name>android.hardware.usb</name>
         <transport>hwbinder</transport>
         <fqname>@1.3::IUsb/default</fqname>
     </hal>
+
+    <!-- Vibrator -->
+    <hal format="aidl">
+        <name>android.hardware.vibrator</name>
+        <fqname>IVibrator/default</fqname>
+    </hal>
+
+    <!-- Wi-Fi (vendor ships @1.0, not @1.6) -->
     <hal format="hidl">
         <name>android.hardware.wifi</name>
         <transport>hwbinder</transport>
-        <fqname>@1.6::IWifi/default</fqname>
+        <fqname>@1.0::IWifi/default</fqname>
     </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi.supplicant</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.4::ISupplicant/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi.hostapd</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.3::IHostapd/default</fqname>
+    </hal>
+
+    <!-- Samsung Custom HALs -->
     <hal format="hidl">
         <name>vendor.samsung.hardware.audio</name>
         <transport>hwbinder</transport>
@@ -132,6 +167,10 @@
     <hal format="aidl">
         <name>vendor.samsung.hardware.gnss</name>
         <fqname>ISehGnss/default</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>vendor.samsung.hardware.health</name>
+        <fqname>ISehHealth/default</fqname>
     </hal>
     <hal format="aidl">
         <name>vendor.samsung.hardware.keymint</name>
@@ -156,6 +195,21 @@
         <transport>hwbinder</transport>
         <fqname>@1.3::ISehSysInputDev/default</fqname>
     </hal>
+    <hal format="aidl">
+        <name>vendor.samsung.hardware.thermal</name>
+        <fqname>ISehThermal/default</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>vendor.samsung.hardware.vibrator</name>
+        <fqname>ISehVibrator/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.samsung.hardware.wifi</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.0::ISehWifi/default</fqname>
+    </hal>
+
+    <!-- Samsung SLSI HALs -->
     <hal format="hidl">
         <name>vendor.samsung_slsi.hardware.ExynosHWCServiceTW</name>
         <transport>hwbinder</transport>

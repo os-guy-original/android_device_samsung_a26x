@@ -364,3 +364,45 @@ allow init misc_block_device:blk_file { open read write getattr };
 # allow tee_device tee_device:chr_file rw_file_perms;
 # allow tee_device keymaster_data_file:dir create_dir_perms;
 # allow tee_device keymaster_data_file:file create_file_perms;
+
+# Additional Samsung service domains
+type vendor_tzdaemon, domain;
+type vendor_tzts_daemon, domain;
+type vendor_vaultkeeperd, domain;
+type vendor_hermesd, domain;
+type vendor_wlbtd, domain;
+type vendor_epic, domain;
+type vendor_dmd, domain;
+type vendor_memlogd, domain;
+type vendor_mlgcat, domain;
+type vendor_cass, domain;
+type vendor_iod, domain;
+type vendor_wtasd, domain;
+type vendor_wvkprov, domain;
+
+# Samsung health HAL
+type hal_samsung_health_default, domain;
+
+# Samsung thermal HAL  
+type hal_samsung_thermal_default, domain;
+
+# Samsung vibrator HAL
+type hal_samsung_vibrator_default, domain;
+
+# Samsung WiFi HAL
+type hal_samsung_wifi_default, domain;
+
+# Allow Samsung services to run
+typeattribute vendor_tzdaemon hal_domain;
+typeattribute vendor_tzts_daemon hal_domain;
+typeattribute vendor_vaultkeeperd hal_domain;
+typeattribute vendor_hermesd hal_domain;
+
+# Samsung secure execution environment
+type tee_data_file, file_type, data_file_type;
+type tee_device, dev_type;
+
+# Allow access to tee devices
+allow vendor_tzdaemon tee_device:chr_file { open read write ioctl };
+allow vendor_tzdaemon tee_data_file:dir { create read write open add_name remove_name search };
+allow vendor_tzdaemon tee_data_file:file { create read write open getattr setattr unlink };

@@ -122,5 +122,8 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
+# System_ext SELinux policy
+BOARD_SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext_private
+
 # Inherit the proprietary files
 include vendor/samsung/a26x/BoardConfigVendor.mk

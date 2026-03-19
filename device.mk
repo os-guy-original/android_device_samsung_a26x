@@ -21,25 +21,10 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default
 
-# Bluetooth
-# Note: Bluetooth HAL impls come from vendor blobs
-
-# Camera
-# Note: Camera HAL comes from vendor blobs
-
-# DRM
-# Note: DRM HALs come from vendor blobs
-
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     fastbootd
-
-# Gatekeeper
-# Note: Gatekeeper HAL comes from vendor blobs
-
-# GNSS/GPS
-# Note: GNSS HAL comes from vendor blobs
 
 # Graphics
 # Note: Graphics HALs (gralloc, composer, mapper) come from vendor blobs
@@ -52,43 +37,12 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
 
-# Keymint/Keystore
-# Note: KeyMint HAL comes from vendor blobs
-
-# Media
-# Note: Media HALs come from vendor blobs
-
-# Memtrack
-# Note: Memtrack HAL comes from vendor blobs
-
 # NFC
 # Note: NFC HAL comes from vendor blobs
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     NfcNci \
     Tag
-
-# Power
-# Note: Power HAL comes from vendor blobs
-
-# Sensors
-# Note: Sensors HAL comes from vendor blobs
-
-# Thermal
-# Note: Thermal HAL comes from vendor blobs
-
-# USB
-# Note: USB HAL comes from vendor blobs
-
-# Vibrator
-# Note: Vibrator HAL comes from vendor blobs
-
-# Wi-Fi
-# Note: Wi-Fi HALs come from vendor blobs (android.hardware.wifi@1.0 and vendor.samsung.hardware.wifi@2.0)
-PRODUCT_PACKAGES += \
-    hostapd \
-    wpa_supplicant \
-    wificond
 
 # Virtual A/B OTA
 PRODUCT_PACKAGES += \
@@ -150,17 +104,17 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
 
-# Rootdir
+# Rootdir scripts (exclude install-recovery.sh - not needed for VAB)
 PRODUCT_PACKAGES += \
     gps.sh \
     enable_test_mode.sh \
     hdm_status.sh \
     init.insmod.sh \
-    install-recovery.sh \
     mx_log_collection.sh \
     mx_logger.sh \
     mx_logger_dump.sh
 
+# Init files
 PRODUCT_PACKAGES += \
     fstab.s5e8835 \
     fstab.ramplus \
@@ -168,7 +122,7 @@ PRODUCT_PACKAGES += \
     init.recovery.samsung.rc \
     init.s5e8835.rc
 
-# Note: fstab files come from vendor blobs, this is for ramdisk only
+# Ramdisk fstab (for first-stage init)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.ramplus:$(TARGET_COPY_OUT_RAMDISK)/fstab.ramplus
 
