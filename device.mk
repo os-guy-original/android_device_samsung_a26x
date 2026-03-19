@@ -16,26 +16,19 @@ PRODUCT_SHIPPING_API_LEVEL := 35
 PRODUCT_AAPT_PREF_CONFIG := 450dpi
 
 # Audio
+# Note: Audio HAL impls come from vendor blobs
 PRODUCT_PACKAGES += \
-    android.hardware.audio@7.1-impl \
-    android.hardware.audio.effect@7.0-impl \
-    android.hardware.soundtrigger@2.3-impl \
     audio.r_submix.default \
     audio.usb.default
 
 # Bluetooth
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.1-impl \
-    android.hardware.bluetooth.audio-impl
+# Note: Bluetooth HAL impls come from vendor blobs
 
 # Camera
-PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.7-impl \
-    android.hardware.camera.provider@2.7-service
+# Note: Camera HAL comes from vendor blobs
 
 # DRM
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.4-service.clearkey
+# Note: DRM HALs come from vendor blobs
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -43,18 +36,14 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 # Gatekeeper
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl
+# Note: Gatekeeper HAL comes from vendor blobs
 
 # GNSS/GPS
-PRODUCT_PACKAGES += \
-    android.hardware.gnss@2.1-impl
+# Note: GNSS HAL comes from vendor blobs
 
 # Graphics
+# Note: Graphics HALs (gralloc, composer, mapper) come from vendor blobs
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@4.0-impl \
-    android.hardware.graphics.composer@2.4-impl \
-    android.hardware.graphics.mapper@4.0-impl \
     libgui_vendor
 
 # Health
@@ -64,55 +53,39 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service
 
 # Keymint/Keystore
-PRODUCT_PACKAGES += \
-    android.hardware.security.keymint-impl \
-    android.hardware.security.secureclock-impl \
-    android.hardware.security.sharedsecret-impl
+# Note: KeyMint HAL comes from vendor blobs
 
 # Media
-PRODUCT_PACKAGES += \
-    android.hardware.media.c2@1.2-impl \
-    android.hardware.media.omx@1.0-impl
+# Note: Media HALs come from vendor blobs
 
 # Memtrack
-PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-impl
+# Note: Memtrack HAL comes from vendor blobs
 
 # NFC
+# Note: NFC HAL comes from vendor blobs
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.2-impl \
     com.android.nfc_extras \
     NfcNci \
     Tag
 
 # Power
-PRODUCT_PACKAGES += \
-    android.hardware.power@2.0-impl
+# Note: Power HAL comes from vendor blobs
 
 # Sensors
-PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.0-impl \
-    android.hardware.sensors@2.0-service
+# Note: Sensors HAL comes from vendor blobs
 
 # Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-impl \
-    android.hardware.thermal@2.0-service
+# Note: Thermal HAL comes from vendor blobs
 
 # USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.3-impl
+# Note: USB HAL comes from vendor blobs
 
 # Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.3-impl \
-    android.hardware.vibrator@1.3-service.samsung
+# Note: Vibrator HAL comes from vendor blobs
 
 # Wi-Fi
+# Note: Wi-Fi HALs come from vendor blobs (android.hardware.wifi@1.0 and vendor.samsung.hardware.wifi@2.0)
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.6-impl \
-    android.hardware.wifi.hostapd \
-    android.hardware.wifi.supplicant \
     hostapd \
     wpa_supplicant \
     wificond
@@ -195,9 +168,9 @@ PRODUCT_PACKAGES += \
     init.recovery.samsung.rc \
     init.s5e8835.rc
 
+# Note: fstab files come from vendor blobs, this is for ramdisk only
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.ramplus:$(TARGET_COPY_OUT_RAMDISK)/fstab.ramplus \
-    $(LOCAL_PATH)/rootdir/etc/fstab.s5e8835:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.s5e8835
+    $(LOCAL_PATH)/rootdir/etc/fstab.ramplus:$(TARGET_COPY_OUT_RAMDISK)/fstab.ramplus
 
 # Samsung-specific configurations
 PRODUCT_PACKAGES += \
