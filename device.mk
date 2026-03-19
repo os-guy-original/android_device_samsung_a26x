@@ -9,8 +9,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Virtual A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/vabc_features.mk)
 
-# API levels
+# API level
 PRODUCT_SHIPPING_API_LEVEL := 35
+
+# Display
+PRODUCT_AAPT_PREF_CONFIG := 450dpi
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -47,9 +50,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gnss@2.1-impl
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps/gps.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/gps.cfg
-
 # Graphics
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@4.0-impl \
@@ -65,7 +65,6 @@ PRODUCT_PACKAGES += \
 
 # Keymint/Keystore
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.1-impl \
     android.hardware.security.keymint-impl \
     android.hardware.security.secureclock-impl \
     android.hardware.security.sharedsecret-impl
@@ -88,7 +87,6 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.3-impl \
     android.hardware.power@2.0-impl
 
 # Sensors
@@ -205,11 +203,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     SamsungDoze \
     lineage.health-service.samsung
-
-# TODO: Verify if device has Samsung BSP features
-# PRODUCT_PACKAGES += \
-#     com.samsung.feature.device_category_phone \
-#     com.samsung.feature.samsung_experience_mobile
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
