@@ -50,3 +50,99 @@ vendor.health.        u:object_r:vendor_samsung_health_prop:s0
 # Biometric properties
 ro.vendor.biometric.  u:object_r:vendor_samsung_biometric_prop:s0
 vendor.biometric.     u:object_r:vendor_samsung_biometric_prop:s0
+
+# DRM properties
+ro.vendor.drm.        u:object_r:vendor_drm_prop:s0
+vendor.drm.           u:object_r:vendor_drm_prop:s0
+drm.service.          u:object_r:vendor_drm_prop:s0
+
+# Widevine properties
+ro.vendor.widevine.   u:object_r:vendor_widevine_prop:s0
+vendor.widevine.      u:object_r:vendor_widevine_prop:s0
+
+# Keymint properties
+ro.vendor.keymint.    u:object_r:vendor_keymint_prop:s0
+vendor.keymint.       u:object_r:vendor_keymint_prop:s0
+ro.hardware.keystore  u:object_r:vendor_keymint_prop:s0
+
+# Keymaster properties
+ro.vendor.keymaster.  u:object_r:vendor_keymaster_prop:s0
+vendor.keymaster.     u:object_r:vendor_keymaster_prop:s0
+
+# Gatekeeper properties
+ro.vendor.gatekeeper. u:object_r:vendor_gatekeeper_prop:s0
+vendor.gatekeeper.    u:object_r:vendor_gatekeeper_prop:s0
+
+# GNSS/GPS properties
+ro.vendor.gnss.       u:object_r:vendor_gnss_prop:s0
+vendor.gnss.          u:object_r:vendor_gnss_prop:s0
+ro.vendor.gps.        u:object_r:vendor_gps_prop:s0
+vendor.gps.           u:object_r:vendor_gps_prop:s0
+
+# Thermal properties
+ro.vendor.thermal.    u:object_r:vendor_thermal_prop:s0
+vendor.thermal.       u:object_r:vendor_thermal_prop:s0
+
+# Sensor properties
+ro.vendor.sensors.    u:object_r:vendor_sensors_prop:s0
+vendor.sensors.       u:object_r:vendor_sensors_prop:s0
+
+# USB properties
+ro.vendor.usb.        u:object_r:vendor_usb_prop:s0
+vendor.usb.           u:object_r:vendor_usb_prop:s0
+sys.usb.              u:object_r:vendor_usb_prop:s0
+
+# Memtrack properties
+ro.vendor.memtrack.   u:object_r:vendor_memtrack_prop:s0
+vendor.memtrack.      u:object_r:vendor_memtrack_prop:s0
+
+# Media properties
+ro.vendor.media.      u:object_r:vendor_media_prop:s0
+vendor.media.         u:object_r:vendor_media_prop:s0
+vendor.media.omx      u:object_r:vendor_omx_prop:s0
+
+# Neural networks properties
+ro.vendor.nn.         u:object_r:vendor_nn_prop:s0
+vendor.nn.            u:object_r:vendor_nn_prop:s0
+
+# Graphics properties
+ro.vendor.graphics.   u:object_r:vendor_graphics_prop:s0
+vendor.graphics.      u:object_r:vendor_graphics_prop:s0
+ro.hardware.egl       u:object_r:vendor_graphics_prop:s0
+ro.hardware.vulkan    u:object_r:vendor_graphics_prop:s0
+
+# Gralloc properties
+ro.vendor.gralloc.    u:object_r:vendor_gralloc_prop:s0
+vendor.gralloc.       u:object_r:vendor_gralloc_prop:s0
+
+# HWComposer properties
+ro.vendor.hwc.        u:object_r:vendor_hwcomposer_prop:s0
+vendor.hwc.           u:object_r:vendor_hwcomposer_prop:s0
+
+# Secure element properties
+ro.vendor.secure_element. u:object_r:vendor_secure_element_prop:s0
+vendor.secure_element.    u:object_r:vendor_secure_element_prop:s0
+
+# CAS properties
+ro.vendor.cas.        u:object_r:vendor_cas_prop:s0
+vendor.cas.           u:object_r:vendor_cas_prop:s0
+
+# Sound trigger properties
+ro.vendor.soundtrigger. u:object_r:vendor_soundtrigger_prop:s0
+vendor.soundtrigger.    u:object_r:vendor_soundtrigger_prop:s0
+
+# RenderScript properties
+ro.vendor.renderscript. u:object_r:vendor_renderscript_prop:s0
+vendor.renderscript.    u:object_r:vendor_renderscript_prop:s0
+
+# EPIC (Samsung encoder) properties
+ro.vendor.epic.       u:object_r:vendor_epic_prop:s0
+vendor.epic.          u:object_r:vendor_epic_prop:s0
+
+# SBWC properties
+ro.vendor.sbwc.       u:object_r:vendor_sbwc_prop:s0
+vendor.sbwc.          u:object_r:vendor_sbwc_prop:s0
+
+# Face authentication properties
+ro.vendor.face.       u:object_r:vendor_face_prop:s0
+vendor.face.          u:object_r:vendor_face_prop:s0

@@ -8,6 +8,32 @@ type bota_device, dev_type;
 type cpefs_device, dev_type;
 type dump_device, dev_type;
 
+# Boot and recovery devices
+type boot_device, dev_type;
+type recovery_device, dev_type;
+type dtbo_device, dev_type;
+type init_boot_device, dev_type;
+type vendor_boot_device, dev_type;
+
+# VBMETA devices
+type vbmeta_device, dev_type;
+type vbmeta_system_device, dev_type;
+
+# Metadata device
+type metadata_device, dev_type;
+
+# Cache device
+type cache_device, dev_type;
+
+# Keystorage device
+type keystorage_device, dev_type;
+
+# HARX device
+type harx_device, dev_type;
+
+# Misc device
+type misc_device, dev_type;
+
 # Radio/modem devices
 type mif_device, dev_type;
 type mimo_device, dev_type;
@@ -29,3 +55,54 @@ type vts_device, dev_type;
 
 # Earjack device
 type earjack_device, dev_type;
+
+# Audio devices
+type audio_device, dev_type;
+
+# Camera devices
+type camera_device, dev_type;
+
+# Fingerprint sensor device
+type fingerprint_device, dev_type;
+
+# GNSS/GPS device
+type gnss_device, dev_type;
+
+# NFC device
+type nfc_device, dev_type;
+
+# Sensors device
+type sensors_device, dev_type;
+
+# Vibrator device
+type vibrator_device, dev_type;
+
+# Touchscreen/input device
+type touchscreen_device, dev_type;
+
+# Display devices
+type display_device, dev_type;
+
+# Samsung sec_ninja device (security)
+type sec_ninja_device, dev_type;
+
+# TEE (Trusted Execution Environment) device
+type tee_device, dev_type;
+
+# Ion memory device
+type ion_device, dev_type;
+
+# DMA buffer device
+type dmabuf_device, dev_type;
+
+# SPD (Smart Power Decision) device
+type spd_device, dev_type;
+
+# SIPC (Samsung Inter-Processor Communication) device
+type sipc_device, dev_type;
+
+# SHM (Shared Memory) device
+type shm_device, dev_type;
+
+# P9220 wireless charger device (if present)
+type wireless_charger_device, dev_type;

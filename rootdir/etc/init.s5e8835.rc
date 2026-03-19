@@ -4,13 +4,192 @@
 # init.s5e8835.rc - Samsung Galaxy A26 device-specific init overrides
 
 on early-init
-    # Set up symlink for device-specific modules if needed
+    # Create vendor mount points
+    mkdir /mnt/vendor/efs 0771 system system
+    mkdir /mnt/vendor/cpefs 0770 system system
+    mkdir /mnt/vendor/persist 0771 system system
+
+    # Mount debugfs for debugging
+    mount debugfs none /sys/kernel/debug
+
+    # Performance property
+    setprop sys.perf.viboost 1
 
 on init
-    # Device-specific properties and settings
+    # Storage configuration
+    export EXTERNAL_STORAGE /storage/emulated/legacy
+    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
+    export EMULATED_STORAGE_TARGET /storage/emulated
+
+    # USB configuration
+    symlink /sdcard /storage/sdcard0
+
+    # Partition symlinks
+    symlink /dev/block/by-name/steady /dev/block/steady
+    symlink /dev/block/by-name/persistent /dev/block/persistent
+    symlink /dev/block/by-name/param /dev/block/param
+
+    # CPU performance settings
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor "schedutil"
+
+    # CPUset configuration for big.LITTLE
+    write /dev/cpuset/top-app/cpus "0-7"
+    write /dev/cpuset/foreground/cpus "0-7"
+    write /dev/cpuset/background/cpus "0-3"
+
+    # GPU governor
+    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
+
+    # EMS/EPIC interface permissions
+    chown system system /sys/devices/platform/soc/soc:epic/epic_task
+    chown system system /sys/devices/platform/soc/soc:epic/epic_freq
+    chmod 0660 /sys/devices/platform/soc/soc:epic/epic_task
+    chmod 0660 /sys/devices/platform/soc/soc:epic/epic_freq
+
+    # Network parameter tuning
+    write /proc/sys/net/core/rmem_max 16777216
+    write /proc/sys/net/core/wmem_max 16777216
+    write /proc/sys/net/core/rmem_default 262144
+    write /proc/sys/net/core/wmem_default 262144
+
+on post-fs
+    # RLIMIT_MEMLOCK for graphics/audio
+    setrlimit 8 67108864 67108864
+
+    # Vibrator permissions
+    chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/timed_output/vibrator/intensity
+    chown system system /sys/devices/virtual/timed_output/vibrator/vtg_level
+    chmod 0660 /sys/class/timed_output/vibrator/enable
+    chmod 0660 /sys/class/timed_output/vibrator/intensity
 
 on post-fs-data
-    # Create additional directories if needed
+    # Log directories
+    mkdir /data/log 0771 system system
+    mkdir /data/log/sec 0771 system system
+    mkdir /data/log/wifi 0770 wifi wifi
+
+    # Audio (abox) permissions
+    mkdir /data/vendor/audio 0770 audio audio
+    chown audio audio /dev/abox
+    chmod 0660 /dev/abox
+
+    # Wi-Fi directories and permissions
+    mkdir /data/vendor/wifi 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa_supplicant 0770 wifi wifi
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+
+    # Bluetooth MAC address setup
+    chown bluetooth net_bt /efs/bluetooth/bt_addr
+    chmod 0640 /efs/bluetooth/bt_addr
+
+    # GNSS/GPS directories
+    mkdir /data/vendor/gps 0770 gps system
+    mkdir /data/vendor/gps/log 0770 gps system
+    chown gps system /dev/gps
+    chmod 0660 /dev/gps
+
+    # Camera permissions
+    chown camera camera /dev/fimc-is
+    chown camera camera /dev/fimc-sensor
+    chmod 0660 /dev/fimc-is
+    chmod 0660 /dev/fimc-sensor
+
+    # Gatekeeper/weaver data directories
+    mkdir /data/vendor/gatekeeper 0770 system system
+    mkdir /data/vendor/weaver 0770 system system
+
+    # GPU permissions
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/governor
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/devfreq/governor
+
+    # HWC data directories
+    mkdir /data/vendor/hwc 0770 system system
+    mkdir /data/vendor/hwc/debug 0770 system system
+
+    # Eden/ENN/Epic data directories for NPU
+    mkdir /data/vendor/eden 0770 system system
+    mkdir /data/vendor/enn 0770 system system
+    mkdir /data/vendor/epic 0770 system system
+
+    # Sensor hub directories
+    mkdir /data/vendor/sensor 0770 system system
+    mkdir /data/vendor/sensor/hall 0770 system system
 
 on boot
-    # Device-specific boot settings
+    # Swappiness setting
+    write /proc/sys/vm/swappiness 100
+
+    # Wi-Fi interface property
+    setprop wifi.interface wlan0
+
+    # USB permissions
+    chown system system /sys/class/android_usb/android0/functions
+    chown system system /sys/class/android_usb/android0/enable
+    chmod 0660 /sys/class/android_usb/android0/functions
+
+    # GPU permissions
+    chown system graphics /sys/class/kgsl/kgsl-3d0/bus_split
+    chown system graphics /sys/class/kgsl/kgsl-3d0/force_bus_on
+    chown system graphics /sys/class/kgsl/kgsl-3d0/force_rail_on
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/bus_split
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/force_bus_on
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/force_rail_on
+
+    # Sensor permissions
+    chown system system /sys/class/sensors/proximity_sensor/prox_cal
+    chown system system /sys/class/sensors/proximity_sensor/prox_avg
+    chown system system /sys/class/sensors/light_sensor/lux
+    chmod 0660 /sys/class/sensors/proximity_sensor/prox_cal
+
+    # Display permissions (LCD)
+    chown system system /sys/class/lcd/panel/lcd_type
+    chown system system /sys/class/lcd/panel/power_reduce
+    chown system system /sys/class/lcd/panel/siop_enable
+    chmod 0660 /sys/class/lcd/panel/power_reduce
+
+    # MDNIE (display tuning)
+    chown system system /sys/class/mdnie/mdnie/mode
+    chown system system /sys/class/mdnie/mdnie/scenario
+    chown system system /sys/class/mdnie/mdnie/tuning
+    chmod 0660 /sys/class/mdnie/mdnie/mode
+    chmod 0660 /sys/class/mdnie/mdnie/scenario
+
+    # DQE (display quality enhancement)
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dqe
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dqe
+
+on fs
+    # Mount EFS partition
+    wait /dev/block/by-name/efs
+    mount vfat /dev/block/by-name/efs /efs noatime nosuid nodev wait,check
+
+    # Mount persist partition
+    wait /dev/block/by-name/persist
+    mount ext4 /dev/block/by-name/persist /mnt/vendor/persist noatime nosuid nodev wait,check
+
+    # Set permissions for vendor partitions
+    chown system system /efs
+    chmod 0771 /efs
+    chown system system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+
+    # Create EFS subdirectories
+    mkdir /efs/bluetooth 0771 bluetooth net_bt
+    mkdir /efs/imei 0771 radio radio
+    mkdir /efs/wifi 0771 wifi wifi
+
+# Services - minimal, most come from vendor init
+# Only include services that need to be overridden or are missing from vendor
+
+service watchdogd /sbin/watchdogd 10 20
+    class core
+    disabled
+    seclabel u:r:watchdogd:s0
+    oneshot

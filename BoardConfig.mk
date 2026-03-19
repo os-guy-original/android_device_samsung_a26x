@@ -41,27 +41,23 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
-TARGET_KERNEL_CONFIG := a26x_defconfig
+# TODO: Verify kernel defconfig name from /proc/config.gz on device
+TARGET_KERNEL_CONFIG := s5e8835-a26xxx_defconfig
+# TODO: Verify kernel source path exists or use prebuilt kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/a26x
 
-# Kernel - prebuilt
-TARGET_FORCE_PREBUILT_KERNEL := true
-ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-BOARD_INCLUDE_DTB_IN_BOOTIMG := # Cleared for prebuilt kernel
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
-BOARD_KERNEL_SEPARATED_DTBO := # Cleared for prebuilt kernel
-endif
+# Device Tree - Build from source (not using prebuilt)
+TARGET_FORCE_PREBUILT_KERNEL := false
 
 # Partitions
-BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 100663296
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 16777216
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 33554432
+BOARD_VBMETAIMAGE_PARTITION_SIZE := 65536
+BOARD_METADATAIMAGE_PARTITION_SIZE := 67108864
 BOARD_SUPER_PARTITION_SIZE := 13421772800
 BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product odm system_dlkm vendor_dlkm
@@ -70,15 +66,10 @@ BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 13417570304
 # A/B - Virtual A/B (VABC) - Android 15 (API 35) Baseline
 AB_OTA_UPDATER := true
 ENABLE_VIRTUAL_AB := true
+BOARD_USES_METADATA := true
 BOARD_VIRTUAL_AB_COMPRESSION := true
-
-# Galaxy A26 uses ZSTD by default for better compression ratios on API 35
 BOARD_VIRTUAL_AB_COMPRESSION_METHOD := zstd
-
-# Confirmed Userspace Snapshot Support
 BOARD_USE_USERSPACE_SNAPSHOT := true
-
-# Samsung specific optimizations (Matching stock props)
 BOARD_VIRTUAL_AB_BATCH_WRITES := true
 
 AB_OTA_PARTITIONS += \
@@ -93,6 +84,7 @@ AB_OTA_PARTITIONS += \
 # Platform
 TARGET_BOARD_PLATFORM := erd8835
 BOARD_BUILD_GKI_BOOT_IMAGE := true
+PRODUCT_SHIPPING_API_LEVEL := 35
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
@@ -105,13 +97,14 @@ TARGET_ODM_DLKM_PROP += $(DEVICE_PATH)/odm_dlkm.prop
 TARGET_VENDOR_DLKM_PROP += $(DEVICE_PATH)/vendor_dlkm.prop
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.ramplus
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.s5e8835
 BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Security patch level
+# TODO: Verify this matches the actual vendor security patch from /vendor/etc/vpd
 VENDOR_SECURITY_PATCH := 2025-08-01
 
 # Verified Boot

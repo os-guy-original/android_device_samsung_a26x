@@ -33,3 +33,68 @@ type prism_calib_file, file_type, vendor_file_type;
 
 # BOTA (Boot OTA) partition
 type bota_file, file_type, vendor_file_type;
+
+# DUMP partition
+type dump_file, file_type, vendor_file_type;
+
+# Boot partitions
+type boot_block_device, file_type, vendor_file_type;
+type recovery_block_device, file_type, vendor_file_type;
+type dtbo_block_device, file_type, vendor_file_type;
+type init_boot_block_device, file_type, vendor_file_type;
+type vendor_boot_block_device, file_type, vendor_file_type;
+
+# VBMETA partitions
+type vbmeta_block_device, file_type, vendor_file_type;
+type vbmeta_system_block_device, file_type, vendor_file_type;
+
+# Metadata partition
+type metadata_file, file_type, vendor_file_type;
+
+# Cache partition
+type cache_file, file_type, vendor_file_type;
+
+# Keystorage partition
+type keystorage_file, file_type, vendor_file_type;
+
+# HARX partition
+type harx_file, file_type, vendor_file_type;
+
+# Misc partition
+type misc_block_device, file_type, vendor_file_type;
+
+# Samsung firmware files
+type vendor_firmware_file, file_type, vendor_file_type;
+
+# Keymaster/keymint data
+type keymaster_data_file, file_type, vendor_file_type;
+
+# Fingerprint data
+type fingerprint_data_file, file_type, vendor_file_type;
+
+# GNSS/GPS data
+type gnss_data_file, file_type, vendor_file_type;
+
+# Sensor data
+type sensor_data_file, file_type, vendor_file_type;
+
+# NFC data
+type nfc_data_file, file_type, vendor_file_type;
+
+# Widevine DRM data
+type widevine_data_file, file_type, vendor_file_type;
+
+# Thermal configuration
+type thermal_config_file, file_type, vendor_file_type;
+
+# Audio configuration files
+type audio_config_file, file_type, vendor_file_type;
+
+# RIL (Radio Interface Layer) data
+type ril_data_file, file_type, vendor_file_type;
+
+# Health HAL data
+type health_data_file, file_type, vendor_file_type;
+
+# USB configuration
+type usb_config_file, file_type, vendor_file_type;
