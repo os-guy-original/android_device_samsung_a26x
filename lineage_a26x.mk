@@ -21,6 +21,9 @@ PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
 
+# GKI compliance
+PRODUCT_SHIPPING_API_LEVEL := 35
+
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="a26xxx-user 15 AP3A.240905.015.A2 A266BXXS4AYG9 release-keys" \
     BuildFingerprint=samsung/a26xxx/essi:15/AP3A.240905.015.A2/A266BXXS4AYG9:user/release-keys
