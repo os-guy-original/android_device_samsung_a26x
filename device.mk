@@ -15,34 +15,9 @@ PRODUCT_SHIPPING_API_LEVEL := 35
 # Display
 PRODUCT_AAPT_PREF_CONFIG := 450dpi
 
-# Audio
-# Note: Audio HAL impls come from vendor blobs
-PRODUCT_PACKAGES += \
-    audio.r_submix.default \
-    audio.usb.default
-
 # fastbootd
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.1-impl-mock \
     fastbootd
-
-# Graphics
-# Note: Graphics HALs (gralloc, composer, mapper) come from vendor blobs
-PRODUCT_PACKAGES += \
-    libgui_vendor
-
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-impl.recovery \
-    android.hardware.health@2.1-service
-
-# NFC
-# Note: NFC HAL comes from vendor blobs
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
-    NfcNci \
-    Tag
 
 # Virtual A/B OTA
 PRODUCT_PACKAGES += \
@@ -104,7 +79,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
 
-# Rootdir scripts (exclude install-recovery.sh - not needed for VAB)
+# Rootdir scripts
 PRODUCT_PACKAGES += \
     gps.sh \
     enable_test_mode.sh \
