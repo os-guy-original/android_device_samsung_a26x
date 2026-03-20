@@ -22,7 +22,6 @@ PRODUCT_PACKAGES += \
 # Virtual A/B OTA (AOSP modules)
 PRODUCT_PACKAGES += \
     snapuserd \
-    snapuserd_recovery \
     update_engine \
     update_verifier
 
