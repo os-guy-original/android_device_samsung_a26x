@@ -92,8 +92,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/bin/mx_logger_dump.sh:$(TARGET_COPY_OUT_VENDOR)/bin/mx_logger_dump.sh
 
 # Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
+PRODUCT_SOONG_NAMESPACES += 
     $(LOCAL_PATH)
+
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/samsung/a26x/a26x-vendor.mk)
