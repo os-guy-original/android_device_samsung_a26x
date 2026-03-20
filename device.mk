@@ -15,6 +15,17 @@ PRODUCT_SHIPPING_API_LEVEL := 35
 # Display
 PRODUCT_AAPT_PREF_CONFIG := 450dpi
 
+# fastbootd (AOSP module)
+PRODUCT_PACKAGES += \
+    fastbootd
+
+# Virtual A/B OTA (AOSP modules)
+PRODUCT_PACKAGES += \
+    snapuserd \
+    snapuserd_recovery \
+    update_engine \
+    update_verifier
+
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := true
 
@@ -66,13 +77,20 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
 
-# Ramdisk fstab (for first-stage init)
+# Init files (use PRODUCT_COPY_FILES to avoid module issues)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.ramplus:$(TARGET_COPY_OUT_RAMDISK)/fstab.ramplus \
     $(LOCAL_PATH)/rootdir/etc/fstab.s5e8835:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.s5e8835 \
     $(LOCAL_PATH)/rootdir/etc/init.recovery.s5e8835.rc:$(TARGET_COPY_OUT_ROOT)/init.recovery.s5e8835.rc \
     $(LOCAL_PATH)/rootdir/etc/init.recovery.samsung.rc:$(TARGET_COPY_OUT_ROOT)/init.recovery.samsung.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.s5e8835.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.s5e8835.rc
+    $(LOCAL_PATH)/rootdir/etc/init.s5e8835.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.s5e8835.rc \
+    $(LOCAL_PATH)/rootdir/bin/gps.sh:$(TARGET_COPY_OUT_VENDOR)/bin/gps.sh \
+    $(LOCAL_PATH)/rootdir/bin/enable_test_mode.sh:$(TARGET_COPY_OUT_VENDOR)/bin/enable_test_mode.sh \
+    $(LOCAL_PATH)/rootdir/bin/hdm_status.sh:$(TARGET_COPY_OUT_VENDOR)/bin/hdm_status.sh \
+    $(LOCAL_PATH)/rootdir/bin/init.insmod.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.insmod.sh \
+    $(LOCAL_PATH)/rootdir/bin/mx_log_collection.sh:$(TARGET_COPY_OUT_VENDOR)/bin/mx_log_collection.sh \
+    $(LOCAL_PATH)/rootdir/bin/mx_logger.sh:$(TARGET_COPY_OUT_VENDOR)/bin/mx_logger.sh \
+    $(LOCAL_PATH)/rootdir/bin/mx_logger_dump.sh:$(TARGET_COPY_OUT_VENDOR)/bin/mx_logger_dump.sh
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
