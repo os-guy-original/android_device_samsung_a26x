@@ -76,25 +76,31 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
 
-# Init files (use PRODUCT_COPY_FILES to avoid module issues)
+# Init files (defined in rootdir/Android.mk - use PRODUCT_PACKAGES)
+PRODUCT_PACKAGES += \
+    init.recovery.s5e8835.rc \
+    init.recovery.samsung.rc \
+    init.s5e8835.rc \
+    fstab.s5e8835 \
+    fstab.ramplus
+
+# Shell scripts (defined in rootdir/Android.bp - use PRODUCT_PACKAGES)
+PRODUCT_PACKAGES += \
+    gps.sh \
+    enable_test_mode.sh \
+    hdm_status.sh \
+    init.insmod.sh \
+    mx_log_collection.sh \
+    mx_logger.sh \
+    mx_logger_dump.sh
+
+# Ramdisk fstab (no module defined, use PRODUCT_COPY_FILES)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.ramplus:$(TARGET_COPY_OUT_RAMDISK)/fstab.ramplus \
-    $(LOCAL_PATH)/rootdir/etc/fstab.s5e8835:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.s5e8835 \
-    $(LOCAL_PATH)/rootdir/etc/init.recovery.s5e8835.rc:$(TARGET_COPY_OUT_ROOT)/init.recovery.s5e8835.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.recovery.samsung.rc:$(TARGET_COPY_OUT_ROOT)/init.recovery.samsung.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.s5e8835.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.s5e8835.rc \
-    $(LOCAL_PATH)/rootdir/bin/gps.sh:$(TARGET_COPY_OUT_VENDOR)/bin/gps.sh \
-    $(LOCAL_PATH)/rootdir/bin/enable_test_mode.sh:$(TARGET_COPY_OUT_VENDOR)/bin/enable_test_mode.sh \
-    $(LOCAL_PATH)/rootdir/bin/hdm_status.sh:$(TARGET_COPY_OUT_VENDOR)/bin/hdm_status.sh \
-    $(LOCAL_PATH)/rootdir/bin/init.insmod.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.insmod.sh \
-    $(LOCAL_PATH)/rootdir/bin/mx_log_collection.sh:$(TARGET_COPY_OUT_VENDOR)/bin/mx_log_collection.sh \
-    $(LOCAL_PATH)/rootdir/bin/mx_logger.sh:$(TARGET_COPY_OUT_VENDOR)/bin/mx_logger.sh \
-    $(LOCAL_PATH)/rootdir/bin/mx_logger_dump.sh:$(TARGET_COPY_OUT_VENDOR)/bin/mx_logger_dump.sh
+    $(LOCAL_PATH)/rootdir/etc/fstab.ramplus:$(TARGET_COPY_OUT_RAMDISK)/fstab.ramplus
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/samsung/a26x/a26x-vendor.mk)
