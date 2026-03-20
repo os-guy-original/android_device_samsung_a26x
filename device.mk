@@ -126,11 +126,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.ramplus:$(TARGET_COPY_OUT_RAMDISK)/fstab.ramplus
 
-# Samsung-specific configurations
-PRODUCT_PACKAGES += \
-    SamsungDoze \
-    lineage.health-service.samsung
-
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
