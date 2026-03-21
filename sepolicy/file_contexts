@@ -1,5 +1,4 @@
 # EFS partitions - use existing efs_file from AOSP
-/efs(/.*)?                    u:object_r:efs_file:s0
 /sec_efs(/.*)?                u:object_r:sec_efs_file:s0
 
 # Samsung-specific partitions
