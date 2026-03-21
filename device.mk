@@ -103,3 +103,8 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/samsung/a26x/a26x-vendor.mk)
+
+# Vendor ramdisk firmware
+PRODUCT_PACKAGES += \
+    ft3419_firmware \
+    dpolicy

@@ -1,0 +1,19 @@
+// vendor_ramdisk contents
+filegroup {
+    name: "vendor_ramdisk_fstab",
+    srcs: ["fstab.s5e8835"],
+}
+
+prebuilt_etc {
+    name: "fstab.vendor_ramdisk",
+    src: "fstab.s5e8835",
+    sub_dir: "",
+    installable: false,
+}
+
+prebuilt_etc {
+    name: "ft3419_firmware",
+    src: "firmware/ft3419_a26x.bin",
+    sub_dir: "firmware",
+    vendor_ramdisk: true,
+}

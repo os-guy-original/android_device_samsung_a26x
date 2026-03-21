@@ -59,3 +59,12 @@ prebuilt_etc {
     src: "etc/fstab.ramplus",
     vendor: true,
 }
+
+// fstab for vendor_ramdisk
+prebuilt_etc {
+    name: "fstab.s5e8835.vendor_ramdisk",
+    src: "etc/fstab.s5e8835",
+    sub_dir: "",
+    vendor_ramdisk: true,
+    first_stage_ramdisk: true,
+}
