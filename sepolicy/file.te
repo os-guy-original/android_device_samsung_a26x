@@ -44,25 +44,25 @@ type harx_file, file_type, vendor_file_type;
 type vendor_firmware_file, file_type, vendor_file_type;
 
 # Keymaster/keymint data (under /data/vendor/)
-type keymaster_data_file, file_type, data_file_type, core_data_file_type;
+type keymaster_data_file, file_type, data_file_type;
 
 # Fingerprint data (under /data/vendor/)
-type fingerprint_data_file, file_type, data_file_type, core_data_file_type;
+type fingerprint_data_file, file_type, data_file_type;
 
 # GNSS/GPS data (under /data/vendor/)
-type gnss_data_file, file_type, data_file_type, core_data_file_type;
+type gnss_data_file, file_type, data_file_type;
 
 # Sensor data (under /data/vendor/)
-type sensor_data_file, file_type, data_file_type, core_data_file_type;
+type sensor_data_file, file_type, data_file_type;
 
 # Widevine DRM data (under /data/vendor/)
-type widevine_data_file, file_type, data_file_type, core_data_file_type;
+type widevine_data_file, file_type, data_file_type;
 
 # RIL data (under /data/vendor/)
-type ril_data_file, file_type, data_file_type, core_data_file_type;
+type ril_data_file, file_type, data_file_type;
 
 # Health HAL data (under /data/vendor/)
-type health_data_file, file_type, data_file_type, core_data_file_type;
+type health_data_file, file_type, data_file_type;
 
 # Thermal configuration
 type thermal_config_file, file_type, vendor_file_type;
