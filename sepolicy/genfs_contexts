@@ -16,11 +16,9 @@ genfscon sysfs/devices/virtual/leds                                             
 
 # Camera sysfs
 genfscon sysfs/devices/platform/soc/1a000000.qcom,cam-req-mgr                                u:object_r:sysfs_camera:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+/camera                                       u:object_r:sysfs_camera:s0
 
 # GPU sysfs
 genfscon sysfs/devices/platform/soc/1f00000.qcom,kgsl-3d0                                    u:object_r:sysfs_gpu:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+/mali                                         u:object_r:sysfs_gpu:s0
 genfscon sysfs/class/kgsl/kgsl-3d0                                                           u:object_r:sysfs_gpu:s0
 
 # DRM/KMS sysfs
@@ -34,7 +32,6 @@ genfscon sysfs/class/bluetooth                                                  
 # WiFi sysfs
 genfscon sysfs/devices/platform/soc/soc:wifi                                                 u:object_r:sysfs_wifi:s0
 genfscon sysfs/class/net/wlan0                                                               u:object_r:sysfs_wifi:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.wifi                                         u:object_r:sysfs_wifi:s0
 
 # Modem/RIL sysfs
 genfscon sysfs/devices/platform/soc/soc:modem                                                u:object_r:sysfs_modem:s0
@@ -43,8 +40,6 @@ genfscon sysfs/class/rfkill                                                     
 # Thermal zones
 genfscon sysfs/class/thermal                                                                 u:object_r:sysfs_thermal:s0
 genfscon sysfs/devices/virtual/thermal                                                       u:object_r:sysfs_thermal:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.thermal                                      u:object_r:sysfs_thermal:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.tmu                                          u:object_r:sysfs_thermal:s0
 
 # Input device contexts
 genfscon sysfs/devices/virtual/input                                                         u:object_r:sysfs_input:s0
@@ -53,7 +48,6 @@ genfscon sysfs/class/input                                                      
 # Vibrator
 genfscon sysfs/devices/virtual/timed_output/vibrator                                         u:object_r:sysfs_vibrator:s0
 genfscon sysfs/class/timed_output/vibrator                                                   u:object_r:sysfs_vibrator:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.haptic                                       u:object_r:sysfs_vibrator:s0
 
 # Samsung specific sysfs
 genfscon sysfs/devices/platform/soc/samsung                                                  u:object_r:sysfs_samsung:s0
@@ -63,41 +57,26 @@ genfscon sysfs/devices/samsung                                                  
 # Samsung sensors
 genfscon sysfs/devices/virtual/sensors                                                       u:object_r:sysfs_sensors:s0
 genfscon sysfs/class/sensors                                                                 u:object_r:sysfs_sensors:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.accelerometer                                u:object_r:sysfs_sensors:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.gyroscope                                    u:object_r:sysfs_sensors:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.magnetic                                     u:object_r:sysfs_sensors:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.light                                        u:object_r:sysfs_sensors:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.proximity                                    u:object_r:sysfs_sensors:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.pressure                                     u:object_r:sysfs_sensors:s0
 
 # NFC sysfs
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.nfc                                          u:object_r:sysfs_nfc:s0
 genfscon sysfs/class/nfc                                                                     u:object_r:sysfs_nfc:s0
 
 # Fingerprint sensor sysfs
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.fingerprint                                  u:object_r:sysfs_fingerprint:s0
 
 # GNSS/GPS sysfs
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.gps                                          u:object_r:sysfs_gnss:s0
 genfscon sysfs/class/gnss                                                                    u:object_r:sysfs_gnss:s0
 
 # USB sysfs
 genfscon sysfs/class/android_usb                                                             u:object_r:sysfs_android_usb:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.usb                                          u:object_r:sysfs_android_usb:s0
 genfscon sysfs/devices/virtual/android_usb                                                   u:object_r:sysfs_android_usb:s0
 
 # Audio sysfs
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.sound                                        u:object_r:sysfs_audio:s0
 genfscon sysfs/class/sound                                                                   u:object_r:sysfs_audio:s0
 
 # Display sysfs
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.display                                      u:object_r:sysfs_display:s0
 genfscon sysfs/class/backlight                                                               u:object_r:sysfs_backlight:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.backlight                                    u:object_r:sysfs_backlight:s0
 
 # Touchscreen sysfs
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.touchscreen                                  u:object_r:sysfs_touchscreen:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.touch                                        u:object_r:sysfs_touchscreen:s0
 
 # Video devices (camera)
 genfscon sysfs/class/video4linux                                                             u:object_r:sysfs_video:s0
@@ -111,12 +90,9 @@ genfscon sysfs/devices/system/cpu                                               
 genfscon sysfs/devices/system/cpu/cpufreq                                                    u:object_r:sysfs_cpuinfo:s0
 
 # UFS storage
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.ufshc                                        u:object_r:sysfs_ufs:s0
 genfscon sysfs/class/scsi_device                                                             u:object_r:sysfs_ufs:s0
 
 # MMC/SD card
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.dwmmc                                        u:object_r:sysfs_mmc:s0
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.sdhci                                        u:object_r:sysfs_mmc:s0
 
 # Wake locks
 genfscon sysfs/power/wake_lock                                                               u:object_r:sysfs_wake_lock:s0
@@ -144,4 +120,3 @@ genfscon debugfs/dri                                                            
 genfscon tracefs / u:object_r:tracefs:s0
 
 # Trustzone/TEE
-genfscon sysfs/devices/platform/soc/([0-9a-f])+.tee                                          u:object_r:sysfs_tee:s0
