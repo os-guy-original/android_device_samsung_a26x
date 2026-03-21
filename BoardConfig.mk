@@ -6,7 +6,6 @@
 DEVICE_PATH := device/samsung/a26x
 BUILD_BROKEN_DUP_RULES := true
 
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -26,22 +25,18 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 TARGET_BOOTLOADER_BOARD_NAME := s5e8835
 TARGET_NO_BOOTLOADER := true
 
-# Kernel
+# Kernel - Prebuilt from stock firmware
+TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/Image
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
+
 BOARD_BOOT_HEADER_VERSION := 4
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_CMDLINE := bootconfig loop.max_part=7
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-BOARD_KERNEL_SEPARATED_DTBO := true
-# TODO: Verify kernel defconfig name from /proc/config.gz on device
-TARGET_KERNEL_CONFIG := s5e8835-a26xxx_defconfig
-# TODO: Verify kernel source path exists or use prebuilt kernel
-TARGET_KERNEL_SOURCE := kernel/samsung/a26x
-
-# Device Tree - Build from source (not using prebuilt)
-TARGET_FORCE_PREBUILT_KERNEL := false
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144
@@ -104,7 +99,6 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Security patch level
-# TODO: Verify this matches the actual vendor security patch from /vendor/etc/vpd
 VENDOR_SECURITY_PATCH := 2025-08-01
 
 # Verified Boot
