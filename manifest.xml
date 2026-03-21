@@ -86,6 +86,9 @@
     <hal format="aidl">
         <name>android.hardware.security.keymint</name>
         <fqname>IKeyMintDevice/default</fqname>
+        </hal>
+    <hal format="aidl">
+        <name>android.hardware.security.rkp</name>
         <fqname>IRemotelyProvisionedComponent/default</fqname>
     </hal>
     <hal format="aidl">
