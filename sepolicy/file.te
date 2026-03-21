@@ -26,7 +26,7 @@ type bota_file, file_type, vendor_file_type;
 # DUMP partition
 type dump_file, file_type, vendor_file_type;
 
-# Boot partitions
+# Boot partitions (vendor-specific)
 type init_boot_block_device, file_type, vendor_file_type;
 type vendor_boot_block_device, file_type, vendor_file_type;
 
@@ -72,12 +72,3 @@ type health_data_file, file_type, vendor_file_type;
 
 # USB configuration
 type usb_config_file, file_type, vendor_file_type;
-
-# Additional file types referenced in file_contexts
-type optics_calib_file, file_type, vendor_file_type;
-type prism_calib_file, file_type, vendor_file_type;
-type boot_block_device, file_type, vendor_file_type;
-type recovery_block_device, file_type, vendor_file_type;
-type dtbo_block_device, file_type, vendor_file_type;
-type misc_block_device, file_type, vendor_file_type;
-

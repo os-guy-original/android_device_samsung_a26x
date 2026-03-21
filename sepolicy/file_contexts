@@ -1,4 +1,4 @@
-# EFS partitions
+# EFS partitions - use existing efs_file from AOSP
 /efs(/.*)?                    u:object_r:efs_file:s0
 /sec_efs(/.*)?                u:object_r:sec_efs_file:s0
 
@@ -25,47 +25,17 @@
 # Modem firmware
 /vendor/firmware/modem(/.*)?  u:object_r:modem_fw_file:s0
 
-# Optics calibration
-/optics(/.*)?                 u:object_r:optics_calib_file:s0
-
-# Prism calibration
-/prism(/.*)?                  u:object_r:prism_calib_file:s0
-
 # BOTA partition
 /bota(/.*)?                   u:object_r:bota_file:s0
 
 # DUMP partition
 /dump(/.*)?                   u:object_r:dump_file:s0
 
-# Boot partitions (block devices)
-/dev/block/by-name/boot       u:object_r:boot_block_device:s0
-/dev/block/by-name/recovery   u:object_r:recovery_block_device:s0
-/dev/block/by-name/dtbo       u:object_r:dtbo_block_device:s0
-/dev/block/by-name/init_boot  u:object_r:init_boot_block_device:s0
-/dev/block/by-name/vendor_boot u:object_r:vendor_boot_block_device:s0
-
-# VBMETA partitions
-/dev/block/by-name/vbmeta        u:object_r:vbmeta_block_device:s0
-/dev/block/by-name/vbmeta_system u:object_r:vbmeta_system_block_device:s0
-
-# Metadata partition
-/metadata(/.*)?               u:object_r:metadata_file:s0
-/dev/block/by-name/metadata   u:object_r:metadata_file:s0
-
-# Cache partition
-/cache(/.*)?                  u:object_r:cache_file:s0
-/dev/block/by-name/cache      u:object_r:cache_file:s0
-
 # Keystorage partition
 /keystorage(/.*)?             u:object_r:keystorage_file:s0
-/dev/block/by-name/keystorage u:object_r:keystorage_file:s0
 
 # HARX partition
 /harx(/.*)?                   u:object_r:harx_file:s0
-/dev/block/by-name/harx       u:object_r:harx_file:s0
-
-# Misc partition
-/dev/block/by-name/misc       u:object_r:misc_block_device:s0
 
 # Vendor firmware
 /vendor/firmware(/.*)?        u:object_r:vendor_firmware_file:s0
@@ -81,9 +51,6 @@
 
 # Sensor data
 /data/vendor/sensors(/.*)?    u:object_r:sensor_data_file:s0
-
-# NFC data
-/data/vendor/nfc(/.*)?        u:object_r:nfc_data_file:s0
 
 # Widevine DRM data
 /data/vendor/widevine(/.*)?   u:object_r:widevine_data_file:s0
@@ -102,10 +69,6 @@
 
 # USB configuration
 /vendor/etc/usb(/.*)?         u:object_r:usb_config_file:s0
-
-# Samsung sysfs paths
-/sys/devices/platform/soc/([0-9a-f])+/gearm(/.*)?    u:object_r:sysfs_samsung:s0
-/sys/devices/platform/soc/([0-9a-f])+/gsensor(/.*)?  u:object_r:sysfs_sensors:s0
 
 # EFS mount point
 /mnt/vendor/efs(/.*)?         u:object_r:efs_file:s0
