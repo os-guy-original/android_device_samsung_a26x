@@ -59,19 +59,15 @@ type earjack_device, dev_type;
 # Audio devices
 
 # Camera devices
-type camera_device, dev_type;
 
 # Fingerprint sensor device
 type fingerprint_device, dev_type;
 
 # GNSS/GPS device
-type gnss_device, dev_type;
 
 # NFC device
-type nfc_device, dev_type;
 
 # Sensors device
-type sensors_device, dev_type;
 
 # Vibrator device
 type vibrator_device, dev_type;
@@ -86,10 +82,8 @@ type display_device, dev_type;
 type sec_ninja_device, dev_type;
 
 # TEE (Trusted Execution Environment) device
-type tee_device, dev_type;
 
 # Ion memory device
-type ion_device, dev_type;
 
 # DMA buffer device
 type dmabuf_device, dev_type;

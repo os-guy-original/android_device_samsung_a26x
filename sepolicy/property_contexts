@@ -9,7 +9,7 @@ vendor.camera.        u:object_r:vendor_samsung_camera_prop:s0
 # Radio/modem properties
 ro.vendor.radio.      u:object_r:vendor_samsung_radio_prop:s0
 vendor.radio.         u:object_r:vendor_samsung_radio_prop:s0
-ro.ril.               u:object_r:vendor_samsung_radio_prop:s0
+ro.vendor.ril.         u:object_r:vendor_samsung_radio_prop:s0
 
 # Audio properties
 ro.vendor.audio.      u:object_r:vendor_samsung_audio_prop:s0
@@ -54,7 +54,7 @@ vendor.biometric.     u:object_r:vendor_samsung_biometric_prop:s0
 # DRM properties
 ro.vendor.drm.        u:object_r:vendor_drm_prop:s0
 vendor.drm.           u:object_r:vendor_drm_prop:s0
-drm.service.          u:object_r:vendor_drm_prop:s0
+vendor.drm.service.    u:object_r:vendor_drm_prop:s0
 
 # Widevine properties
 ro.vendor.widevine.   u:object_r:vendor_widevine_prop:s0
@@ -90,7 +90,7 @@ vendor.sensors.       u:object_r:vendor_sensors_prop:s0
 # USB properties
 ro.vendor.usb.        u:object_r:vendor_usb_prop:s0
 vendor.usb.           u:object_r:vendor_usb_prop:s0
-sys.usb.              u:object_r:vendor_usb_prop:s0
+vendor.usb.            u:object_r:vendor_usb_prop:s0
 
 # Memtrack properties
 ro.vendor.memtrack.   u:object_r:vendor_memtrack_prop:s0

@@ -399,8 +399,6 @@ typeattribute vendor_vaultkeeperd hal_domain;
 typeattribute vendor_hermesd hal_domain;
 
 # Samsung secure execution environment
-type tee_data_file, file_type, data_file_type;
-type tee_device, dev_type;
 
 # Allow access to tee devices
 allow vendor_tzdaemon tee_device:chr_file { open read write ioctl };

@@ -1,5 +1,4 @@
 # EFS partition file types
-type efs_file, file_type, vendor_file_type;
 type sec_efs_file, file_type, vendor_file_type;
 
 # Samsung-specific partition file types
@@ -38,9 +37,6 @@ type bota_file, file_type, vendor_file_type;
 type dump_file, file_type, vendor_file_type;
 
 # Boot partitions
-type boot_block_device, file_type, vendor_file_type;
-type recovery_block_device, file_type, vendor_file_type;
-type dtbo_block_device, file_type, vendor_file_type;
 type init_boot_block_device, file_type, vendor_file_type;
 type vendor_boot_block_device, file_type, vendor_file_type;
 
@@ -49,10 +45,8 @@ type vbmeta_block_device, file_type, vendor_file_type;
 type vbmeta_system_block_device, file_type, vendor_file_type;
 
 # Metadata partition
-type metadata_file, file_type, vendor_file_type;
 
 # Cache partition
-type cache_file, file_type, vendor_file_type;
 
 # Keystorage partition
 type keystorage_file, file_type, vendor_file_type;
@@ -61,7 +55,6 @@ type keystorage_file, file_type, vendor_file_type;
 type harx_file, file_type, vendor_file_type;
 
 # Misc partition
-type misc_block_device, file_type, vendor_file_type;
 
 # Samsung firmware files
 type vendor_firmware_file, file_type, vendor_file_type;
@@ -79,7 +72,6 @@ type gnss_data_file, file_type, vendor_file_type;
 type sensor_data_file, file_type, vendor_file_type;
 
 # NFC data
-type nfc_data_file, file_type, vendor_file_type;
 
 # Widevine DRM data
 type widevine_data_file, file_type, vendor_file_type;
