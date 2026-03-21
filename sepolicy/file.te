@@ -94,6 +94,7 @@ type usb_config_file, file_type, vendor_file_type;
 # sysfs types for genfs_contexts
 type sysfs_block_device,    fs_type, sysfs_type;
 type sysfs_ac_supply,       fs_type, sysfs_type;
+type sysfs_usb_supply,      fs_type, sysfs_type;
 type sysfs_audio,           fs_type, sysfs_type;
 type sysfs_camera,          fs_type, sysfs_type;
 type sysfs_display,         fs_type, sysfs_type;
@@ -114,3 +115,16 @@ type proc_driver,           fs_type, proc_type;
 
 # tracefs type
 type tracefs,               fs_type;
+
+# Additional sysfs types needed by genfs_contexts (not in AOSP)
+type sysfs_backlight,       fs_type, sysfs_type;
+type sysfs_bluetooth,       fs_type, sysfs_type;
+type sysfs_cpu,             fs_type, sysfs_type;
+type sysfs_cpuinfo,         fs_type, sysfs_type;
+type sysfs_graphics,        fs_type, sysfs_type;
+type sysfs_input,           fs_type, sysfs_type;
+type sysfs_memory,          fs_type, sysfs_type;
+type sysfs_nfc,             fs_type, sysfs_type;
+type sysfs_sensors,         fs_type, sysfs_type;
+type sysfs_video,           fs_type, sysfs_type;
+type sysfs_wifi,            fs_type, sysfs_type;
