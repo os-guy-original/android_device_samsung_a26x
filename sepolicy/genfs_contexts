@@ -141,7 +141,7 @@ genfscon debugfs/sde                                                            
 genfscon debugfs/dri                                                                         u:object_r:sysfs_graphics:s0
 
 # Tracefs (for debugging)
-genfscon tracefs                                                                             u:object_r:tracefs:s0
+genfscon tracefs / u:object_r:tracefs:s0
 
 # Trustzone/TEE
 genfscon sysfs/devices/platform/soc/([0-9a-f])+.tee                                          u:object_r:sysfs_tee:s0
