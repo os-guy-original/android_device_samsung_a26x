@@ -393,10 +393,10 @@ type hal_samsung_vibrator_default, domain;
 type hal_samsung_wifi_default, domain;
 
 # Allow Samsung services to run
-typeattribute vendor_tzdaemon hal_domain;
-typeattribute vendor_tzts_daemon hal_domain;
-typeattribute vendor_vaultkeeperd hal_domain;
-typeattribute vendor_hermesd hal_domain;
+typeattribute vendor_tzdaemon vendor_hal_domain;
+typeattribute vendor_tzts_daemon vendor_hal_domain;
+typeattribute vendor_vaultkeeperd vendor_hal_domain;
+typeattribute vendor_hermesd vendor_hal_domain;
 
 # Samsung secure execution environment
 
