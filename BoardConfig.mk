@@ -127,8 +127,3 @@ BOARD_SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext_pri
 # Inherit the proprietary files
 include vendor/samsung/a26x/BoardConfigVendor.mk
 
-# Vendor ramdisk
-    fstab:vendor_ramdisk/fstab.s5e8835
-
-# First stage ramdisk
-    dpolicy:first_stage_ramdisk/dpolicy
