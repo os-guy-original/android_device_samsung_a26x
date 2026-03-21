@@ -1,14 +1,6 @@
 // first_stage_ramdisk contents
 prebuilt_etc {
-    name: "fstab.first_stage",
-    src: "fstab.s5e8835",
-    sub_dir: "",
-    installable: false,
-}
-
-prebuilt_etc {
     name: "dpolicy",
     src: "dpolicy",
-    sub_dir: "",
     vendor_ramdisk: true,
 }
