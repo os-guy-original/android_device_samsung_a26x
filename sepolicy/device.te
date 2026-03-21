@@ -57,7 +57,6 @@ type vts_device, dev_type;
 type earjack_device, dev_type;
 
 # Audio devices
-type audio_device, dev_type;
 
 # Camera devices
 type camera_device, dev_type;
