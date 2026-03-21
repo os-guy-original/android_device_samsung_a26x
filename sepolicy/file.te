@@ -74,17 +74,10 @@ type health_data_file, file_type, vendor_file_type;
 type usb_config_file, file_type, vendor_file_type;
 
 # Additional file types referenced in file_contexts
-type efs_file, file_type, vendor_file_type;
 type optics_calib_file, file_type, vendor_file_type;
 type prism_calib_file, file_type, vendor_file_type;
 type boot_block_device, file_type, vendor_file_type;
 type recovery_block_device, file_type, vendor_file_type;
 type dtbo_block_device, file_type, vendor_file_type;
-type metadata_file, file_type, vendor_file_type;
-type cache_file, file_type, vendor_file_type;
 type misc_block_device, file_type, vendor_file_type;
-type nfc_data_file, file_type, vendor_file_type;
 
-# Sysfs types
-type sysfs_samsung, fs_type, sysfs_type;
-type sysfs_sensors, fs_type, sysfs_type;
