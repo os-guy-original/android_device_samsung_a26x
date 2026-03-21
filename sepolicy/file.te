@@ -103,8 +103,6 @@ type sysfs_cpuinfo,         fs_type, sysfs_type;
 type sysfs_display,         fs_type, sysfs_type;
 type sysfs_fingerprint,     fs_type, sysfs_type;
 type sysfs_gnss,            fs_type, sysfs_type;
-type sysfs_graphics,        fs_type, sysfs_type;
-type sysfs_gpu,             fs_type, sysfs_type;
 type sysfs_input,           fs_type, sysfs_type;
 type sysfs_kernel_debug,    fs_type, sysfs_type;
 type sysfs_memory,          fs_type, sysfs_type;
