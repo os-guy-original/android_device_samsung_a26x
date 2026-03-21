@@ -1,122 +1,78 @@
 # SELinux filesystem contexts for Samsung Exynos devices
 
-# sysfs contexts
+# sysfs block devices
 genfscon sysfs/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:0/block/sda          u:object_r:sysfs_block_device:s0
 genfscon sysfs/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:1/block/sdb          u:object_r:sysfs_block_device:s0
 genfscon sysfs/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:2/block/sdc          u:object_r:sysfs_block_device:s0
 
-# Power supply contexts
+# Power supply
 genfscon sysfs/class/power_supply/battery                                                    u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs/class/power_supply/usb                                                        u:object_r:sysfs_usb_supply:s0
 genfscon sysfs/class/power_supply/ac                                                         u:object_r:sysfs_ac_supply:s0
 
-# LED contexts
-genfscon sysfs/class/leds                                                                    u:object_r:sysfs_leds:s0
-genfscon sysfs/devices/virtual/leds                                                          u:object_r:sysfs_leds:s0
-
-# Camera sysfs
-genfscon sysfs/devices/platform/soc/1a000000.qcom,cam-req-mgr                                u:object_r:sysfs_camera:s0
-
-# GPU sysfs
-genfscon sysfs/devices/platform/soc/1f00000.qcom,kgsl-3d0                                    u:object_r:sysfs_gpu:s0
-genfscon sysfs/class/kgsl/kgsl-3d0                                                           u:object_r:sysfs_gpu:s0
-
-# DRM/KMS sysfs
-genfscon sysfs/devices/virtual/graphics/fb0                                                  u:object_r:sysfs_graphics:s0
-genfscon sysfs/class/graphics/fb0                                                            u:object_r:sysfs_graphics:s0
-
-# Bluetooth sysfs
-genfscon sysfs/devices/platform/soc/soc:bt                                                   u:object_r:sysfs_bluetooth:s0
-genfscon sysfs/class/bluetooth                                                               u:object_r:sysfs_bluetooth:s0
-
-# WiFi sysfs
-genfscon sysfs/devices/platform/soc/soc:wifi                                                 u:object_r:sysfs_wifi:s0
-genfscon sysfs/class/net/wlan0                                                               u:object_r:sysfs_wifi:s0
-
-# Modem/RIL sysfs
-genfscon sysfs/devices/platform/soc/soc:modem                                                u:object_r:sysfs_modem:s0
-genfscon sysfs/class/rfkill                                                                  u:object_r:sysfs_modem:s0
-
-# Thermal zones
-genfscon sysfs/class/thermal                                                                 u:object_r:sysfs_thermal:s0
-genfscon sysfs/devices/virtual/thermal                                                       u:object_r:sysfs_thermal:s0
-
-# Input device contexts
-genfscon sysfs/devices/virtual/input                                                         u:object_r:sysfs_input:s0
-genfscon sysfs/class/input                                                                   u:object_r:sysfs_input:s0
-
-# Vibrator
-genfscon sysfs/devices/virtual/timed_output/vibrator                                         u:object_r:sysfs_vibrator:s0
-genfscon sysfs/class/timed_output/vibrator                                                   u:object_r:sysfs_vibrator:s0
-
-# Samsung specific sysfs
+# Samsung specific
 genfscon sysfs/devices/platform/soc/samsung                                                  u:object_r:sysfs_samsung:s0
 genfscon sysfs/class/sec                                                                     u:object_r:sysfs_sec:s0
 genfscon sysfs/devices/samsung                                                               u:object_r:sysfs_samsung_device:s0
+genfscon sysfs/devices/platform/samsung_spu                                                  u:object_r:sysfs_samsung:s0
 
-# Samsung sensors
+# Sensors
 genfscon sysfs/devices/virtual/sensors                                                       u:object_r:sysfs_sensors:s0
 genfscon sysfs/class/sensors                                                                 u:object_r:sysfs_sensors:s0
 
-# NFC sysfs
-genfscon sysfs/class/nfc                                                                     u:object_r:sysfs_nfc:s0
-
-# Fingerprint sensor sysfs
-
-# GNSS/GPS sysfs
-genfscon sysfs/class/gnss                                                                    u:object_r:sysfs_gnss:s0
-
-# USB sysfs
-genfscon sysfs/class/android_usb                                                             u:object_r:sysfs_android_usb:s0
-genfscon sysfs/devices/virtual/android_usb                                                   u:object_r:sysfs_android_usb:s0
-
-# Audio sysfs
+# Audio
 genfscon sysfs/class/sound                                                                   u:object_r:sysfs_audio:s0
 
-# Display sysfs
+# Display
 genfscon sysfs/class/backlight                                                               u:object_r:sysfs_backlight:s0
+genfscon sysfs/devices/virtual/graphics/fb0                                                  u:object_r:sysfs_graphics:s0
+genfscon sysfs/class/graphics/fb0                                                            u:object_r:sysfs_graphics:s0
 
-# Touchscreen sysfs
+# Bluetooth
+genfscon sysfs/class/bluetooth                                                               u:object_r:sysfs_bluetooth:s0
 
-# Video devices (camera)
+# WiFi
+genfscon sysfs/class/net/wlan0                                                               u:object_r:sysfs_wifi:s0
+
+# NFC
+genfscon sysfs/class/nfc                                                                     u:object_r:sysfs_nfc:s0
+
+# GNSS/GPS
+genfscon sysfs/class/gnss                                                                    u:object_r:sysfs_gnss:s0
+
+# USB
+genfscon sysfs/class/android_usb                                                             u:object_r:sysfs_android_usb:s0
+
+# Modem
+genfscon sysfs/class/rfkill                                                                  u:object_r:sysfs_modem:s0
+
+# Thermal
+genfscon sysfs/class/thermal                                                                 u:object_r:sysfs_thermal:s0
+
+# Input
+genfscon sysfs/devices/virtual/input                                                         u:object_r:sysfs_input:s0
+genfscon sysfs/class/input                                                                   u:object_r:sysfs_input:s0
+
+# LED
+genfscon sysfs/class/leds                                                                    u:object_r:sysfs_leds:s0
+
+# Vibrator
+genfscon sysfs/devices/virtual/timed_output/vibrator                                         u:object_r:sysfs_vibrator:s0
+
+# Video
 genfscon sysfs/class/video4linux                                                             u:object_r:sysfs_video:s0
 
-# Memory management
+# Memory
 genfscon sysfs/kernel/mm                                                                     u:object_r:sysfs_memory:s0
-genfscon sysfs/devices/system/memory                                                         u:object_r:sysfs_memory:s0
 
-# CPU frequency
+# CPU
 genfscon sysfs/devices/system/cpu                                                            u:object_r:sysfs_cpu:s0
-genfscon sysfs/devices/system/cpu/cpufreq                                                    u:object_r:sysfs_cpuinfo:s0
-
-# UFS storage
-genfscon sysfs/class/scsi_device                                                             u:object_r:sysfs_ufs:s0
-
-# MMC/SD card
 
 # Wake locks
 genfscon sysfs/power/wake_lock                                                               u:object_r:sysfs_wake_lock:s0
-genfscon sysfs/power/wake_unlock                                                             u:object_r:sysfs_wake_lock:s0
 
-# Kernel debug
-genfscon sysfs/kernel/debug                                                                  u:object_r:sysfs_kernel_debug:s0
-
-# Samsung Feature Enable
-genfscon sysfs/devices/platform/samsung_spu                                                  u:object_r:sysfs_samsung:s0
-
-# Proc contexts
-genfscon proc/bootconfig                                                                     u:object_r:proc_bootconfig:s0
+# Proc
 genfscon proc/driver                                                                         u:object_r:proc_driver:s0
-genfscon proc/cpuinfo                                                                        u:object_r:proc_cpuinfo:s0
-genfscon proc/meminfo                                                                        u:object_r:proc_meminfo:s0
-genfscon proc/version                                                                        u:object_r:proc_version:s0
-genfscon proc/cmdline                                                                        u:object_r:proc_cmdline:s0
 
-# Debugfs contexts (for development/debugging)
-genfscon debugfs/sde                                                                         u:object_r:sysfs_graphics:s0
-genfscon debugfs/dri                                                                         u:object_r:sysfs_graphics:s0
-
-# Tracefs (for debugging)
+# Tracefs
 genfscon tracefs / u:object_r:tracefs:s0
-
-# Trustzone/TEE
