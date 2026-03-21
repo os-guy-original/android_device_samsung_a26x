@@ -1,74 +1,41 @@
 # Samsung vendor properties
-type vendor_samsung_prop, property_type;
-type vendor_samsung_camera_prop, property_type;
-type vendor_samsung_radio_prop, property_type;
-type vendor_samsung_audio_prop, property_type;
-type vendor_samsung_display_prop, property_type;
-type vendor_samsung_fingerprint_prop, property_type;
-type vendor_samsung_wifi_prop, property_type;
-type vendor_samsung_bluetooth_prop, property_type;
-type vendor_samsung_nfc_prop, property_type;
-type vendor_samsung_power_prop, property_type;
-type vendor_samsung_hqm_prop, property_type;
-type vendor_samsung_health_prop, property_type;
-type vendor_samsung_biometric_prop, property_type;
+type vendor_samsung_prop, property_type, vendor_property_type;
+type vendor_samsung_camera_prop, property_type, vendor_property_type;
+type vendor_samsung_radio_prop, property_type, vendor_property_type;
+type vendor_samsung_audio_prop, property_type, vendor_property_type;
+type vendor_samsung_display_prop, property_type, vendor_property_type;
+type vendor_samsung_fingerprint_prop, property_type, vendor_property_type;
+type vendor_samsung_wifi_prop, property_type, vendor_property_type;
+type vendor_samsung_bluetooth_prop, property_type, vendor_property_type;
+type vendor_samsung_nfc_prop, property_type, vendor_property_type;
+type vendor_samsung_power_prop, property_type, vendor_property_type;
+type vendor_samsung_hqm_prop, property_type, vendor_property_type;
+type vendor_samsung_health_prop, property_type, vendor_property_type;
+type vendor_samsung_biometric_prop, property_type, vendor_property_type;
 
 # DRM properties
-type vendor_drm_prop, property_type;
-type vendor_widevine_prop, property_type;
+type vendor_drm_prop, property_type, vendor_property_type;
+type vendor_widevine_prop, property_type, vendor_property_type;
 
 # Keymint/keymaster properties
-type vendor_keymint_prop, property_type;
-type vendor_keymaster_prop, property_type;
+type vendor_keymint_prop, property_type, vendor_property_type;
+type vendor_keymaster_prop, property_type, vendor_property_type;
 
 # Gatekeeper properties
-type vendor_gatekeeper_prop, property_type;
+type vendor_gatekeeper_prop, property_type, vendor_property_type;
 
 # GNSS properties
-type vendor_gnss_prop, property_type;
-type vendor_gps_prop, property_type;
+type vendor_gnss_prop, property_type, vendor_property_type;
+type vendor_gps_prop, property_type, vendor_property_type;
 
 # Thermal properties
-type vendor_thermal_prop, property_type;
+type vendor_thermal_prop, property_type, vendor_property_type;
 
 # Sensor properties
-type vendor_sensors_prop, property_type;
+type vendor_sensors_prop, property_type, vendor_property_type;
 
 # USB properties
-type vendor_usb_prop, property_type;
-
-# Memtrack properties
-type vendor_memtrack_prop, property_type;
-
-# Media properties
-type vendor_media_prop, property_type;
-type vendor_omx_prop, property_type;
-
-# Neural networks properties
-type vendor_nn_prop, property_type;
-
-# Graphics properties
-type vendor_graphics_prop, property_type;
-type vendor_gralloc_prop, property_type;
-type vendor_hwcomposer_prop, property_type;
-
-# Secure element properties
-type vendor_secure_element_prop, property_type;
-
-# CAS (Conditional Access System) properties
-type vendor_cas_prop, property_type;
-
-# Sound trigger properties
-type vendor_soundtrigger_prop, property_type;
-
-# RenderScript properties
-type vendor_renderscript_prop, property_type;
+type vendor_usb_prop, property_type, vendor_property_type;
 
 # EPIC (Samsung encoder) properties
-type vendor_epic_prop, property_type;
-
-# SBWC (Super Block Width Compression) properties
-type vendor_sbwc_prop, property_type;
-
-# Face authentication properties
-type vendor_face_prop, property_type;
+type vendor_epic_prop, property_type, vendor_property_type;

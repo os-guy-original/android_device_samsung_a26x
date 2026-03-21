@@ -5,14 +5,6 @@ type vendor_hal_samsung_radio, domain;
 type vendor_hal_samsung_audio, domain;
 type vendor_hal_samsung_fingerprint, domain;
 
-# Allow vendor_init to access Samsung-specific file types
-allow vendor_init sec_efs_file:dir { create read write open add_name remove_name search };
-allow vendor_init sec_efs_file:file { create read write open getattr setattr unlink };
-allow vendor_init param_file:dir { create read write open add_name remove_name search };
-allow vendor_init param_file:file { create read write open getattr setattr unlink };
-allow vendor_init cpefs_file:dir { create read write open add_name remove_name search };
-allow vendor_init cpefs_file:file { create read write open getattr setattr unlink };
-
 # Allow hal_camera_default to access camera files
 allow hal_camera_default camera_fw_file:dir search;
 allow hal_camera_default camera_fw_file:file { open read getattr map };

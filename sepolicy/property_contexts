@@ -12,6 +12,8 @@ persist.vendor.camera. u:object_r:vendor_samsung_camera_prop:s0
 ro.vendor.radio.      u:object_r:vendor_samsung_radio_prop:s0
 vendor.radio.         u:object_r:vendor_samsung_radio_prop:s0
 ro.vendor.ril.        u:object_r:vendor_samsung_radio_prop:s0
+vendor.cbd.           u:object_r:vendor_samsung_radio_prop:s0
+persist.vendor.cbd.   u:object_r:vendor_samsung_radio_prop:s0
 
 # Audio properties
 ro.vendor.audio.      u:object_r:vendor_samsung_audio_prop:s0
@@ -71,21 +73,6 @@ vendor.widevine.      u:object_r:vendor_widevine_prop:s0
 ro.vendor.keymint.    u:object_r:vendor_keymint_prop:s0
 vendor.keymint.       u:object_r:vendor_keymint_prop:s0
 
-# Graphics properties
-ro.vendor.graphics.   u:object_r:vendor_graphics_prop:s0
-vendor.graphics.      u:object_r:vendor_graphics_prop:s0
-
 # EPIC (Samsung encoder) properties
 ro.vendor.epic.       u:object_r:vendor_epic_prop:s0
 vendor.epic.          u:object_r:vendor_epic_prop:s0
-
-# CBD (modem)
-vendor.cbd.           u:object_r:vendor_samsung_radio_prop:s0
-persist.vendor.cbd.   u:object_r:vendor_samsung_radio_prop:s0
-
-# Diagnostic
-vendor.sys.dmd.       u:object_r:vendor_samsung_prop:s0
-vendor.sys.diag.      u:object_r:vendor_samsung_prop:s0
-
-# WLBTD
-vendor.wlbtd.         u:object_r:vendor_samsung_prop:s0
