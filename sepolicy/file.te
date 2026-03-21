@@ -1,12 +1,8 @@
-# EFS partition file types
-type sec_efs_file, file_type, vendor_file_type;
-
 # Samsung-specific partition file types
+type sec_efs_file, file_type, vendor_file_type;
 type param_file, file_type, vendor_file_type;
 type optics_file, file_type, vendor_file_type;
 type prism_file, file_type, vendor_file_type;
-
-# CP EFS file type
 type cpefs_file, file_type, vendor_file_type;
 
 # Camera firmware files
@@ -24,12 +20,6 @@ type modem_fw_file, file_type, vendor_file_type;
 # Persistent data partition
 type persist_file, file_type, vendor_file_type;
 
-# Optics calibration data
-type optics_calib_file, file_type, vendor_file_type;
-
-# Prism calibration data
-type prism_calib_file, file_type, vendor_file_type;
-
 # BOTA (Boot OTA) partition
 type bota_file, file_type, vendor_file_type;
 
@@ -44,17 +34,11 @@ type vendor_boot_block_device, file_type, vendor_file_type;
 type vbmeta_block_device, file_type, vendor_file_type;
 type vbmeta_system_block_device, file_type, vendor_file_type;
 
-# Metadata partition
-
-# Cache partition
-
 # Keystorage partition
 type keystorage_file, file_type, vendor_file_type;
 
 # HARX partition
 type harx_file, file_type, vendor_file_type;
-
-# Misc partition
 
 # Samsung firmware files
 type vendor_firmware_file, file_type, vendor_file_type;
@@ -70,8 +54,6 @@ type gnss_data_file, file_type, vendor_file_type;
 
 # Sensor data
 type sensor_data_file, file_type, vendor_file_type;
-
-# NFC data
 
 # Widevine DRM data
 type widevine_data_file, file_type, vendor_file_type;
@@ -90,41 +72,3 @@ type health_data_file, file_type, vendor_file_type;
 
 # USB configuration
 type usb_config_file, file_type, vendor_file_type;
-
-# sysfs types for genfs_contexts
-type sysfs_block_device,    fs_type, sysfs_type;
-type sysfs_ac_supply,       fs_type, sysfs_type;
-type sysfs_usb_supply,      fs_type, sysfs_type;
-type sysfs_audio,           fs_type, sysfs_type;
-type sysfs_camera,          fs_type, sysfs_type;
-type sysfs_display,         fs_type, sysfs_type;
-type sysfs_fingerprint,     fs_type, sysfs_type;
-type sysfs_gnss,            fs_type, sysfs_type;
-type sysfs_kernel_debug,    fs_type, sysfs_type;
-type sysfs_mmc,             fs_type, sysfs_type;
-type sysfs_modem,           fs_type, sysfs_type;
-type sysfs_samsung,         fs_type, sysfs_type;
-type sysfs_samsung_device,  fs_type, sysfs_type;
-type sysfs_sec,             fs_type, sysfs_type;
-type sysfs_tee,             fs_type, sysfs_type;
-type sysfs_touchscreen,     fs_type, sysfs_type;
-type sysfs_ufs,             fs_type, sysfs_type;
-
-# proc types for genfs_contexts
-type proc_driver,           fs_type, proc_type;
-
-# tracefs type
-type tracefs,               fs_type;
-
-# Additional sysfs types needed by genfs_contexts (not in AOSP)
-type sysfs_backlight,       fs_type, sysfs_type;
-type sysfs_bluetooth,       fs_type, sysfs_type;
-type sysfs_cpu,             fs_type, sysfs_type;
-type sysfs_cpuinfo,         fs_type, sysfs_type;
-type sysfs_graphics,        fs_type, sysfs_type;
-type sysfs_input,           fs_type, sysfs_type;
-type sysfs_memory,          fs_type, sysfs_type;
-type sysfs_nfc,             fs_type, sysfs_type;
-type sysfs_sensors,         fs_type, sysfs_type;
-type sysfs_video,           fs_type, sysfs_type;
-type sysfs_wifi,            fs_type, sysfs_type;
