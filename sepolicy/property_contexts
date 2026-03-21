@@ -90,7 +90,6 @@ vendor.sensors.       u:object_r:vendor_sensors_prop:s0
 # USB properties
 ro.vendor.usb.        u:object_r:vendor_usb_prop:s0
 vendor.usb.           u:object_r:vendor_usb_prop:s0
-vendor.usb.            u:object_r:vendor_usb_prop:s0
 
 # Memtrack properties
 ro.vendor.memtrack.   u:object_r:vendor_memtrack_prop:s0
