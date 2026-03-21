@@ -43,32 +43,32 @@ type harx_file, file_type, vendor_file_type;
 # Samsung firmware files
 type vendor_firmware_file, file_type, vendor_file_type;
 
-# Keymaster/keymint data
-type keymaster_data_file, file_type, vendor_file_type;
+# Keymaster/keymint data (under /data/vendor/)
+type keymaster_data_file, file_type, data_file_type, core_data_file_type;
 
-# Fingerprint data
-type fingerprint_data_file, file_type, vendor_file_type;
+# Fingerprint data (under /data/vendor/)
+type fingerprint_data_file, file_type, data_file_type, core_data_file_type;
 
-# GNSS/GPS data
-type gnss_data_file, file_type, vendor_file_type;
+# GNSS/GPS data (under /data/vendor/)
+type gnss_data_file, file_type, data_file_type, core_data_file_type;
 
-# Sensor data
-type sensor_data_file, file_type, vendor_file_type;
+# Sensor data (under /data/vendor/)
+type sensor_data_file, file_type, data_file_type, core_data_file_type;
 
-# Widevine DRM data
-type widevine_data_file, file_type, vendor_file_type;
+# Widevine DRM data (under /data/vendor/)
+type widevine_data_file, file_type, data_file_type, core_data_file_type;
+
+# RIL data (under /data/vendor/)
+type ril_data_file, file_type, data_file_type, core_data_file_type;
+
+# Health HAL data (under /data/vendor/)
+type health_data_file, file_type, data_file_type, core_data_file_type;
 
 # Thermal configuration
 type thermal_config_file, file_type, vendor_file_type;
 
 # Audio configuration files
 type audio_config_file, file_type, vendor_file_type;
-
-# RIL (Radio Interface Layer) data
-type ril_data_file, file_type, vendor_file_type;
-
-# Health HAL data
-type health_data_file, file_type, vendor_file_type;
 
 # USB configuration
 type usb_config_file, file_type, vendor_file_type;
