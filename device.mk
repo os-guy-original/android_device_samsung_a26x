@@ -37,6 +37,11 @@ PRODUCT_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# Force generation of build.prop for modular partitions
+PRODUCT_VENDOR_PROPERTIES += ro.vendor.build.dont_skip=1
+PRODUCT_ODM_PROPERTIES += ro.odm.build.dont_skip=1
+PRODUCT_PRODUCT_PROPERTIES += ro.product.build.dont_skip=1
+
 # Product characteristics
 PRODUCT_CHARACTERISTICS := phone
 
