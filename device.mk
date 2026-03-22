@@ -108,3 +108,6 @@ $(call inherit-product, vendor/samsung/a26x/a26x-vendor.mk)
 PRODUCT_PACKAGES += \
     ft3419_firmware \
     dpolicy
+
+# HIDL Allocator (required for VINTF compatibility with older FCM levels)
+PRODUCT_PACKAGES += android.hidl.allocator@1.0
