@@ -1,4 +1,10 @@
 <manifest version="5.0" type="device" target-level="9">
+    <!-- HIDL Allocator (required for VINTF compatibility) -->
+    <hal format="hidl">
+        <name>android.hidl.allocator</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IAllocator/ashmem</fqname>
+    </hal>
     <!-- Audio -->
     <hal format="hidl">
         <name>android.hardware.audio</name>
