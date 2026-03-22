@@ -35,12 +35,6 @@
         <fqname>@1.1::IBluetoothHci/default</fqname>
     </hal>
 
-    <!-- CAS (AIDL) -->
-    <hal format="aidl">
-        <name>android.hardware.cas</name>
-        <fqname>IMediaCasService/default</fqname>
-    </hal>
-
     <!-- Camera -->
     <hal format="aidl">
         <name>android.hardware.camera.provider</name>
