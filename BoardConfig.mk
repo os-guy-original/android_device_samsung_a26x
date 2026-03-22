@@ -56,6 +56,9 @@ BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product odm system_dlkm vendor_dlkm
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 13417570304
 
+# Root Folders
+BOARD_ROOT_EXTRA_FOLDERS := optics prism
+
 # A/B - Virtual A/B (VABC) - Android 15 (API 35) Baseline
 AB_OTA_UPDATER := true
 ENABLE_VIRTUAL_AB := true
