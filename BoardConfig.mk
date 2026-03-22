@@ -106,14 +106,8 @@ VENDOR_SECURITY_PATCH := 2025-08-01
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
-BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
-BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
-BOARD_AVB_VENDOR_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
-BOARD_AVB_VENDOR_BOOT_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX := 1
-BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
 
 # VINTF
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
@@ -127,3 +121,11 @@ BOARD_SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext_pri
 # Inherit the proprietary files
 include vendor/samsung/a26x/BoardConfigVendor.mk
 
+
+# AVB - match stock vbmeta configuration
+# Stock chains: dtbo (loc 1), prism (loc 2), optics (loc 3)
+# Stock uses hash descriptors for: boot, recovery, vendor_boot, init_boot
+BOARD_AVB_DTBO_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_DTBO_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_DTBO_ROLLBACK_INDEX := 1
+BOARD_AVB_DTBO_ROLLBACK_INDEX_LOCATION := 1
