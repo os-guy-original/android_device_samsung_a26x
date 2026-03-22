@@ -110,4 +110,4 @@ PRODUCT_PACKAGES += \
     dpolicy
 
 # HIDL Allocator (required for VINTF compatibility with older FCM levels)
-PRODUCT_PACKAGES += android.hidl.allocator@1.0
+PRODUCT_PACKAGES += android.hidl.allocator@1.0-service
