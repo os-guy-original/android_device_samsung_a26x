@@ -1,4 +1,4 @@
-<manifest version="5.0" type="device" target-level="202404">
+<manifest version="5.0" type="device" target-level="7">
     <!-- Audio -->
     <hal format="hidl">
         <name>android.hardware.audio</name>
@@ -85,6 +85,7 @@
     <!-- KeyMint -->
     <hal format="aidl">
         <name>android.hardware.security.keymint</name>
+        <version>2</version>
         <fqname>IKeyMintDevice/default</fqname>
         </hal>
     <hal format="aidl">
@@ -168,7 +169,13 @@
         <fqname>@2.0::ISehBluetooth/default</fqname>
     </hal>
     <hal format="aidl">
+        <name>android.hardware.gnss</name>
+        <version>2</version>
+        <fqname>IGnss/default</fqname>
+    </hal>
+    <hal format="aidl">
         <name>vendor.samsung.hardware.gnss</name>
+        <version>3</version>
         <fqname>ISehGnss/default</fqname>
     </hal>
     <hal format="aidl">
@@ -177,10 +184,12 @@
     </hal>
     <hal format="aidl">
         <name>vendor.samsung.hardware.keymint</name>
+        <version>2</version>
         <fqname>ISehKeyMintExtension/default</fqname>
     </hal>
     <hal format="aidl">
         <name>vendor.samsung.hardware.keymint</name>
+        <version>2</version>
         <fqname>ISehKeyMintFactory/default</fqname>
     </hal>
     <hal format="hidl">
