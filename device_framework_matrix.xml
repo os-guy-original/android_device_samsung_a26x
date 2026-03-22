@@ -1,4 +1,21 @@
 <compatibility-matrix version="1.0" type="framework">
+    <!-- AOSP HALs not in default FCM at this level -->
+    <hal format="aidl" optional="true">
+        <name>android.hardware.security.rkp</name>
+        <version>3</version>
+        <interface>
+            <name>IRemotelyProvisionedComponent</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.cas</name>
+        <interface>
+            <name>IMediaCasService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
     <!-- Samsung Custom HIDL HALs -->
     <hal format="hidl" optional="true">
         <name>vendor.samsung.hardware.audio</name>
