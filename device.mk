@@ -96,11 +96,11 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk fstab (no module defined, use PRODUCT_COPY_FILES)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.ramplus:$(TARGET_COPY_OUT_RAMDISK)/fstab.ramplus
+    $(DEVICE_PATH)/rootdir/etc/fstab.ramplus:$(TARGET_COPY_OUT_RAMDISK)/fstab.ramplus
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(DEVICE_PATH)
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/samsung/a26x/a26x-vendor.mk)
