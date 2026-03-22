@@ -39,8 +39,8 @@ on init
     write /dev/cpuset/foreground/cpus "0-7"
     write /dev/cpuset/background/cpus "0-3"
 
-    # GPU governor
-    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
+    # GPU governor (Mali on S5E8835)
+    write /sys/class/devfreq/10300000.gpu/governor "simple_ondemand"
 
     # EMS/EPIC interface permissions
     chown system system /sys/devices/platform/soc/soc:epic/epic_task
@@ -103,12 +103,6 @@ on post-fs-data
     mkdir /data/vendor/gatekeeper 0770 system system
     mkdir /data/vendor/weaver 0770 system system
 
-    # GPU permissions
-    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/governor
-    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
-    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
-    chmod 0660 /sys/class/kgsl/kgsl-3d0/devfreq/governor
-
     # HWC data directories
     mkdir /data/vendor/hwc 0770 system system
     mkdir /data/vendor/hwc/debug 0770 system system
@@ -134,13 +128,13 @@ on boot
     chown system system /sys/class/android_usb/android0/enable
     chmod 0660 /sys/class/android_usb/android0/functions
 
-    # GPU permissions
-    chown system graphics /sys/class/kgsl/kgsl-3d0/bus_split
-    chown system graphics /sys/class/kgsl/kgsl-3d0/force_bus_on
-    chown system graphics /sys/class/kgsl/kgsl-3d0/force_rail_on
-    chmod 0660 /sys/class/kgsl/kgsl-3d0/bus_split
-    chmod 0660 /sys/class/kgsl/kgsl-3d0/force_bus_on
-    chmod 0660 /sys/class/kgsl/kgsl-3d0/force_rail_on
+    # Mali GPU permissions (Exynos S5E8835)
+    chown system graphics /sys/class/devfreq/10300000.gpu/max_freq
+    chown system graphics /sys/class/devfreq/10300000.gpu/min_freq
+    chown system graphics /sys/class/devfreq/10300000.gpu/governor
+    chmod 0660 /sys/class/devfreq/10300000.gpu/max_freq
+    chmod 0660 /sys/class/devfreq/10300000.gpu/min_freq
+    chmod 0660 /sys/class/devfreq/10300000.gpu/governor
 
     # Sensor permissions
     chown system system /sys/class/sensors/proximity_sensor/prox_cal
@@ -161,24 +155,18 @@ on boot
     chmod 0660 /sys/class/mdnie/mdnie/mode
     chmod 0660 /sys/class/mdnie/mdnie/scenario
 
-    # DQE (display quality enhancement)
-    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dqe
-    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dqe
+    # DQE (display quality enhancement - Exynos DPU S5E8835)
+    chown system system /sys/class/dqe/dqe/mode
+    chmod 0660 /sys/class/dqe/dqe/mode
 
 on fs
     # Mount EFS partition
     wait /dev/block/by-name/efs
     mount vfat /dev/block/by-name/efs /efs noatime nosuid nodev wait,check
 
-    # Mount persist partition
-    wait /dev/block/by-name/persist
-    mount ext4 /dev/block/by-name/persist /mnt/vendor/persist noatime nosuid nodev wait,check
-
     # Set permissions for vendor partitions
     chown system system /efs
     chmod 0771 /efs
-    chown system system /mnt/vendor/persist
-    chmod 0771 /mnt/vendor/persist
 
     # Create EFS subdirectories
     mkdir /efs/bluetooth 0771 bluetooth net_bt
