@@ -3,8 +3,8 @@
 
 # Samsung-specific partitions
 /mnt/vendor/param(/.*)?       u:object_r:param_file:s0
-/mnt/vendor/optics(/.*)?      u:object_r:optics_file:s0
-/mnt/vendor/prism(/.*)?       u:object_r:prism_file:s0
+/optics(/.*)?                 u:object_r:optics_file:s0
+/prism(/.*)?                  u:object_r:prism_file:s0
 
 # CP EFS
 /cpefs(/.*)?                  u:object_r:cpefs_file:s0
