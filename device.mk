@@ -14,6 +14,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/vabc_features.m
 # API level
 PRODUCT_SHIPPING_API_LEVEL := 35
 
+# Build Maintainer
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.lineage.maintainer="OpenSource Guy"
+
 # Display
 PRODUCT_AAPT_PREF_CONFIG := 450dpi
 

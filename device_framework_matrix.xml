@@ -1,4 +1,4 @@
-<compatibility-matrix version="1.0" type="framework">
+<compatibility-matrix version="1.0" type="framework" level="7">
     <!-- AOSP HALs not in default FCM at this level -->
     <hal format="aidl" optional="true">
         <name>android.hardware.security.rkp</name>
