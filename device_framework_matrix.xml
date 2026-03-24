@@ -1,14 +1,6 @@
 <compatibility-matrix version="1.0" type="framework" level="202504">
     <!-- AOSP HALs not in default FCM at this level -->
-    <hal format="aidl">
-        <name>android.hardware.security.rkp</name>
-        <version>3</version>
-        <interface>
-            <name>IRemotelyProvisionedComponent</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl">
+    <hal format="aidl" optional="true">
         <name>android.hardware.cas</name>
         <interface>
             <name>IMediaCasService</name>
@@ -16,17 +8,29 @@
         </interface>
     </hal>
 
-    <!-- Samsung Custom HALs are provided by vendor blobs, not built from source -->
-    <!-- Commenting out to avoid VINTF build errors -->
-    <!--
-    <hal format="hidl">
-        <name>vendor.samsung.hardware.audio</name>
+    <!-- Samsung SLSI HALs provided by vendor blobs -->
+    <hal format="hidl" optional="true">
+        <name>vendor.samsung_slsi.hardware.ExynosHWCServiceTW</name>
         <version>1.0</version>
         <interface>
-            <name>ISehDevicesFactory</name>
+            <name>IExynosHWCServiceTW</name>
             <instance>default</instance>
         </interface>
     </hal>
-    -->
-    <!-- All other Samsung HALs commented out - they're in vendor blobs -->
+    <hal format="hidl" optional="true">
+        <name>vendor.samsung_slsi.hardware.SbwcDecompService</name>
+        <version>1.0</version>
+        <interface>
+            <name>ISbwcDecompService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.samsung_slsi.hardware.epic</name>
+        <version>1.0</version>
+        <interface>
+            <name>IEpicRequest</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
