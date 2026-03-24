@@ -16,7 +16,9 @@
         </interface>
     </hal>
 
-    <!-- Samsung Custom HIDL HALs -->
+    <!-- Samsung Custom HALs are provided by vendor blobs, not built from source -->
+    <!-- Commenting out to avoid VINTF build errors -->
+    <!--
     <hal format="hidl">
         <name>vendor.samsung.hardware.audio</name>
         <version>1.0</version>
@@ -25,117 +27,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl">
-        <name>vendor.samsung.hardware.bluetooth</name>
-        <version>2.0</version>
-        <interface>
-            <name>ISehBluetooth</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.samsung.hardware.nfc</name>
-        <version>2.0</version>
-        <interface>
-            <name>ISehNfc</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.samsung.hardware.security.drk</name>
-        <version>2.0</version>
-        <interface>
-            <name>ISehDrk</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.samsung.hardware.sysinput</name>
-        <version>1.3</version>
-        <interface>
-            <name>ISehSysInputDev</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.samsung.hardware.wifi</name>
-        <version>2.0</version>
-        <interface>
-            <name>ISehWifi</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-
-    <!-- Samsung Custom AIDL HALs -->
-    <hal format="aidl">
-        <name>vendor.samsung.hardware.gnss</name>
-        <version>3</version>
-        <interface>
-            <name>ISehGnss</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl">
-        <name>vendor.samsung.hardware.health</name>
-        <interface>
-            <name>ISehHealth</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl">
-        <name>vendor.samsung.hardware.keymint</name>
-        <version>2</version>
-        <interface>
-            <name>ISehKeyMintExtension</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl">
-        <name>vendor.samsung.hardware.keymint</name>
-        <version>2</version>
-        <interface>
-            <name>ISehKeyMintFactory</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl">
-        <name>vendor.samsung.hardware.thermal</name>
-        <interface>
-            <name>ISehThermal</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl">
-        <name>vendor.samsung.hardware.vibrator</name>
-        <interface>
-            <name>ISehVibrator</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-
-    <!-- Samsung SLSI HALs -->
-    <hal format="hidl">
-        <name>vendor.samsung_slsi.hardware.ExynosHWCServiceTW</name>
-        <version>1.0</version>
-        <interface>
-            <name>IExynosHWCServiceTW</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.samsung_slsi.hardware.SbwcDecompService</name>
-        <version>1.0</version>
-        <interface>
-            <name>ISbwcDecompService</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.samsung_slsi.hardware.epic</name>
-        <version>1.0</version>
-        <interface>
-            <name>IEpicRequest</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
+    -->
+    <!-- All other Samsung HALs commented out - they're in vendor blobs -->
 </compatibility-matrix>
