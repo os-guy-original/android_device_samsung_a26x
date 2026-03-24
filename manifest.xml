@@ -152,6 +152,9 @@
     </hal>
 
     <!-- Samsung Custom HALs -->
+    <!-- Commented out - these are provided by vendor blobs, not built from source -->
+    <!-- Declaring them here causes VINTF errors since they're not in framework compatibility matrix -->
+    <!--
     <hal format="hidl">
         <name>vendor.samsung.hardware.audio</name>
         <transport>hwbinder</transport>
@@ -226,4 +229,5 @@
         <transport>hwbinder</transport>
         <fqname>@1.0::IEpicRequest/default</fqname>
     </hal>
+    -->
 </manifest>
