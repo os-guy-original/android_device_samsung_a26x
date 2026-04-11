@@ -84,8 +84,8 @@ on post-fs-data
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
 
     # Bluetooth MAC address setup
-    chown bluetooth net_bt /efs/bluetooth/bt_addr
-    chmod 0640 /efs/bluetooth/bt_addr
+    chown bluetooth net_bt /mnt/vendor/efs/bluetooth/bt_addr
+    chmod 0640 /mnt/vendor/efs/bluetooth/bt_addr
 
     # GNSS/GPS directories
     mkdir /data/vendor/gps 0770 gps system
@@ -160,18 +160,11 @@ on boot
     chmod 0660 /sys/class/dqe/dqe/mode
 
 on fs
-    # Mount EFS partition
-    wait /dev/block/by-name/efs
-    mount vfat /dev/block/by-name/efs /efs noatime nosuid nodev wait,check
-
-    # Set permissions for vendor partitions
-    chown system system /efs
-    chmod 0771 /efs
-
-    # Create EFS subdirectories
-    mkdir /efs/bluetooth 0771 bluetooth net_bt
-    mkdir /efs/imei 0771 radio radio
-    mkdir /efs/wifi 0771 wifi wifi
+    # EFS is mounted by fstab at /mnt/vendor/efs as ext4
+    # Create EFS subdirectories after mount
+    mkdir /mnt/vendor/efs/bluetooth 0771 bluetooth net_bt
+    mkdir /mnt/vendor/efs/imei 0771 radio radio
+    mkdir /mnt/vendor/efs/wifi 0771 wifi wifi
 
 # Services - minimal, most come from vendor init
 # Only include services that need to be overridden or are missing from vendor

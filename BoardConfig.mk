@@ -156,9 +156,6 @@ PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
-# System_ext SELinux policy
-BOARD_SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext_private
-
 # Inherit the proprietary files
 include vendor/samsung/a26x/BoardConfigVendor.mk
 
