@@ -94,4 +94,57 @@
     <integer name="config_defaultNotificationVibrationIntensity">2</integer>
     <integer name="config_defaultRingVibrationIntensity">2</integer>
 
+    <!-- Fingerprint sensor type (under-display or side-mounted) -->
+    <!-- A26 has side-mounted fingerprint -->
+    <bool name="config_isPowerKeyFPSensor">true</bool>
+
+    <!-- Fast charging support -->
+    <bool name="config_supportsFastCharging">true</bool>
+
+    <!-- Wireless charging (not supported on A26) -->
+    <bool name="config_supportsWirelessCharging">false</bool>
+
+    <!-- USB Audio support -->
+    <bool name="config_useFixedVolumeForFixedUsbAudio">true</bool>
+
+    <!-- Camera features -->
+    <bool name="config_enableCameraLaunchGesture">true</bool>
+
+    <!-- Face unlock support -->
+    <bool name="config_faceAuthDismissKeyguard">true</bool>
+
+    <!-- Ambient display -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+
+    <!-- Display cutout (A26 has punch-hole camera) -->
+    <string name="config_mainBuiltInDisplayCutout">M -1,0 L -1,0 L -1,0 L -1,0 Z</string>
+
+    <!-- VoLTE/VT/WFC over IMS default enable -->
+    <bool name="config_voicemail_available">true</bool>
+
+    <!-- WiFi Direct -->
+    <bool name="config_wifi_p2p_mac_randomization_supported">true</bool>
+
+    <!-- Bluetooth -->
+    <bool name="config_bluetooth_leaudio_offload_supported">true</bool>
+
+    <!-- GPS capabilities -->
+    <string-array name="config_locationExtraPackageNames" translatable="false">
+        <item>com.android.location.fused</item>
+    </string-array>
+
+    <!-- Power management -->
+    <bool name="config_autoPowerModeEverEnabled">false</bool>
+
+    <!-- Thermal management -->
+    <bool name="config_enableThermalShutdown">true</bool>
+
+    <!-- Screen off animation -->
+    <bool name="config_suspendToScreenOffAnimation">true</bool>
+
+    <!-- Device specific doze pulse -->
+    <bool name="config_dozePulsePickup">true</bool>
+    <bool name="config_dozePulseTilt">true</bool>
+    <bool name="config_dozePulseProximity">true</bool>
+
 </resources>

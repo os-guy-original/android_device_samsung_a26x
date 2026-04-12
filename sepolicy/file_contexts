@@ -2,33 +2,14 @@
 /sec_efs(/.*)?                u:object_r:sec_efs_file:s0
 
 # Samsung-specific partitions
-/mnt/vendor/param(/.*)?       u:object_r:param_file:s0
 /optics(/.*)?                 u:object_r:optics_file:s0
 /prism(/.*)?                  u:object_r:prism_file:s0
-
-# CP EFS
-/cpefs(/.*)?                  u:object_r:cpefs_file:s0
 
 # Persistent partition
 /mnt/vendor/persist(/.*)?     u:object_r:persist_file:s0
 
-# Camera firmware
-/vendor/firmware/camera(/.*)? u:object_r:camera_fw_file:s0
-
-# Bluetooth firmware
-/vendor/firmware/bt(/.*)?     u:object_r:bt_firmware_file:s0
-
 # WiFi firmware
-/vendor/firmware/wlan(/.*)?   u:object_r:wifi_firmware_file:s0
-
-# Modem firmware
-/vendor/firmware/modem(/.*)?  u:object_r:modem_fw_file:s0
-
-# BOTA partition
-/bota(/.*)?                   u:object_r:bota_file:s0
-
-# DUMP partition
-/dump(/.*)?                   u:object_r:dump_file:s0
+/vendor/firmware/wifi(/.*)?   u:object_r:wifi_firmware_file:s0
 
 # Keystorage partition
 /keystorage(/.*)?             u:object_r:keystorage_file:s0
@@ -47,9 +28,11 @@
 
 # GNSS/GPS data
 /data/vendor/gnss(/.*)?       u:object_r:gnss_data_file:s0
+/data/vendor/gps(/.*)?        u:object_r:gnss_data_file:s0
 
 # Sensor data
 /data/vendor/sensors(/.*)?    u:object_r:sensor_data_file:s0
+/data/vendor/sensor(/.*)?     u:object_r:sensor_data_file:s0
 
 # Widevine DRM data
 /data/vendor/widevine(/.*)?   u:object_r:widevine_data_file:s0
@@ -74,3 +57,93 @@
 
 # CPEFS mount point
 /mnt/vendor/cpefs(/.*)?       u:object_r:cpefs_file:s0
+
+# HWC data
+/data/vendor/log/hwc(/.*)?    u:object_r:hwc_data_file:s0
+
+# Abox log data
+/data/vendor/log/abox(/.*)?   u:object_r:abox_log_data_file:s0
+
+# Eden data
+/data/vendor/eden(/.*)?       u:object_r:eden_data_file:s0
+/data/vendor/eden/gpu(/.*)?   u:object_r:eden_data_file:s0
+
+# ENN data
+/data/vendor/enn(/.*)?        u:object_r:enn_data_file:s0
+
+# Epic data
+/data/vendor/epic(/.*)?       u:object_r:epic_data_file:s0
+
+# Gatekeeper data
+/data/vendor/gk(/.*)?         u:object_r:gk_data_file:s0
+
+# Weaver data
+/data/vendor/weaver(/.*)?     u:object_r:weaver_data_file:s0
+
+# Media/GPU data
+/data/vendor/media(/.*)?      u:object_r:media_data_file:s0
+
+# Camera sysfs
+/sys/class/camera(/.*)?       u:object_r:camera_sysfs:s0
+
+# Display sysfs - LCD
+/sys/class/lcd(/.*)?          u:object_r:display_sysfs:s0
+
+# Display sysfs - MDNIE
+/sys/class/mdnie(/.*)?        u:object_r:display_sysfs:s0
+
+# Display sysfs - DQE
+/sys/class/dqe(/.*)?          u:object_r:display_sysfs:s0
+
+# Sensor sysfs - grip sensor
+/sys/class/sensors/grip_sensor(/.*)?    u:object_r:sensor_sysfs:s0
+
+# Sensor sysfs - SSP sensor
+/sys/class/sensors/ssp_sensor(/.*)?     u:object_r:sensor_sysfs:s0
+
+# Sensor sysfs - sensor_dev
+/sys/class/sensors/sensor_dev(/.*)?     u:object_r:sensor_sysfs:s0
+
+# Vibrator sysfs
+/sys/class/sec_vib_inputff(/.*)?        u:object_r:vibrator_sysfs:s0
+/sys/class/vib_info_class(/.*)?         u:object_r:vibrator_sysfs:s0
+
+# EMS sysfs
+/sys/kernel/ems(/.*)?          u:object_r:ems_sysfs:s0
+
+# GPU sysfs
+/sys/kernel/gpu(/.*)?          u:object_r:gpu_sysfs:s0
+
+# Biometrics/fingerprint data
+/data/vendor/biometrics(/.*)?  u:object_r:biometrics_vendor_data_file:s0
+
+# NFC data
+/data/vendor/nfc(/.*)?         u:object_r:nfc_vendor_data_file:s0
+/data/vendor/st21nfc(/.*)?     u:object_r:nfc_vendor_data_file:s0
+
+# Sensor hub data
+/data/vendor/sensorhub(/.*)?   u:object_r:vendor_sensorhub_data_file:s0
+
+# EPIC data extended
+/data/vendor/epic/gpu(/.*)?    u:object_r:epic_data_file:s0
+
+# Gatekeeper data (vendor)
+/data/vendor/gk(/.*)?          u:object_r:vendor_gk_data_file:s0
+
+# Weaver data (vendor)
+/data/vendor/weaver(/.*)?      u:object_r:vendor_weaver_data_file:s0
+
+# RIL data extended
+/data/vendor/ril(/.*)?         u:object_r:vendor_radio_data_file:s0
+
+# HWC data
+/data/vendor/hwc(/.*)?         u:object_r:vendor_hwc_file:s0
+
+# VTS (Voice Trigger Service) log
+/data/vendor/log/vts(/.*)?     u:object_r:vendor_vts_log_file:s0
+
+# Abox log extended
+/data/vendor/log/abox/.*\.log  u:object_r:vendor_abox_log_file:s0
+
+# GPU snapshot
+/data/vendor/gpu_snapshot(/.*)? u:object_r:vendor_log_file:s0

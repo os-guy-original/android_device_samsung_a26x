@@ -52,6 +52,7 @@ BOARD_VBMETAIMAGE_PARTITION_SIZE := 65536
 BOARD_METADATAIMAGE_PARTITION_SIZE := 67108864
 BOARD_SUPER_PARTITION_SIZE := 13421772800
 BOARD_SUPER_PARTITION_DEVICES := sda
+BOARD_SUPER_PARTITION_METADATA_DEVICE := sda
 BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor product odm system_dlkm vendor_dlkm
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 13417578496
@@ -67,7 +68,7 @@ BOARD_SYSTEM_DLKMIMAGE_PARTITION_SIZE := 104857600
 BOARD_VENDOR_DLKMIMAGE_PARTITION_SIZE := 104857600
 
 # Partition Types
-BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := erofs
@@ -99,6 +100,7 @@ BOARD_ROOT_EXTRA_FOLDERS := optics prism
 AB_OTA_UPDATER := true
 ENABLE_VIRTUAL_AB := true
 BOARD_USES_METADATA_PARTITION := true
+TARGET_USES_UFS_OTA := true
 BOARD_VIRTUAL_AB_COMPRESSION := true
 BOARD_VIRTUAL_AB_COMPRESSION_METHOD := zstd
 BOARD_USE_USERSPACE_SNAPSHOT := true
@@ -141,7 +143,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2025-08-01
+VENDOR_SECURITY_PATCH := 2025-09-01
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -161,9 +163,19 @@ include vendor/samsung/a26x/BoardConfigVendor.mk
 
 
 # AVB - match stock vbmeta configuration
+# Stock vbmeta uses SHA256_RSA4096 algorithm
 # Stock chains: dtbo (loc 1), prism (loc 2), optics (loc 3)
 # Stock uses hash descriptors for: boot, recovery, vendor_boot, init_boot
+# Stock uses hashtree descriptors for: system, vendor, product, odm, system_dlkm, vendor_dlkm
+#
+# NOTE: Currently using test keys for development builds.
+# For production/official builds, replace test keys with proper signing keys:
+# 1. Generate keys: external/avb/avbtool.py generate_rsa_key --key_path /path/to/keys/key.pem --algorithm SHA256_RSA4096
+# 2. Update BOARD_AVB_KEY_PATH and BOARD_AVB_DTBO_KEY_PATH to point to your keys
+# 3. Ensure keys are kept secure and not committed to version control
 BOARD_AVB_DTBO_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_DTBO_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_DTBO_ROLLBACK_INDEX := 1
 BOARD_AVB_DTBO_ROLLBACK_INDEX_LOCATION := 1
+BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_ALGORITHM := SHA256_RSA4096

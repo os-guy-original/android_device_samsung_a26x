@@ -1,3 +1,9 @@
+# CPU/Dalvik
+dalvik.vm.isa.arm64.variant=cortex-a78
+dalvik.vm.isa.arm64.features=default
+dalvik.vm.isa.arm.variant=cortex-a55
+dalvik.vm.isa.arm.features=default
+
 # Audio
 aaudio.hw_burst_min_usec=2000
 aaudio.mmap_exclusive_policy=2
@@ -103,7 +109,7 @@ ro.slmk.dec_EFK_enable=true
 ro.slmk.dha_2ndprop_thMB=6144
 ro.slmk.dha_cached_max=18
 ro.slmk.dha_cached_min=3
-ro.slmk.plg_key=16388
+ro.slmk.plg_key=4
 ro.slmk.swap_free_low_percentage=35
 ro.slmk.trim_sec_policy=true
 ro.slmk.v_bonusEFK=60720
@@ -120,11 +126,11 @@ ro.vendor.gpu.dataspace=1
 ro.vendor.hdm.supported.swblock=0x100
 ro.vendor.nfc.feature.chipname=STM_ST21
 ro.vendor.nfc.info.antpos=16
-ro.vendor.nfc.info.antposX=29.0
-ro.vendor.nfc.info.antposY=29.0
+ro.vendor.nfc.info.antposX=29
+ro.vendor.nfc.info.antposY=29
 ro.vendor.nfc.info.deviceFoldable=false
-ro.vendor.nfc.info.deviceHeight=164.0
-ro.vendor.nfc.info.deviceWidth=78.0
+ro.vendor.nfc.info.deviceHeight=164
+ro.vendor.nfc.info.deviceWidth=78
 ro.vendor.nfc.support.advancedsetting=false
 ro.vendor.nfc.support.autoselect=true
 ro.vendor.nfc.support.defaultaid=true
@@ -132,7 +138,7 @@ ro.vendor.nfc.support.ese=false
 ro.vendor.nfc.support.nonaid=true
 ro.vendor.nfc.support.othercategory=true
 ro.vendor.nfc.support.uicc=true
-ro.vendor.qb.id=99274341
+ro.vendor.qb.id=101114462
 ro.vendor.sec.radio.def_network=9
 security.ADP.policy_version=00000000
 security.ADP.version=0

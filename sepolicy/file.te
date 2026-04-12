@@ -1,30 +1,14 @@
 # Samsung-specific partition file types
 type sec_efs_file, file_type, vendor_file_type;
-type param_file, file_type, vendor_file_type;
 type optics_file, file_type, vendor_file_type;
 type prism_file, file_type, vendor_file_type;
 type cpefs_file, file_type, vendor_file_type;
 
-# Camera firmware files
-type camera_fw_file, file_type, vendor_file_type;
-
-# Bluetooth firmware files
-type bt_firmware_file, file_type, vendor_file_type;
-
 # WiFi firmware files
 type wifi_firmware_file, file_type, vendor_file_type;
 
-# Modem firmware files
-type modem_fw_file, file_type, vendor_file_type;
-
 # Persistent data partition
 type persist_file, file_type, vendor_file_type;
-
-# BOTA (Boot OTA) partition
-type bota_file, file_type, vendor_file_type;
-
-# DUMP partition
-type dump_file, file_type, vendor_file_type;
 
 # Boot partitions (vendor-specific)
 type init_boot_block_device, file_type, vendor_file_type;
@@ -72,3 +56,76 @@ type audio_config_file, file_type, vendor_file_type;
 
 # USB configuration
 type usb_config_file, file_type, vendor_file_type;
+
+# HWC data (under /data/vendor/log/hwc)
+type hwc_data_file, file_type, data_file_type;
+
+# Abox log data (under /data/vendor/log/abox)
+type abox_log_data_file, file_type, data_file_type;
+
+# Eden data (under /data/vendor/eden)
+type eden_data_file, file_type, data_file_type;
+
+# ENN data (under /data/vendor/enn)
+type enn_data_file, file_type, data_file_type;
+
+# Epic data (under /data/vendor/epic)
+type epic_data_file, file_type, data_file_type;
+
+# Gatekeeper data (under /data/vendor/gk)
+type gk_data_file, file_type, data_file_type;
+
+# Weaver data (under /data/vendor/weaver)
+type weaver_data_file, file_type, data_file_type;
+
+# Media/GPU data (under /data/vendor/media)
+type media_data_file, file_type, data_file_type;
+
+# Camera sysfs entries
+type camera_sysfs, file_type, sysfs_type;
+
+# Display sysfs entries (LCD, MDNIE, DQE)
+type display_sysfs, file_type, sysfs_type;
+
+# Sensor sysfs entries
+type sensor_sysfs, file_type, sysfs_type;
+
+# Vibrator sysfs entries
+type vibrator_sysfs, file_type, sysfs_type;
+
+# EMS sysfs entries
+type ems_sysfs, file_type, sysfs_type;
+
+# GPU sysfs entries
+type gpu_sysfs, file_type, sysfs_type;
+
+# Additional Samsung file types from stock
+type wifi_efs_file, file_type, vendor_file_type;
+type vendor_vts_log_file, file_type, data_file_type, vendor_file_type;
+type vendor_log_file, file_type, data_file_type, vendor_file_type;
+type vendor_gk_data_file, file_type, data_file_type, vendor_file_type;
+type vendor_weaver_data_file, file_type, data_file_type, vendor_file_type;
+type vendor_radio_data_file, file_type, data_file_type, vendor_file_type;
+type data_eden_gpu_file, file_type, data_file_type, vendor_file_type;
+type data_enn_gpu_file, file_type, data_file_type, vendor_file_type;
+type yas_lib_vendor_data_file, file_type, data_file_type, vendor_file_type;
+type akmd_vendor_data_file, file_type, data_file_type, vendor_file_type;
+type gps_data_file, file_type, data_file_type, vendor_file_type;
+type vendor_location_data_file, file_type, data_file_type, vendor_file_type;
+type vendor_sensorhub_data_file, file_type, data_file_type, vendor_file_type;
+type mediadrm_vendor_data_file, file_type, data_file_type, vendor_file_type;
+type tee_vendor_data_file, file_type, data_file_type, vendor_file_type;
+type vendor_telephony_data_file, file_type, data_file_type, vendor_file_type;
+type vendor_keymaster_data_file, file_type, data_file_type, vendor_file_type;
+type biometrics_vendor_data_file, file_type, data_file_type, vendor_file_type;
+type nfc_vendor_data_file, file_type, data_file_type, vendor_file_type;
+type vendor_abox_log_file, file_type, data_file_type, vendor_file_type;
+type vendor_media_data_file, file_type, data_file_type, vendor_file_type;
+type vendor_hwc_file, file_type, data_file_type, vendor_file_type;
+
+# GPU snapshot daemon
+type gpu_snapshotd_exec, file_type, exec_type, vendor_file_type;
+
+# EPIC daemon
+type epicd_exec, file_type, exec_type, vendor_file_type;
+type epicd_socket, file_type, socket_type;

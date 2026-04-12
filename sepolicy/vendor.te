@@ -5,18 +5,263 @@ type vendor_hal_samsung_radio, domain;
 type vendor_hal_samsung_audio, domain;
 type vendor_hal_samsung_fingerprint, domain;
 
+# hwservice types for Samsung-specific HALs
+type hal_vendor_epic_hwservice, hwservice_manager_type;
+type hal_vendor_eden_runtime_hwservice, hwservice_manager_type;
+type hal_enn_hwservice, hwservice_manager_type;
+type hal_hqm_hwservice, hwservice_manager_type;
+
+# EPIC daemon
+type epicd, domain;
+type epicd_exec, exec_type, vendor_file_type;
+type epicd_socket, socket_type;
+
+# ENN HAL
+type hal_enn_default, domain;
+
+# Eden runtime HAL
+type hal_vendor_eden_runtime_default, domain;
+
+# VTS (Voice Trigger Service)
+type vendor_vts_device, dev_type;
+type vendor_vts_log_file, file_type, data_file_type, vendor_file_type;
+
+# GPU snapshot daemon
+type gpu_snapshotd, domain;
+type gpu_snapshotd_exec, exec_type, vendor_file_type;
+
+# Biometrics vendor data
+type biometrics_vendor_data_file, file_type, data_file_type, vendor_file_type;
+
+# NFC vendor data
+type nfc_vendor_data_file, file_type, data_file_type, vendor_file_type;
+
+# Sensor hub data
+type vendor_sensorhub_data_file, file_type, data_file_type, vendor_file_type;
+
+# Vendor abox log
+type vendor_abox_log_file, file_type, data_file_type, vendor_file_type;
+
+# Vendor media data
+type vendor_media_data_file, file_type, data_file_type, vendor_file_type;
+
+# Vendor HWC data
+type vendor_hwc_file, file_type, data_file_type, vendor_file_type;
+
+# EMS and profiler
+type ems_file, file_type, sysfs_type;
+type profiler_file, file_type, sysfs_type;
+type pm_qos_file, file_type, sysfs_type;
+
+# Vendor gatekeeper/weaver data
+type vendor_gk_data_file, file_type, data_file_type, vendor_file_type;
+type vendor_weaver_data_file, file_type, data_file_type, vendor_file_type;
+
+# Vendor log file
+type vendor_log_file, file_type, data_file_type, vendor_file_type;
+
 # Allow hal_camera_default to access camera files
-allow hal_camera_default camera_fw_file:dir search;
-allow hal_camera_default camera_fw_file:file { open read getattr map };
+allow hal_camera_default vendor_firmware_file:dir search;
+allow hal_camera_default vendor_firmware_file:file { open read getattr map };
+
+# Allow hal_camera_default to access caminfo device
+allow hal_camera_default caminfo_device:chr_file { open read write ioctl };
+allow cameraserver caminfo_device:chr_file { open read write ioctl };
+
+# Allow cameraserver to access camera sysfs
+allow cameraserver camera_sysfs:dir search;
+allow cameraserver camera_sysfs:file { open read write getattr };
+allow hal_camera_default camera_sysfs:dir search;
+allow hal_camera_default camera_sysfs:file { open read write getattr };
 
 # Allow hal_bluetooth_default to access BT firmware
-allow hal_bluetooth_default bt_firmware_file:dir search;
-allow hal_bluetooth_default bt_firmware_file:file { open read getattr map };
+allow hal_bluetooth_default vendor_firmware_file:dir search;
+allow hal_bluetooth_default vendor_firmware_file:file { open read getattr map };
 
 # Allow hal_wifi_default to access WiFi firmware
 allow hal_wifi_default wifi_firmware_file:dir search;
 allow hal_wifi_default wifi_firmware_file:file { open read getattr map };
 
 # Allow rild to access modem firmware
-allow rild modem_fw_file:dir search;
-allow rild modem_fw_file:file { open read getattr map };
+allow rild vendor_firmware_file:dir search;
+allow rild vendor_firmware_file:file { open read getattr map };
+
+# Allow audioserver to access abox/proc/audio
+allow audioserver abox_device:chr_file { open read write ioctl };
+allow audioserver abox_log_data_file:dir create_dir_perms;
+allow audioserver abox_log_data_file:file create_file_perms;
+
+# Allow mediacodec to access GPU sysfs
+allow mediacodec gpu_sysfs:file { open read write getattr };
+allow mediacodec media_data_file:dir create_dir_perms;
+allow mediacodec media_data_file:file create_file_perms;
+
+# Allow radio to access camera sysfs
+allow radio camera_sysfs:dir search;
+allow radio camera_sysfs:file { open read getattr };
+
+# Allow vendor domains to access corrected sysfs paths
+allow system_server hwc_data_file:dir create_dir_perms;
+allow system_server hwc_data_file:file create_file_perms;
+allow system_server eden_data_file:dir create_dir_perms;
+allow system_server eden_data_file:file create_file_perms;
+allow system_server enn_data_file:dir create_dir_perms;
+allow system_server enn_data_file:file create_file_perms;
+allow system_server epic_data_file:dir create_dir_perms;
+allow system_server epic_data_file:file create_file_perms;
+
+# Allow init to access data dirs with corrected types
+allow init hwc_data_file:dir create_dir_perms;
+allow init hwc_data_file:file create_file_perms;
+allow init abox_log_data_file:dir create_dir_perms;
+allow init abox_log_data_file:file create_file_perms;
+allow init eden_data_file:dir create_dir_perms;
+allow init eden_data_file:file create_file_perms;
+allow init enn_data_file:dir create_dir_perms;
+allow init enn_data_file:file create_file_perms;
+allow init epic_data_file:dir create_dir_perms;
+allow init epic_data_file:file create_file_perms;
+allow init gk_data_file:dir create_dir_perms;
+allow init gk_data_file:file create_file_perms;
+allow init weaver_data_file:dir create_dir_perms;
+allow init weaver_data_file:file create_file_perms;
+allow init media_data_file:dir create_dir_perms;
+allow init media_data_file:file create_file_perms;
+
+# Allow sensor access
+allow system_server sensor_sysfs:dir search;
+allow system_server sensor_sysfs:file { open read write getattr };
+
+# Allow display sysfs access
+allow system_server display_sysfs:dir search;
+allow system_server display_sysfs:file { open read write getattr };
+allow surfaceflinger display_sysfs:dir search;
+allow surfaceflinger display_sysfs:file { open read write getattr };
+
+# Allow GPU sysfs access
+allow system_server gpu_sysfs:file { open read getattr };
+
+# Allow EMS sysfs access
+allow system_server ems_sysfs:dir search;
+allow system_server ems_sysfs:file { open read write getattr };
+
+# Allow vibrator sysfs access
+allow system_server vibrator_sysfs:dir search;
+allow system_server vibrator_sysfs:file { open read write getattr };
+
+# ============================================================
+# EPIC daemon rules (critical for Samsung camera performance)
+# ============================================================
+allow epicd ems_device:chr_file { open read write ioctl };
+allow epicd ems_file:file { open read write getattr };
+allow epicd profiler_device:chr_file { open read write ioctl };
+allow epicd profiler_file:file { open read write getattr };
+allow epicd pm_qos_file:file { open read write getattr };
+
+# EPIC socket creation
+allow epicd self:unix_stream_socket create_socket_perms;
+allow epicd epicd_socket:dir create_dir_perms;
+allow epicd epicd_socket:sock_file create_file_perms;
+
+# EPIC data access
+allow epicd epic_data_file:dir create_dir_perms;
+allow epicd epic_data_file:file create_file_perms;
+allow epicd vendor_data_file:dir create_dir_perms;
+allow epicd vendor_data_file:file create_file_perms;
+
+# EPIC sysfs access
+allow epicd sysfs_req_mode:file { open read write getattr };
+allow epicd sysfs_ss_writable:file { open read write getattr };
+
+# ============================================================
+# VTS (Voice Trigger Service) rules
+# ============================================================
+allow hal_audio_default vendor_vts_device:chr_file { open read write ioctl getattr };
+allow hal_audio_default vendor_vts_log_file:dir create_dir_perms;
+allow hal_audio_default vendor_vts_log_file:file create_file_perms;
+allow audioserver vendor_vts_device:chr_file { open read write ioctl getattr };
+
+# ============================================================
+# GPU snapshot daemon rules
+# ============================================================
+allow gpu_snapshotd vendor_log_file:dir create_dir_perms;
+allow gpu_snapshotd vendor_log_file:file create_file_perms;
+allow gpu_snapshotd gpu_sysfs:dir search;
+allow gpu_snapshotd gpu_sysfs:file { open read getattr };
+
+# ============================================================
+# Fingerprint HAL rules
+# ============================================================
+allow hal_fingerprint_default biometrics_vendor_data_file:dir create_dir_perms;
+allow hal_fingerprint_default biometrics_vendor_data_file:file create_file_perms;
+allow hal_fingerprint_default tee_device:chr_file { open read write ioctl getattr };
+allow hal_fingerprint_default fingerprint_device:chr_file { open read write ioctl getattr };
+
+# ============================================================
+# NFC HAL rules
+# ============================================================
+allow hal_nfc nfc_vendor_data_file:dir create_dir_perms;
+allow hal_nfc nfc_vendor_data_file:file create_file_perms;
+allow hal_nfc nfc_device:chr_file { open read write ioctl getattr };
+
+# ============================================================
+# Sensor hub rules
+# ============================================================
+allow hal_sensors_default vendor_sensorhub_data_file:dir create_dir_perms;
+allow hal_sensors_default vendor_sensorhub_data_file:file create_file_perms;
+allow system_app vendor_sensorhub_data_file:dir search;
+allow system_app vendor_sensorhub_data_file:file { open read getattr };
+
+# ============================================================
+# Camera HAL media data rules
+# ============================================================
+allow hal_camera_default vendor_media_data_file:dir create_dir_perms;
+allow hal_camera_default vendor_media_data_file:file create_file_perms;
+
+# ============================================================
+# Mediacodec media data rules
+# ============================================================
+allow mediacodec vendor_media_data_file:dir create_dir_perms;
+allow mediacodec vendor_media_data_file:file create_file_perms;
+
+# ============================================================
+# Abox log rules for audio HAL
+# ============================================================
+allow hal_audio_default vendor_abox_log_file:dir create_dir_perms;
+allow hal_audio_default vendor_abox_log_file:file create_file_perms;
+
+# ============================================================
+# hwservice_manager rules for Samsung HALs
+# ============================================================
+allow hal_vendor_epic_hwservice hwservice_manager:hwservice_manager { find };
+allow hal_vendor_eden_runtime_hwservice hwservice_manager:hwservice_manager { find };
+allow hal_enn_hwservice hwservice_manager:hwservice_manager { find };
+allow hal_hqm_hwservice hwservice_manager:hwservice_manager { find };
+
+# Eden and ENN binder rules
+allow hal_camera_default hal_vendor_eden_runtime_default:binder { call };
+allow hal_camera_default hal_enn_default:binder { call };
+allow hal_camera_default hal_enn_hwservice:hwservice_manager { find };
+
+# ============================================================
+# Samsung hwservice rules
+# ============================================================
+allow hal_camera_default hal_vendor_epic_hwservice:hwservice_manager { find };
+allow hal_camera_default hal_vendor_eden_runtime_hwservice:hwservice_manager { find };
+allow hal_camera_default hal_enn_hwservice:hwservice_manager { find };
+
+# ============================================================
+# Additional vendor property access
+# ============================================================
+allow init vendor_epic_prop:property_service set;
+allow init vendor_samsung_prop:property_service set;
+allow init vendor_samsung_camera_prop:property_service set;
+allow init vendor_samsung_radio_prop:property_service set;
+allow init vendor_samsung_audio_prop:property_service set;
+allow init vendor_samsung_display_prop:property_service set;
+allow init vendor_samsung_wifi_prop:property_service set;
+allow init vendor_samsung_bluetooth_prop:property_service set;
+allow init vendor_gnss_prop:property_service set;
+allow init vendor_thermal_prop:property_service set;
+allow init vendor_sensors_prop:property_service set;
+allow init vendor_usb_prop:property_service set;

@@ -92,6 +92,12 @@ PRODUCT_PACKAGES += \
     init.recovery.s5e8835.rc \
     init.recovery.samsung.rc \
     init.s5e8835.rc \
+    init.s5e8835.usb.rc \
+    init.insmod.s5e8835.cfg \
+    init.ramplus.rc \
+    ueventd.rc \
+    wlan_vendor_rc \
+    wlan_common_rc \
     fstab.s5e8835 \
     fstab.ramplus
 

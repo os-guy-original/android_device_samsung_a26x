@@ -4,3 +4,10 @@ prebuilt_etc {
     src: "dpolicy",
     vendor_ramdisk: true,
 }
+
+prebuilt_etc {
+    name: "fstab.s5e8835.first_stage_ramdisk",
+    src: "fstab.s5e8835",
+    sub_dir: "",
+    first_stage_ramdisk: true,
+}

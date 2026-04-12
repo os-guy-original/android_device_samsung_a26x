@@ -22,5 +22,5 @@ PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="a26xxx-user 15 AP3A.240905.015.A2 A266BXXS4AYG9 release-keys" \
-    BuildFingerprint=samsung/a26xxx/essi:15/AP3A.240905.015.A2/A266BXXS4AYG9:user/release-keys
+    BuildDesc="a26xxx-user 16 BP2A.250605.031.A3 A266BXXU4BYI2 release-keys" \
+    BuildFingerprint=samsung/a26xxx/essi:16/BP2A.250605.031.A3/A266BXXU4BYI2:user/release-keys

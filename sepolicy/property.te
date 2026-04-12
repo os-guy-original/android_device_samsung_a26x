@@ -39,3 +39,106 @@ type vendor_usb_prop, property_type, vendor_property_type;
 
 # EPIC (Samsung encoder) properties
 type vendor_epic_prop, property_type, vendor_property_type;
+
+# TEE (Trusted Execution Environment) properties
+type vendor_tzdaemon_prop, property_type, vendor_property_type;
+type vendor_secureos_prop, property_type, vendor_property_type;
+type vendor_tztsdaemon_prop, property_type, vendor_property_type;
+type vendor_teegris_prop, property_type, vendor_property_type;
+
+# WiFi/BT properties
+type vendor_wland_prop, property_type, vendor_property_type;
+type vendor_wlbtd_prop, property_type, vendor_property_type;
+type vendor_wifi_version_prop, property_type, vendor_property_type;
+type vendor_wifi_ramdump_prop, property_type, vendor_property_type;
+
+# Diagnostics and logging properties
+type vendor_diag_prop, property_type, vendor_property_type;
+type vendor_slog_prop, property_type, vendor_property_type;
+type vendor_wtasd_prop, property_type, vendor_property_type;
+type vendor_dumpstate_config_prop, property_type, vendor_property_type;
+type vendor_softdog_prop, property_type, vendor_property_type;
+
+# Vendor device/system properties
+type vendor_device_prop, property_type, vendor_property_type;
+type vendor_default_prop, property_type, vendor_property_type;
+
+# HWC and display properties
+type vendor_hwc_prop, property_type, vendor_property_type;
+type vendor_display_sf_prop, property_type, vendor_property_type;
+
+# Camera and media properties
+type vendor_camera_prop, property_type, vendor_property_type;
+type vendor_camera_motor_prop, property_type, vendor_property_type;
+type vendor_dolby_prop, property_type, vendor_property_type;
+type vendor_dqsvc_prop, property_type, vendor_property_type;
+
+# Security properties
+type vendor_sec_vaultkeeper_prop, property_type, vendor_property_type;
+type vendor_sec_cass_prop, property_type, vendor_property_type;
+type vendor_sehal_init_prop, property_type, vendor_property_type;
+type vendor_fota_prop, property_type, vendor_property_type;
+type vendor_heimdalld_prop, property_type, vendor_property_type;
+type vendor_tmfd_prop, property_type, vendor_property_type;
+
+# UWB properties
+type vendor_uwb_prop, property_type, vendor_property_type;
+type vendor_uwb_feature_prop, property_type, vendor_property_type;
+type vendor_snap_debug_prop, property_type, vendor_property_type;
+type vendor_snap_cache_prop, property_type, vendor_property_type;
+
+# Input properties
+type vendor_input_state_prop, property_type, vendor_property_type;
+
+# SSR (Sub-System Restart) properties
+type vendor_ssr_update_prop, property_type, vendor_property_type;
+
+# Config properties
+type vendor_config_default_prop, property_type, vendor_property_type;
+type vendor_ro_config_default_prop, property_type, vendor_property_type;
+type vendor_persist_config_default_prop, property_type, vendor_property_type;
+type vendor_sys_default_prop, property_type, vendor_property_type;
+type vendor_ro_sys_default_prop, property_type, vendor_property_type;
+type vendor_persist_sys_default_prop, property_type, vendor_property_type;
+
+# NFC extended properties
+type vendor_sec_nfc_prop, property_type, vendor_property_type;
+
+# GNSS PSDS properties
+type vendor_gnss_psds_prop, property_type, vendor_property_type;
+
+# HQM (Hardware Quality Management) properties
+type vendor_hqm_hwservice_prop, property_type, vendor_property_type;
+
+# Health properties
+type vendor_health_prop, property_type, vendor_property_type;
+
+# Biometric properties (extended)
+type vendor_biometric_prop, property_type, vendor_property_type;
+
+# Power management properties (extended)
+type vendor_power_prop, property_type, vendor_property_type;
+
+# DRM properties (extended)
+type vendor_drm_ext_prop, property_type, vendor_property_type;
+
+# Keymint/Keymaster properties (extended)
+type vendor_keymint_ext_prop, property_type, vendor_property_type;
+
+# Gatekeeper properties (extended)
+type vendor_gatekeeper_ext_prop, property_type, vendor_property_type;
+
+# Sensors properties (extended)
+type vendor_sensors_ext_prop, property_type, vendor_property_type;
+
+# USB properties (extended)
+type vendor_usb_ext_prop, property_type, vendor_property_type;
+
+# Additional property types referenced in property_contexts
+type vendor_ofi_prop, property_type, vendor_property_type;
+type vendor_members_prop, property_type, vendor_property_type;
+type vendor_bssl_post_prop, property_type, vendor_property_type;
+type vendor_model_suffix_prop, property_type, vendor_property_type;
+type vendor_zygoteinit_prop, property_type, vendor_property_type;
+type vendor_proxydaemon_prop, property_type, vendor_property_type;
+type vendor_wlandriver_prop, property_type, vendor_property_type;

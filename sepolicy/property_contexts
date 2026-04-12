@@ -76,3 +76,156 @@ vendor.keymint.       u:object_r:vendor_keymint_prop:s0
 # EPIC (Samsung encoder) properties
 ro.vendor.epic.       u:object_r:vendor_epic_prop:s0
 vendor.epic.          u:object_r:vendor_epic_prop:s0
+
+# ============================================================
+# TEE (Trusted Execution Environment) properties
+# ============================================================
+vendor.tzdaemon       u:object_r:vendor_tzdaemon_prop:s0
+vendor.secureos.      u:object_r:vendor_secureos_prop:s0
+vendor.tzts_daemon    u:object_r:vendor_tztsdaemon_prop:s0
+vendor.TEEGRIS.       u:object_r:vendor_teegris_prop:s0
+
+# ============================================================
+# WiFi/BT properties
+# ============================================================
+vendor.wlbtlog.       u:object_r:vendor_wland_prop:s0
+persist.vendor.wlbtlog. u:object_r:vendor_wland_prop:s0
+vendor.wlbtd.         u:object_r:vendor_wlbtd_prop:s0
+vendor.wlan.driver.version u:object_r:vendor_wifi_version_prop:s0
+vendor.wlan.firmware.version u:object_r:vendor_wifi_version_prop:s0
+vendor.wlan.ramdump_mode u:object_r:vendor_wifi_ramdump_prop:s0
+persist.vendor.wifi.sap. u:object_r:vendor_wifi_prop:s0
+
+# ============================================================
+# Diagnostics and logging properties
+# ============================================================
+vendor.sys.dmd.       u:object_r:vendor_diag_prop:s0
+persist.vendor.sys.dm. u:object_r:vendor_diag_prop:s0
+vendor.sys.silentlog. u:object_r:vendor_slog_prop:s0
+vendor.sys.exynos.slog. u:object_r:vendor_slog_prop:s0
+vendor.wtasd.         u:object_r:vendor_wtasd_prop:s0
+persist.vendor.dumpstate.verbose_logging.enabled u:object_r:vendor_dumpstate_config_prop:s0
+persist.vendor.softdog u:object_r:vendor_softdog_prop:s0
+
+# ============================================================
+# Vendor device/system properties
+# ============================================================
+vendor.device.modules.ready u:object_r:vendor_device_prop:s0
+vendor.               u:object_r:vendor_default_prop:s0
+persist.vendor.       u:object_r:vendor_default_prop:s0
+ro.vendor.            u:object_r:vendor_default_prop:s0
+
+# ============================================================
+# HWC and display properties
+# ============================================================
+vendor.hwc.           u:object_r:vendor_hwc_prop:s0
+vendor.hwc.exynos.    u:object_r:vendor_hwc_prop:s0
+vendor.display.sf.    u:object_r:vendor_display_sf_prop:s0
+
+# ============================================================
+# Camera and media properties
+# ============================================================
+vendor.camera.ppp.    u:object_r:vendor_camera_prop:s0
+vendor.camera.motor.service u:object_r:vendor_camera_motor_prop:s0
+vendor.dolby.         u:object_r:vendor_dolby_prop:s0
+ro.vendor.dqsvc.      u:object_r:vendor_dqsvc_prop:s0
+
+# ============================================================
+# Security properties
+# ============================================================
+vendor.security.vaultkeeper. u:object_r:vendor_sec_vaultkeeper_prop:s0
+vendor.security.cass. u:object_r:vendor_sec_cass_prop:s0
+vendor.seHal.init     u:object_r:vendor_sehal_init_prop:s0
+vendor.ota.recovery.status u:object_r:vendor_fota_prop:s0
+ro.vendor.heimdalld.  u:object_r:vendor_heimdalld_prop:s0
+vendor.tmfd           u:object_r:vendor_tmfd_prop:s0
+
+# ============================================================
+# UWB properties
+# ============================================================
+persist.vendor.uwb.log.index u:object_r:vendor_uwb_prop:s0
+ro.vendor.uwb.feature.chipname u:object_r:vendor_uwb_feature_prop:s0
+vendor.snap.debug.level u:object_r:vendor_snap_debug_prop:s0
+persist.vendor.snaplite_cache_status_64 u:object_r:vendor_snap_cache_prop:s0
+
+# ============================================================
+# Input properties
+# ============================================================
+vendor.sysinput.state u:object_r:vendor_input_state_prop:s0
+
+# ============================================================
+# SSR (Sub-System Restart) properties
+# ============================================================
+vendor.ssr.update.trigger u:object_r:vendor_ssr_update_prop:s0
+
+# ============================================================
+# Config properties
+# ============================================================
+vendor.config.        u:object_r:vendor_config_default_prop:s0
+ro.vendor.config.     u:object_r:vendor_ro_config_default_prop:s0
+persist.vendor.config. u:object_r:vendor_persist_config_default_prop:s0
+vendor.sys.           u:object_r:vendor_sys_default_prop:s0
+ro.vendor.sys.        u:object_r:vendor_ro_sys_default_prop:s0
+persist.vendor.sys.   u:object_r:vendor_persist_sys_default_prop:s0
+
+# ============================================================
+# NFC extended properties
+# ============================================================
+persist.vendor.nfc.log.index u:object_r:vendor_nfc_prop:s0
+vendor.nfc.fw.        u:object_r:vendor_nfc_prop:s0
+ro.vendor.nfc.        u:object_r:vendor_sec_nfc_prop:s0
+
+# ============================================================
+# GNSS PSDS properties
+# ============================================================
+vendor.gnss.psds      u:object_r:vendor_gnss_psds_prop:s0
+
+# ============================================================
+# Thermal extended properties
+# ============================================================
+vendor.thermal.amb.   u:object_r:vendor_thermal_prop:s0
+
+# ============================================================
+# Sensor properties (additional)
+# ============================================================
+vendor.sensor.        u:object_r:vendor_sensors_prop:s0
+
+# ============================================================
+# Radio properties (additional)
+# ============================================================
+ro.vendor.radio.      u:object_r:vendor_radio_prop:s0
+
+# ============================================================
+# OFI (Open Feature Integration) properties
+# ============================================================
+vendor.ofi.           u:object_r:vendor_ofi_prop:s0
+
+# ============================================================
+# Members properties
+# ============================================================
+persist.vendor.members. u:object_r:vendor_members_prop:s0
+
+# ============================================================
+# FIPS/BSSL properties
+# ============================================================
+vendor.fips.bssl.post u:object_r:vendor_bssl_post_prop:s0
+
+# ============================================================
+# Model suffix property
+# ============================================================
+ro.vendor.model_suffix  u:object_r:vendor_model_suffix_prop:s0
+
+# ============================================================
+# Zygote init properties
+# ============================================================
+persist.vendor.zit.   u:object_r:vendor_zygoteinit_prop:s0
+
+# ============================================================
+# Proxy daemon properties
+# ============================================================
+vendor.proxy_daemon   u:object_r:vendor_proxydaemon_prop:s0
+
+# ============================================================
+# WLAN driver properties
+# ============================================================
+vendor.wlandriver.    u:object_r:vendor_wlandriver_prop:s0
