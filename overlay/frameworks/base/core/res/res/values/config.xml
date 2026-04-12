@@ -47,8 +47,7 @@
     <!-- If true, the doze component is not started until after the screen has been turned off -->
     <bool name="config_dozeAfterScreenOffByDefault">true</bool>
 
-    <!-- Display dimensions: SM-A266B has 1080x2340, 120Hz AMOLED panel
-         (verified: adb shell su -c 'cat /sys/class/drm/card0-DSI-1/modes' -> 1080x2340@120hs, 1080x2340@60hs) -->
+    <!-- Display dimensions: SM-A266B has 1080x2340, 60Hz/120Hz AMOLED panel -->
     <integer name="config_screenWidth">1080</integer>
     <integer name="config_screenHeight">2340</integer>
 
