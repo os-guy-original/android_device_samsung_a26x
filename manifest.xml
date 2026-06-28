@@ -520,15 +520,7 @@
         </interface>
         <fqname>@1.0::IEnnInterface/default</fqname>
     </hal>
-    <hal format="hidl">
-        <name>vendor.samsung_slsi.telephony.hardware.oemservice</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IOemService/dm0</fqname>
-        <fqname>@1.0::IOemService/dm1</fqname>
-        <fqname>@1.0::IOemService/pst</fqname>
-    </hal>
-
-    <!-- Samsung DMD -->
+    <!-- Samsung DMD (OEM Service) -->
     <hal format="hidl">
         <name>vendor.samsung_slsi.telephony.hardware.oemservice</name>
         <transport>hwbinder</transport>
@@ -539,6 +531,9 @@
             <instance>dm1</instance>
             <instance>pst</instance>
         </interface>
+        <fqname>@1.0::IOemService/dm0</fqname>
+        <fqname>@1.0::IOemService/dm1</fqname>
+        <fqname>@1.0::IOemService/pst</fqname>
     </hal>
 
     <sepolicy>

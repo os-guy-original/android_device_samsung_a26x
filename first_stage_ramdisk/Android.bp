@@ -1,6 +1,0 @@
-// first_stage_ramdisk contents
-prebuilt_etc {
-    name: "dpolicy",
-    src: "dpolicy",
-    vendor_ramdisk: true,
-}
