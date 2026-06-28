@@ -117,16 +117,20 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl
 
 # Health AIDL HAL (manifest declares health V1)
+# Vendor provides vendor.samsung.hardware.health-service (Samsung AIDL wrapper)
 PRODUCT_PACKAGES += \
-    android.hardware.health-service.default
+    android.hardware.health-service.default \
+    vendor.samsung.hardware.health-service
 
 # KeyMint AIDL HAL (manifest declares keymint V2 + secureclock + sharedsecret with override)
 PRODUCT_PACKAGES += \
     android.hardware.security.keymint-service
 
 # Media C2 HIDL HAL (manifest declares media.c2@1.2 with override, 2 instances)
+# Vendor provides samsung.hardware.media.c2@1.2-service (Samsung implementation)
 PRODUCT_PACKAGES += \
-    android.hardware.media.c2@1.2-service
+    android.hardware.media.c2@1.2-service \
+    samsung.hardware.media.c2@1.2-service
 
 # Media OMX HIDL HAL (manifest declares media.omx@1.0)
 PRODUCT_PACKAGES += \
@@ -137,8 +141,10 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2-service
 
 # Power AIDL HAL (manifest declares power V2)
+# Vendor provides android.hardware.power.samsung-service (Samsung implementation)
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.default
+    android.hardware.power-service.default \
+    android.hardware.power.samsung-service
 
 # RenderScript HIDL HAL (manifest declares renderscript@1.0 passthrough)
 PRODUCT_PACKAGES += \
@@ -149,8 +155,10 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@2.0-service
 
 # Thermal HIDL HAL (manifest declares thermal@1.0 + @2.0 with override)
+# Vendor provides vendor.samsung.hardware.thermal@1.0-service (Samsung @1.0 extension)
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service
+    android.hardware.thermal@2.0-service \
+    vendor.samsung.hardware.thermal@1.0-service
 
 # USB HIDL HAL (manifest declares usb@1.3)
 PRODUCT_PACKAGES += \
@@ -161,8 +169,12 @@ PRODUCT_PACKAGES += \
     android.hardware.weaver@1.0-service
 
 # Wi-Fi HIDL HAL packages (manifest declares wifi@1.6, hostapd@1.3, supplicant@1.4)
+# Vendor provides android.hardware.wifi@1.0-service + vendor.samsung.hardware.wifi@2.0-service
+# AOSP builds wifi@1.6 from source; Samsung vendor service is a proprietary extension
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.6-service \
+    android.hardware.wifi@1.0-service \
+    vendor.samsung.hardware.wifi@2.0-service \
     android.hardware.wifi.hostapd@1.3-service \
     android.hardware.wifi.supplicant@1.4-service
 
