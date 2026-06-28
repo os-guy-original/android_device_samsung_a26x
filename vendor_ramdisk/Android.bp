@@ -1,7 +1,0 @@
-// vendor_ramdisk contents
-prebuilt_etc {
-    name: "ft3419_firmware",
-    src: "firmware/ft3419_a26x.bin",
-    sub_dir: "firmware",
-    vendor_ramdisk: true,
-}

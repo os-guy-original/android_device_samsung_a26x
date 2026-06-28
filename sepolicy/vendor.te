@@ -5,18 +5,368 @@ type vendor_hal_samsung_radio, domain;
 type vendor_hal_samsung_audio, domain;
 type vendor_hal_samsung_fingerprint, domain;
 
-# Allow hal_camera_default to access camera files
-allow hal_camera_default camera_fw_file:dir search;
-allow hal_camera_default camera_fw_file:file { open read getattr map };
+# =============================================================================
+# Audio HAL
+# =============================================================================
+allow hal_audio_default camera_fw_file:dir search;
+allow hal_audio_default audio_config_file:dir search;
+allow hal_audio_default audio_config_file:file { open read getattr map };
+allow hal_audio_default vendor_firmware_file:dir search;
+allow hal_audio_default vendor_firmware_file:file { open read getattr map };
+allow hal_audio_default vendor_samsung_audio_prop:file read;
+allow hal_audio_default sysfs_audio:dir search;
+allow hal_audio_default sysfs_audio:file { open read getattr };
+# Samsung A-Box (Audio Box) DSP access
+allow hal_audio_default sec_block_device:chr_file { open read write ioctl };
+allow hal_audio_default vendor_samsung_prop:file read;
 
-# Allow hal_bluetooth_default to access BT firmware
+# =============================================================================
+# Bluetooth HAL
+# =============================================================================
 allow hal_bluetooth_default bt_firmware_file:dir search;
 allow hal_bluetooth_default bt_firmware_file:file { open read getattr map };
+allow hal_bluetooth_default vendor_firmware_file:dir search;
+allow hal_bluetooth_default vendor_firmware_file:file { open read getattr map };
+allow hal_bluetooth_default vendor_samsung_bluetooth_prop:file read;
+allow hal_bluetooth_default sec_block_device:chr_file { open read write ioctl };
+allow hal_bluetooth_default mif_device:chr_file { open read write ioctl };
+# Samsung SIPC (inter-processor comm) for BT
+allow hal_bluetooth_default sipc_device:chr_file { open read write ioctl };
+allow hal_bluetooth_default shm_device:chr_file { open read write ioctl };
+# BT MAC address from EFS
+allow hal_bluetooth_default efs_block_device:chr_file { open read };
+allow hal_bluetooth_default sec_efs_file:dir search;
+allow hal_bluetooth_default sec_efs_file:file { open read getattr };
 
-# Allow hal_wifi_default to access WiFi firmware
+# =============================================================================
+# Camera HAL
+# =============================================================================
+allow hal_camera_default camera_fw_file:dir search;
+allow hal_camera_default camera_fw_file:file { open read getattr map };
+allow hal_camera_default vendor_firmware_file:dir search;
+allow hal_camera_default vendor_firmware_file:file { open read getattr map };
+allow hal_camera_default vendor_samsung_camera_prop:file read;
+allow hal_camera_default sysfs_camera:dir search;
+allow hal_camera_default sysfs_camera:file { open read getattr };
+allow hal_camera_default sec_block_device:chr_file { open read write ioctl };
+# Camera ISP / IPU access (Exynos)
+allow hal_camera_default dmabuf_device:chr_file { open read write ioctl };
+allow hal_camera_default sysfs_gpu:dir search;
+allow hal_camera_default sysfs_gpu:file { open read getattr };
+# Camera EEPROM data
+allow hal_camera_default efs_block_device:chr_file { open read };
+
+# =============================================================================
+# DRM HAL (Widevine + Clearkey)
+# =============================================================================
+allow hal_drm_default widevine_data_file:dir create_dir_perms;
+allow hal_drm_default widevine_data_file:file create_file_perms;
+allow hal_drm_default vendor_drm_prop:file read;
+allow hal_drm_default vendor_widevine_prop:file read;
+allow hal_drm_default vendor_firmware_file:dir search;
+allow hal_drm_default vendor_firmware_file:file { open read getattr map };
+allow hal_drm_default tee_device:chr_file { open read write ioctl };
+# Samsung TEEgris for Widevine
+allow hal_drm_default keystorage_device:chr_file { open read };
+
+# =============================================================================
+# Fingerprint HAL
+# =============================================================================
+allow hal_fingerprint_default fingerprint_device:chr_file { open read write ioctl };
+allow hal_fingerprint_default fingerprint_data_file:dir create_dir_perms;
+allow hal_fingerprint_default fingerprint_data_file:file create_file_perms;
+allow hal_fingerprint_default vendor_samsung_fingerprint_prop:file read;
+allow hal_fingerprint_default vendor_samsung_biometric_prop:file read;
+allow hal_fingerprint_default tee_device:chr_file { open read write ioctl };
+allow hal_fingerprint_default sec_block_device:chr_file { open read };
+allow hal_fingerprint_default sysfs_fingerprint:dir search;
+allow hal_fingerprint_default sysfs_fingerprint:file { open read getattr };
+
+# =============================================================================
+# Gatekeeper HAL
+# =============================================================================
+allow hal_gatekeeper_default tee_device:chr_file { open read write ioctl };
+allow hal_gatekeeper_default vendor_gatekeeper_prop:file read;
+allow hal_gatekeeper_default keystorage_device:chr_file { open read };
+allow hal_gatekeeper_default mcrypt_device:chr_file { open read write ioctl };
+
+# =============================================================================
+# GNSS/GPS HAL
+# =============================================================================
+allow hal_gnss_default gnss_data_file:dir create_dir_perms;
+allow hal_gnss_default gnss_data_file:file create_file_perms;
+allow hal_gnss_default vendor_gnss_prop:file read;
+allow hal_gnss_default vendor_gps_prop:file read;
+allow hal_gnss_default mif_device:chr_file { open read };
+allow hal_gnss_default sipc_device:chr_file { open read write ioctl };
+allow hal_gnss_default vendor_firmware_file:dir search;
+allow hal_gnss_default vendor_firmware_file:file { open read getattr map };
+
+# =============================================================================
+# Graphics / Composer HAL
+# =============================================================================
+allow hal_graphics_composer_default sysfs_display:dir search;
+allow hal_graphics_composer_default sysfs_display:file { open read getattr write };
+allow hal_graphics_composer_default display_device:chr_file { open read write ioctl };
+allow hal_graphics_composer_default dmabuf_device:chr_file { open read write ioctl map };
+allow hal_graphics_composer_default vendor_samsung_display_prop:file read;
+allow hal_graphics_composer_default sysfs_gpu:dir search;
+allow hal_graphics_composer_default sysfs_gpu:file { open read getattr };
+allow hal_graphics_composer_default sysfs_devfreq:dir search;
+allow hal_graphics_composer_default sysfs_devfreq:file { open read getattr };
+# Decon (Display Encoder) on Samsung Exynos
+allow hal_graphics_composer_default sec_block_device:chr_file { open read write ioctl };
+
+# Graphics Allocator
+allow hal_graphics_allocator_default dmabuf_device:chr_file { open read write ioctl map };
+allow hal_graphics_allocator_default vendor_samsung_display_prop:file read;
+
+# Graphics Mapper
+allow hal_graphics_mapper_default dmabuf_device:chr_file { open read write ioctl map };
+
+# =============================================================================
+# Health HAL
+# =============================================================================
+allow hal_health_default health_data_file:dir create_dir_perms;
+allow hal_health_default health_data_file:file create_file_perms;
+allow hal_health_default vendor_samsung_health_prop:file read;
+allow hal_health_default sysfs_power_supply:dir search;
+allow hal_health_default sysfs_power_supply:file { open read getattr };
+allow hal_health_default sysfs_battery:dir search;
+allow hal_health_default sysfs_battery:file { open read getattr };
+
+# =============================================================================
+# KeyMint / Keymaster HAL
+# =============================================================================
+allow hal_keymint_default tee_device:chr_file { open read write ioctl };
+allow hal_keymint_default vendor_keymint_prop:file read;
+allow hal_keymint_default vendor_keymaster_prop:file read;
+allow hal_keymint_default keymaster_data_file:dir create_dir_perms;
+allow hal_keymint_default keymaster_data_file:file create_file_perms;
+allow hal_keymint_default keystorage_device:chr_file { open read };
+allow hal_keymint_default mcrypt_device:chr_file { open read write ioctl };
+
+# =============================================================================
+# Media C2 / OMX HAL
+# =============================================================================
+allow hal_media_c2_default vendor_firmware_file:dir search;
+allow hal_media_c2_default vendor_firmware_file:file { open read getattr map };
+allow hal_media_c2_default dmabuf_device:chr_file { open read write ioctl map };
+allow hal_media_c2_default sysfs_gpu:dir search;
+allow hal_media_c2_default sysfs_gpu:file { open read getattr };
+allow hal_media_c2_default sec_block_device:chr_file { open read };
+# Samsung EPIC encoder
+allow hal_media_c2_default vendor_epic_prop:file read;
+allow hal_media_c2_default vendor_samsung_prop:file read;
+
+# Media OMX
+allow hal_media_omx_default dmabuf_device:chr_file { open read write ioctl map };
+allow hal_media_omx_default vendor_firmware_file:dir search;
+allow hal_media_omx_default vendor_firmware_file:file { open read getattr map };
+
+# =============================================================================
+# NFC HAL (ST21NFCA)
+# =============================================================================
+allow hal_nfc_default nfc_device:chr_file { open read write ioctl };
+allow hal_nfc_default vendor_samsung_nfc_prop:file read;
+allow hal_nfc_default vendor_firmware_file:dir search;
+allow hal_nfc_default vendor_firmware_file:file { open read getattr map };
+allow hal_nfc_default sysfs_nfc:dir search;
+allow hal_nfc_default sysfs_nfc:file { open read getattr write };
+# NFC secure element via TEE
+allow hal_nfc_default tee_device:chr_file { open read write ioctl };
+
+# =============================================================================
+# Power HAL
+# =============================================================================
+allow hal_power_default vendor_samsung_power_prop:file read;
+allow hal_power_default sysfs_cpu:dir search;
+allow hal_power_default sysfs_cpu:file { open read getattr write };
+allow hal_power_default sysfs_thermal:dir search;
+allow hal_power_default sysfs_thermal:file { open read getattr };
+allow hal_power_default sysfs_devfreq:dir search;
+allow hal_power_default sysfs_devfreq:file { open read getattr write };
+# Samsung EMS (Energy Management Scheduling)
+allow hal_power_default sysfs_ems:dir search;
+allow hal_power_default sysfs_ems:file { open read getattr write };
+
+# =============================================================================
+# Sensors HAL
+# =============================================================================
+allow hal_sensors_default sensor_data_file:dir create_dir_perms;
+allow hal_sensors_default sensor_data_file:file create_file_perms;
+allow hal_sensors_default vendor_sensors_prop:file read;
+allow hal_sensors_default sysfs_sensors:dir search;
+allow hal_sensors_default sysfs_sensors:file { open read getattr };
+allow hal_sensors_default sec_block_device:chr_file { open read };
+# Samsung sensor hub (SHM)
+allow hal_sensors_default shm_device:chr_file { open read write ioctl };
+allow hal_sensors_default sipc_device:chr_file { open read };
+
+# =============================================================================
+# Thermal HAL
+# =============================================================================
+allow hal_thermal_default vendor_thermal_prop:file read;
+allow hal_thermal_default sysfs_thermal:dir search;
+allow hal_thermal_default sysfs_thermal:file { open read getattr };
+allow hal_thermal_default thermal_config_file:dir search;
+allow hal_thermal_default thermal_config_file:file { open read getattr map };
+
+# =============================================================================
+# USB HAL
+# =============================================================================
+allow hal_usb_default usb_config_file:dir search;
+allow hal_usb_default usb_config_file:file { open read getattr };
+allow hal_usb_default vendor_usb_prop:file read;
+allow hal_usb_default sysfs_usb:dir search;
+allow hal_usb_default sysfs_usb:file { open read getattr write };
+
+# =============================================================================
+# Wi-Fi HAL
+# =============================================================================
 allow hal_wifi_default wifi_firmware_file:dir search;
 allow hal_wifi_default wifi_firmware_file:file { open read getattr map };
+allow hal_wifi_default vendor_samsung_wifi_prop:file read;
+allow hal_wifi_default vendor_firmware_file:dir search;
+allow hal_wifi_default vendor_firmware_file:file { open read getattr map };
+allow hal_wifi_default sec_block_device:chr_file { open read };
+# Samsung SIPC for Wi-Fi
+allow hal_wifi_default sipc_device:chr_file { open read write ioctl };
+allow hal_wifi_default mif_device:chr_file { open read };
 
-# Allow rild to access modem firmware
+# Wi-Fi supplicant
+allow hal_wifi_supplicant_default wifi_firmware_file:dir search;
+allow hal_wifi_supplicant_default wifi_firmware_file:file { open read getattr map };
+allow hal_wifi_supplicant_default vendor_samsung_wifi_prop:file read;
+allow hal_wifi_supplicant_default efs_block_device:chr_file { open read };
+allow hal_wifi_supplicant_default sec_efs_file:dir search;
+allow hal_wifi_supplicant_default sec_efs_file:file { open read getattr };
+
+# =============================================================================
+# Radio / RIL
+# =============================================================================
 allow rild modem_fw_file:dir search;
 allow rild modem_fw_file:file { open read getattr map };
+allow rild mif_device:chr_file { open read write ioctl };
+allow rild sipc_device:chr_file { open read write ioctl };
+allow rild shm_device:chr_file { open read write ioctl };
+allow rild vendor_samsung_radio_prop:file read;
+allow rild efs_block_device:chr_file { open read };
+allow rild sec_efs_file:dir search;
+allow rild sec_efs_file:file { open read getattr };
+allow rild cpefs_file:dir search;
+allow rild cpefs_file:file { open read getattr };
+allow rild ril_data_file:dir create_dir_perms;
+allow rild ril_data_file:file create_file_perms;
+# Samsung CBD (CP Boot Daemon)
+allow rild param_device:chr_file { open read write ioctl };
+allow rild vendor_firmware_file:dir search;
+allow rild vendor_firmware_file:file { open read getattr map };
+
+# =============================================================================
+# Weaver HAL (used for synthetic password)
+# =============================================================================
+allow hal_weaver_default tee_device:chr_file { open read write ioctl };
+allow hal_weaver_default keystorage_device:chr_file { open read };
+allow hal_weaver_default mcrypt_device:chr_file { open read write ioctl };
+
+# =============================================================================
+# CAS HAL (Conditional Access System)
+# =============================================================================
+allow hal_cas_default vendor_drm_prop:file read;
+allow hal_cas_default tee_device:chr_file { open read write ioctl };
+
+# =============================================================================
+# Renderscript HAL (passthrough)
+# =============================================================================
+allow hal_renderscript_default dmabuf_device:chr_file { open read ioctl map };
+allow hal_renderscript_default sysfs_gpu:dir search;
+allow hal_renderscript_default sysfs_gpu:file { open read getattr };
+
+# =============================================================================
+# Memtrack HAL
+# =============================================================================
+allow hal_memtrack_default sysfs_gpu:dir search;
+allow hal_memtrack_default sysfs_gpu:file { open read getattr };
+allow hal_memtrack_default dmabuf_device:chr_file { open read ioctl };
+
+# =============================================================================
+# Light HAL (Samsung)
+# =============================================================================
+allow hal_light_default sysfs_leds:dir search;
+allow hal_light_default sysfs_leds:file { open read getattr write };
+
+# =============================================================================
+# Vibrator HAL
+# =============================================================================
+allow hal_vibrator_default vibrator_device:chr_file { open read write ioctl };
+allow hal_vibrator_default sysfs_vibrator:dir search;
+allow hal_vibrator_default sysfs_vibrator:file { open read getattr write };
+
+# =============================================================================
+# Dumpstate HAL
+# =============================================================================
+allow hal_dumpstate_default dump_file:dir create_dir_perms;
+allow hal_dumpstate_default dump_file:file create_file_perms;
+allow hal_dumpstate_default vendor_samsung_prop:file read;
+allow hal_dumpstate_default sysfs_sec:dir search;
+allow hal_dumpstate_default sysfs_sec:file { open read getattr };
+
+# =============================================================================
+# Biometrics (Face) HAL
+# =============================================================================
+allow hal_biometrics_face_default tee_device:chr_file { open read write ioctl };
+allow hal_biometrics_face_default vendor_samsung_biometric_prop:file read;
+allow hal_biometrics_face_default camera_fw_file:dir search;
+allow hal_biometrics_face_default dmabuf_device:chr_file { open read write ioctl map };
+
+# =============================================================================
+# Neural Networks HAL
+# =============================================================================
+allow hal_neuralnetworks_default dmabuf_device:chr_file { open read write ioctl map };
+allow hal_neuralnetworks_default sysfs_gpu:dir search;
+allow hal_neuralnetworks_default sysfs_gpu:file { open read getattr };
+
+# =============================================================================
+# Samsung vendor init / shell scripts
+# =============================================================================
+allow vendor_init sec_efs_file:dir search;
+allow vendor_init sec_efs_file:file { open read getattr };
+allow vendor_init param_file:dir search;
+allow vendor_init param_file:file { open read getattr };
+allow vendor_init efs_block_device:chr_file { open read };
+allow vendor_init param_device:chr_file { open read write ioctl };
+allow vendor_init vendor_samsung_prop:file read;
+
+# Samsung HDM (Hardware Diagnostic Manager)
+allow hdm_default vendor_samsung_prop:file read;
+allow hdm_default sysfs_sec:dir search;
+allow hdm_default sysfs_sec:file { open read getattr };
+
+# Samsung GPS init
+allow gps_default mif_device:chr_file { open read };
+allow gps_default sipc_device:chr_file { open read };
+allow gps_default vendor_gnss_prop:file read;
+allow gps_default vendor_gps_prop:file read;
+
+# =============================================================================
+# Vendor services accessing Samsung-specific resources
+# =============================================================================
+# Samsung SystemFW / HQM (HAL Qualification Manager)
+allow vendor_sysfw_default vendor_samsung_hqm_prop:file read;
+allow vendor_sysfw_default vendor_samsung_prop:file read;
+allow vendor_sysfw_default sysfs_sec:dir search;
+
+# Samsung SPD (Smart Power Decision)
+allow vendor_spd_default spd_device:chr_file { open read write ioctl };
+allow vendor_spd_default sysfs_cpu:dir search;
+allow vendor_spd_default sysfs_cpu:file { open read getattr };
+allow vendor_spd_default vendor_samsung_power_prop:file read;
+
+# Samsung audio A-Box DSP firmware loader
+allow vendor_abox_default sec_block_device:chr_file { open read write ioctl };
+allow vendor_abox_default vendor_firmware_file:dir search;
+allow vendor_abox_default vendor_firmware_file:file { open read getattr map };
+allow vendor_abox_default sysfs_audio:dir search;
+allow vendor_abox_default sysfs_audio:file { open read getattr write };
+allow vendor_abox_default vendor_samsung_audio_prop:file read;

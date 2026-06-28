@@ -69,6 +69,45 @@
 # USB configuration
 /vendor/etc/usb(/.*)?         u:object_r:usb_config_file:s0
 
+# NFC data
+/data/vendor/nfc(/.*)?         u:object_r:nfc_data_file:s0
+
+# NFC configuration
+/vendor/etc/nfc(/.*)?          u:object_r:nfc_config_file:s0
+/vendor/etc/libnfc-nci.*       u:object_r:nfc_config_file:s0
+
+# Display configuration (Exynos DECON/DSIM)
+/vendor/etc/display(/.*)?      u:object_r:display_config_file:s0
+
+# Media configuration
+/vendor/etc/media_codecs.*     u:object_r:media_config_file:s0
+/vendor/etc/media_profiles.*   u:object_r:media_config_file:s0
+
+# WiFi configuration
+/vendor/etc/wifi(/.*)?         u:object_r:wifi_config_file:s0
+
+# Keylayout
+/vendor/usr/keylayout(/.*)?    u:object_r:keylayout_file:s0
+
+# Samsung DPK (Device Policy)
+/vendor/etc/dpolicy(/.*)?      u:object_r:dpolicy_file:s0
+
+# Touchscreen firmware
+/vendor/firmware/ft3419(/.*)?   u:object_r:touchscreen_fw_file:s0
+
+# Samsung A-Box firmware
+/vendor/firmware/abox(/.*)?    u:object_r:abox_fw_file:s0
+
+# Samsung CSC data
+/data/csc(/.*)?                u:object_r:csc_data_file:s0
+
+# VPNPP data
+/data/vendor/vpnpp(/.*)?       u:object_r:vpnpp_data_file:s0
+
+# ADP/ASKS security policy data
+/data/vendor/adp(/.*)?         u:object_r:adp_data_file:s0
+/data/vendor/asks(/.*)?        u:object_r:adp_data_file:s0
+
 # EFS mount point
 /mnt/vendor/efs(/.*)?         u:object_r:efs_file:s0
 

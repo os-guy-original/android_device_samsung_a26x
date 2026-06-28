@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    SPDX-FileCopyrightText: The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<manifest>
+
+    <!-- Samsung Exynos 1380 (s5e8835) kernel for Galaxy A26x (a26x) -->
+    <project
+        name="os-guy-original/android_kernel_samsung_a26x"
+        path="kernel/samsung/a26x"
+        remote="github"
+        revision="lineage-22.1" />
+
+    <!-- Samsung Exynos device policy and shared HAL helpers -->
+    <project
+        name="os-guy-original/android_hardware_samsung"
+        path="hardware/samsung"
+        remote="github"
+        revision="lineage-22.1" />
+
+    <!-- Common SLSI HAL support -->
+    <project
+        name="os-guy-original/android_device_samsung_slsi"
+        path="device/samsung/slsi"
+        remote="github"
+        revision="lineage-22.1" />
+
+    <!-- Vendor blobs for SM-A266B / a26x -->
+    <project
+        name="os-guy-original/android_vendor_samsung_a26x"
+        path="vendor/samsung/a26x"
+        remote="github"
+        revision="lineage-22.1" />
+
+</manifest>

@@ -57,17 +57,22 @@ type vts_device, dev_type;
 type earjack_device, dev_type;
 
 # Audio devices
+type audio_device, dev_type;
 
-# Camera devices
+# Camera devices (Exynos ISP)
+type camera_device, dev_type;
 
 # Fingerprint sensor device
 type fingerprint_device, dev_type;
 
 # GNSS/GPS device
+type gnss_device, dev_type;
 
-# NFC device
+# NFC device (ST21NFCA)
+type nfc_device, dev_type;
 
 # Sensors device
+type sensors_device, dev_type;
 
 # Vibrator device
 type vibrator_device, dev_type;
@@ -81,9 +86,11 @@ type display_device, dev_type;
 # Samsung sec_ninja device (security)
 type sec_ninja_device, dev_type;
 
-# TEE (Trusted Execution Environment) device
+# TEE (Trusted Execution Environment) — TEEgris
+type tee_device, dev_type;
 
 # Ion memory device
+type ion_device, dev_type;
 
 # DMA buffer device
 type dmabuf_device, dev_type;
@@ -99,3 +106,6 @@ type shm_device, dev_type;
 
 # P9220 wireless charger device (if present)
 type wireless_charger_device, dev_type;
+
+# Sysfs battery (for health HAL)
+type sysfs_battery, dev_type;

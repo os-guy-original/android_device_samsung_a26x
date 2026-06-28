@@ -3,28 +3,51 @@
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
+        <version>7.1</version>
+        <interface>
+            <name>IDevicesFactory</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@7.1::IDevicesFactory/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.audio.effect</name>
         <transport>hwbinder</transport>
+        <version>7.0</version>
+        <interface>
+            <name>IEffectsFactory</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@7.0::IEffectsFactory/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.soundtrigger</name>
         <transport>hwbinder</transport>
+        <version>2.3</version>
+        <interface>
+            <name>ISoundTriggerHw</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@2.3::ISoundTriggerHw/default</fqname>
     </hal>
 
-    <!-- Biometrics (bumped to @2 for FCM 7+) -->
+    <!-- Biometrics -->
     <hal format="aidl">
         <name>android.hardware.biometrics.face</name>
         <version>2</version>
+        <interface>
+            <name>IFace</name>
+            <instance>default</instance>
+        </interface>
         <fqname>IFace/default</fqname>
     </hal>
     <hal format="aidl">
         <name>android.hardware.biometrics.fingerprint</name>
         <version>2</version>
+        <interface>
+            <name>IFingerprint</name>
+            <instance>default</instance>
+        </interface>
         <fqname>IFingerprint/default</fqname>
     </hal>
 
@@ -32,75 +55,198 @@
     <hal format="hidl">
         <name>android.hardware.bluetooth</name>
         <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IBluetoothHci</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@1.1::IBluetoothHci/default</fqname>
+    </hal>
+
+    <!-- CAS -->
+    <hal format="hidl">
+        <name>android.hardware.cas</name>
+        <transport>hwbinder</transport>
+        <version>1.2</version>
+        <interface>
+            <name>IMediaCasService</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.2::IMediaCasService/default</fqname>
     </hal>
 
     <!-- Camera -->
     <hal format="aidl">
         <name>android.hardware.camera.provider</name>
+        <version>1</version>
+        <interface>
+            <name>ICameraProvider</name>
+            <instance>internal/0</instance>
+        </interface>
         <fqname>ICameraProvider/internal/0</fqname>
     </hal>
 
     <!-- DRM -->
     <hal format="aidl">
         <name>android.hardware.drm</name>
+        <version>1</version>
         <fqname>IDrmFactory/clearkey</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>android.hardware.drm</name>
+        <version>1</version>
+        <fqname>IDrmFactory/widevine</fqname>
+    </hal>
+
+    <!-- Dumpstate -->
+    <hal format="aidl">
+        <name>android.hardware.dumpstate</name>
+        <version>1</version>
+        <fqname>IDumpstateDevice/default</fqname>
     </hal>
 
     <!-- Gatekeeper -->
-    <hal format="hidl">
+    <hal format="hidl" override="true">
         <name>android.hardware.gatekeeper</name>
         <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IGatekeeper</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@1.0::IGatekeeper/default</fqname>
+    </hal>
+
+    <!-- GNSS -->
+    <hal format="aidl">
+        <name>android.hardware.gnss</name>
+        <version>2</version>
+        <interface>
+            <name>IGnss</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>IGnss/default</fqname>
     </hal>
 
     <!-- Graphics -->
     <hal format="hidl">
         <name>android.hardware.graphics.allocator</name>
         <transport>hwbinder</transport>
+        <version>4.0</version>
+        <interface>
+            <name>IAllocator</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@4.0::IAllocator/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.graphics.composer</name>
         <transport>hwbinder</transport>
+        <version>2.4</version>
+        <interface>
+            <name>IComposer</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@2.4::IComposer/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.graphics.mapper</name>
         <transport arch="32+64">passthrough</transport>
+        <version>4.0</version>
+        <interface>
+            <name>IMapper</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@4.0::IMapper/default</fqname>
     </hal>
 
     <!-- Health -->
     <hal format="aidl">
         <name>android.hardware.health</name>
+        <version>1</version>
         <fqname>IHealth/default</fqname>
     </hal>
 
     <!-- KeyMint -->
-    <hal format="aidl">
+    <hal format="aidl" override="true">
         <name>android.hardware.security.keymint</name>
         <version>2</version>
+        <interface>
+            <name>IKeyMintDevice</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IRemotelyProvisionedComponent</name>
+            <instance>default</instance>
+        </interface>
         <fqname>IKeyMintDevice/default</fqname>
-        </hal>
-    <hal format="aidl">
-        <name>android.hardware.security.rkp</name>
-        <version>3</version>
         <fqname>IRemotelyProvisionedComponent/default</fqname>
     </hal>
-    <hal format="aidl">
+    <hal format="aidl" override="true">
         <name>android.hardware.security.secureclock</name>
+        <interface>
+            <name>ISecureClock</name>
+            <instance>default</instance>
+        </interface>
         <fqname>ISecureClock/default</fqname>
     </hal>
-    <hal format="aidl">
+    <hal format="aidl" override="true">
         <name>android.hardware.security.sharedsecret</name>
+        <interface>
+            <name>ISharedSecret</name>
+            <instance>default</instance>
+        </interface>
         <fqname>ISharedSecret/default</fqname>
     </hal>
 
-    <!-- Neural Networks -->
+    <!-- Lights -->
+    <hal format="aidl">
+        <name>android.hardware.light</name>
+        <fqname>ILights/default</fqname>
+    </hal>
+
+    <!-- Media C2 -->
+    <hal format="hidl" override="true">
+        <name>android.hardware.media.c2</name>
+        <transport>hwbinder</transport>
+        <version>1.2</version>
+        <interface>
+            <name>IComponentStore</name>
+            <instance>default</instance>
+            <instance>default0</instance>
+        </interface>
+        <fqname>@1.2::IComponentStore/default</fqname>
+        <fqname>@1.2::IComponentStore/default0</fqname>
+    </hal>
+
+    <!-- Media OMX -->
+    <hal format="hidl">
+        <name>android.hardware.media.omx</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IOmx</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IOmxStore</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IOmx/default</fqname>
+        <fqname>@1.0::IOmxStore/default</fqname>
+    </hal>
+
+    <!-- Memtrack -->
+    <hal format="aidl">
+        <name>android.hardware.memtrack</name>
+        <fqname>IMemtrack/default</fqname>
+    </hal>
+
+    <!-- Neural Networks (ENN) -->
     <hal format="aidl">
         <name>android.hardware.neuralnetworks</name>
-        <fqname>IDevice/shim-1</fqname>
+        <version>4</version>
+        <fqname>IDevice/enn</fqname>
     </hal>
 
     <!-- NFC -->
@@ -110,124 +256,292 @@
         <fqname>@1.2::INfc/default</fqname>
     </hal>
 
-    <!-- Power (bumped to @2 for FCM 7+) -->
+    <!-- Power -->
     <hal format="aidl">
         <name>android.hardware.power</name>
         <version>2</version>
         <fqname>IPower/default</fqname>
     </hal>
 
+    <!-- RenderScript -->
+    <hal format="hidl">
+        <name>android.hardware.renderscript</name>
+        <transport arch="32+64">passthrough</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDevice</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDevice/default</fqname>
+    </hal>
+
     <!-- Sensors -->
     <hal format="hidl">
         <name>android.hardware.sensors</name>
         <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>ISensors</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@2.0::ISensors/default</fqname>
+    </hal>
+
+    <!-- Thermal -->
+    <hal format="hidl" override="true">
+        <name>android.hardware.thermal</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <version>2.0</version>
+        <interface>
+            <name>IThermal</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IThermal/default</fqname>
+        <fqname>@2.0::IThermal/default</fqname>
     </hal>
 
     <!-- USB -->
     <hal format="hidl">
         <name>android.hardware.usb</name>
         <transport>hwbinder</transport>
+        <version>1.3</version>
+        <interface>
+            <name>IUsb</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@1.3::IUsb/default</fqname>
     </hal>
 
     <!-- Vibrator -->
     <hal format="aidl">
         <name>android.hardware.vibrator</name>
+        <version>2</version>
         <fqname>IVibrator/default</fqname>
     </hal>
 
-    <!-- Wi-Fi (bumped to @1.6 for FCM 7+) -->
+    <!-- Weaver -->
+    <hal format="hidl" override="true">
+        <name>android.hardware.weaver</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IWeaver</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IWeaver/default</fqname>
+    </hal>
+
+    <!-- Wi-Fi -->
     <hal format="hidl">
         <name>android.hardware.wifi</name>
         <transport>hwbinder</transport>
+        <version>1.6</version>
+        <interface>
+            <name>IWifi</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@1.6::IWifi/default</fqname>
     </hal>
-
-    <!-- GNSS -->
-    <hal format="aidl">
-        <name>android.hardware.gnss</name>
-        <version>2</version>
-        <fqname>IGnss/default</fqname>
+    <hal format="hidl">
+        <name>android.hardware.wifi.hostapd</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.3::IHostapd/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi.supplicant</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.4::ISupplicant/default</fqname>
     </hal>
 
     <!-- Samsung Custom HALs -->
-    <!-- Commented out - these are provided by vendor blobs, not built from source -->
-    <!-- Declaring them here causes VINTF errors since they're not in framework compatibility matrix -->
-    <!--
     <hal format="hidl">
         <name>vendor.samsung.hardware.audio</name>
         <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISehDevicesFactory</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@1.0::ISehDevicesFactory/default</fqname>
     </hal>
+    <hal format="aidl">
+        <name>vendor.samsung.hardware.audio</name>
+        <version>1</version>
+        <fqname>ISecAudioHal/default</fqname>
+    </hal>
+
     <hal format="hidl">
         <name>vendor.samsung.hardware.bluetooth</name>
         <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>ISehBluetooth</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@2.0::ISehBluetooth/default</fqname>
     </hal>
     <hal format="aidl">
+        <name>vendor.samsung.hardware.bluetooth.audio</name>
+        <fqname>ISehBluetoothAudioProviderFactory/default</fqname>
+    </hal>
+
+    <hal format="aidl">
         <name>vendor.samsung.hardware.gnss</name>
         <version>3</version>
+        <interface>
+            <name>ISehGnss</name>
+            <instance>default</instance>
+        </interface>
         <fqname>ISehGnss/default</fqname>
     </hal>
+
     <hal format="aidl">
-        <name>vendor.samsung.hardware.health</name>
-        <fqname>ISehHealth/default</fqname>
+        <name>vendor.samsung.hardware.hyper</name>
+        <version>2</version>
+        <fqname>ISehHyPer/default</fqname>
     </hal>
+
     <hal format="aidl">
         <name>vendor.samsung.hardware.keymint</name>
         <version>2</version>
+        <interface>
+            <name>ISehKeyMintExtension</name>
+            <instance>default</instance>
+        </interface>
         <fqname>ISehKeyMintExtension/default</fqname>
     </hal>
     <hal format="aidl">
         <name>vendor.samsung.hardware.keymint</name>
         <version>2</version>
+        <interface>
+            <name>ISehKeyMintFactory</name>
+            <instance>default</instance>
+        </interface>
         <fqname>ISehKeyMintFactory/default</fqname>
     </hal>
+
     <hal format="hidl">
         <name>vendor.samsung.hardware.nfc</name>
         <transport>hwbinder</transport>
         <fqname>@2.0::ISehNfc/default</fqname>
     </hal>
-    <hal format="hidl">
+
+    <hal format="hidl" override="true">
         <name>vendor.samsung.hardware.security.drk</name>
         <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>ISehDrk</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@2.0::ISehDrk/default</fqname>
     </hal>
+
+    <hal format="aidl">
+        <name>vendor.samsung.hardware.snap</name>
+        <fqname>ISehSnap/default</fqname>
+    </hal>
+
     <hal format="hidl">
         <name>vendor.samsung.hardware.sysinput</name>
         <transport>hwbinder</transport>
+        <version>1.3</version>
+        <interface>
+            <name>ISehSysInputCallback</name>
+        </interface>
+        <interface>
+            <name>ISehSysInputDev</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@1.3::ISehSysInputDev/default</fqname>
     </hal>
-    <hal format="aidl">
+
+    <hal format="hidl">
         <name>vendor.samsung.hardware.thermal</name>
-        <fqname>ISehThermal/default</fqname>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISehThermal</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISehThermal/default</fqname>
     </hal>
-    <hal format="aidl">
-        <name>vendor.samsung.hardware.vibrator</name>
-        <fqname>ISehVibrator/default</fqname>
-    </hal>
+
     <hal format="hidl">
         <name>vendor.samsung.hardware.wifi</name>
         <transport>hwbinder</transport>
-        <fqname>@2.0::ISehWifi/default</fqname>
+        <version>2.3</version>
+        <interface>
+            <name>ISehWifi</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.3::ISehWifi/default</fqname>
     </hal>
 
     <!-- Samsung SLSI HALs -->
     <hal format="hidl">
         <name>vendor.samsung_slsi.hardware.ExynosHWCServiceTW</name>
         <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IExynosHWCServiceTW</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@1.0::IExynosHWCServiceTW/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.samsung_slsi.hardware.SbwcDecompService</name>
         <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISbwcDecompService</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@1.0::ISbwcDecompService/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.samsung_slsi.hardware.epic</name>
         <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IEpicRequest</name>
+            <instance>default</instance>
+        </interface>
         <fqname>@1.0::IEpicRequest/default</fqname>
     </hal>
-    -->
+    <hal format="hidl">
+        <name>vendor.samsung_slsi.hardware.enn</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IEnnInterface</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IEnnInterface/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.samsung_slsi.telephony.hardware.oemservice</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOemService/dm0</fqname>
+        <fqname>@1.0::IOemService/dm1</fqname>
+        <fqname>@1.0::IOemService/pst</fqname>
+    </hal>
+
+    <!-- Samsung DMD -->
+    <hal format="hidl">
+        <name>vendor.samsung_slsi.telephony.hardware.oemservice</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IOemService</name>
+            <instance>dm0</instance>
+            <instance>dm1</instance>
+            <instance>pst</instance>
+        </interface>
+    </hal>
+
+    <sepolicy>
+        <version>33.0</version>
+    </sepolicy>
 </manifest>

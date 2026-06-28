@@ -76,3 +76,57 @@ vendor.keymint.       u:object_r:vendor_keymint_prop:s0
 # EPIC (Samsung encoder) properties
 ro.vendor.epic.       u:object_r:vendor_epic_prop:s0
 vendor.epic.          u:object_r:vendor_epic_prop:s0
+
+# Vibrator properties
+ro.config.vc_call_vol_steps u:object_r:vendor_vibrator_prop:s0
+
+# Media properties
+debug.stagefright.   u:object_r:vendor_media_prop:s0
+media.c2.             u:object_r:vendor_media_prop:s0
+vendor.media.         u:object_r:vendor_media_prop:s0
+vendor.debug.c2.      u:object_r:vendor_media_prop:s0
+
+# Storage properties
+ro.incremental.       u:object_r:vendor_storage_prop:s0
+external_storage.    u:object_r:vendor_storage_prop:s0
+persist.sys.fuse.     u:object_r:vendor_storage_prop:s0
+
+# LMK (Low Memory Killer) / SLMK properties
+ro.slmk.              u:object_r:vendor_lmk_prop:s0
+ro.sys.kernelmemory.  u:object_r:vendor_swap_prop:s0
+
+# Security / ADP / ASKS properties
+security.ADP.        u:object_r:vendor_security_prop:s0
+security.ASKS.       u:object_r:vendor_security_prop:s0
+security.securehw.   u:object_r:vendor_security_prop:s0
+security.securenvm.  u:object_r:vendor_security_prop:s0
+
+# Keystore properties
+ro.hardware.keystore u:object_r:vendor_keystore_prop:s0
+
+# HDM properties
+ro.vendor.hdm.       u:object_r:vendor_hdm_prop:s0
+ro.vendor.config.dm. u:object_r:vendor_hdm_prop:s0
+persist.vendor.sys.dm. u:object_r:vendor_hdm_prop:s0
+
+# Graphics / GPU properties
+ro.hardware.egl       u:object_r:vendor_gpu_prop:s0
+ro.hardware.vulkan    u:object_r:vendor_gpu_prop:s0
+ro.opengles.version  u:object_r:vendor_gpu_prop:s0
+ro.vendor.ddk.       u:object_r:vendor_gpu_prop:s0
+ro.vendor.gpu.       u:object_r:vendor_gpu_prop:s0
+vendor.hwc.          u:object_r:vendor_gpu_prop:s0
+ro.hw.               u:object_r:vendor_gpu_prop:s0
+debug.hwc.           u:object_r:vendor_gpu_prop:s0
+graphics.gpu.        u:object_r:vendor_gpu_prop:s0
+
+# Dalvik / ART properties
+dalvik.vm.            u:object_r:vendor_dalvik_prop:s0
+
+# Samsung SystemFW / HQM properties
+vendor.sysfw.         u:object_r:vendor_sysfw_prop:s0
+
+# Logging properties
+log.tag.              u:object_r:vendor_log_prop:s0
+persist.traced.enable u:object_r:vendor_log_prop:s0
+persist.vendor.wlbtlog. u:object_r:vendor_log_prop:s0

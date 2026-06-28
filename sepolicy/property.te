@@ -39,3 +39,39 @@ type vendor_usb_prop, property_type, vendor_property_type;
 
 # EPIC (Samsung encoder) properties
 type vendor_epic_prop, property_type, vendor_property_type;
+
+# Vibrator properties
+type vendor_vibrator_prop, property_type, vendor_property_type;
+
+# Media properties
+type vendor_media_prop, property_type, vendor_property_type;
+
+# Storage properties
+type vendor_storage_prop, property_type, vendor_property_type;
+
+# LMK (Low Memory Killer) properties
+type vendor_lmk_prop, property_type, vendor_property_type;
+
+# Security / ADP / ASKS properties
+type vendor_security_prop, property_type, vendor_property_type;
+
+# Keystore properties
+type vendor_keystore_prop, property_type, vendor_property_type;
+
+# HDM (Hardware Diagnostic Manager) properties
+type vendor_hdm_prop, property_type, vendor_property_type;
+
+# Swap / RAM Plus properties
+type vendor_swap_prop, property_type, vendor_property_type;
+
+# Graphics / GPU properties
+type vendor_gpu_prop, property_type, vendor_property_type;
+
+# Dalvik / ART properties
+type vendor_dalvik_prop, property_type, vendor_property_type;
+
+# Samsung SystemFW / HQM properties
+type vendor_sysfw_prop, property_type, vendor_property_type;
+
+# Logging properties
+type vendor_log_prop, property_type, vendor_property_type;

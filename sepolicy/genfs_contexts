@@ -1,1 +1,82 @@
-# SELinux filesystem contexts for Samsung Exynos devices
+# SELinux filesystem contexts for Samsung Exynos 1380 (s5e8835)
+
+# procfs
+genfscon proc /dpm                                 u:object_r:proc_dpm:s0
+genfscon proc /ems                                 u:object_r:proc_ems:s0
+
+# sysfs - Samsung Exynos CPU clustering / EMS
+genfscon sysfs /devices/platform/ems u:object_r:sysfs_ems:s0
+genfscon sysfs /devices/system/cpu/cpu0/cpufreq u:object_r:sysfs_cpu:s0
+genfscon sysfs /devices/system/cpu/cpu1/cpufreq u:object_r:sysfs_cpu:s0
+genfscon sysfs /devices/system/cpu/cpu2/cpufreq u:object_r:sysfs_cpu:s0
+genfscon sysfs /devices/system/cpu/cpu3/cpufreq u:object_r:sysfs_cpu:s0
+genfscon sysfs /devices/system/cpu/cpu4/cpufreq u:object_r:sysfs_cpu:s0
+genfscon sysfs /devices/system/cpu/cpu5/cpufreq u:object_r:sysfs_cpu:s0
+genfscon sysfs /devices/system/cpu/cpu6/cpufreq u:object_r:sysfs_cpu:s0
+genfscon sysfs /devices/system/cpu/cpu7/cpufreq u:object_r:sysfs_cpu:s0
+
+# sysfs - GPU (Mali-G68)
+genfscon sysfs /devices/platform/gpu u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/drm u:object_r:sysfs_gpu:s0
+genfscon sysfs /class/devfreq u:object_r:sysfs_devfreq:s0
+
+# sysfs - Samsung MIF (Memory Interface)
+genfscon sysfs /devices/platform/mif u:object_r:sysfs_mif:s0
+
+# sysfs - Samsung SIPC (Inter-Processor Communication)
+genfscon sysfs /devices/platform/sipc u:object_r:sysfs_sipc:s0
+
+# sysfs - Samsung HDMI / Display
+genfscon sysfs /devices/platform/display u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/decon u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/dsim u:object_r:sysfs_display:s0
+
+# sysfs - Thermal
+genfscon sysfs /devices/platform/thermal u:object_r:sysfs_thermal:s0
+genfscon sysfs /class/thermal u:object_r:sysfs_thermal:s0
+
+# sysfs - Sensors (Samsung integrated sensor hub)
+genfscon sysfs /devices/platform/sensor u:object_r:sysfs_sensors:s0
+genfscon sysfs /devices/virtual/sensors u:object_r:sysfs_sensors:s0
+
+# sysfs - Camera (Exynos ISP)
+genfscon sysfs /devices/platform/camera u:object_r:sysfs_camera:s0
+genfscon sysfs /devices/platform/isx u:object_r:sysfs_camera:s0
+
+# sysfs - NFC (ST21NFCA)
+genfscon sysfs /devices/platform/nfc u:object_r:sysfs_nfc:s0
+
+# sysfs - Fingerprint
+genfscon sysfs /devices/platform/fingerprint u:object_r:sysfs_fingerprint:s0
+
+# sysfs - Audio / A-Box
+genfscon sysfs /devices/platform/abox u:object_r:sysfs_audio:s0
+
+# sysfs - Power / PMU
+genfscon sysfs /devices/platform/pmu u:object_r:sysfs_power:s0
+
+# sysfs - USB
+genfscon sysfs /devices/platform/usb u:object_r:sysfs_usb:s0
+genfscon sysfs /class/android_usb u:object_r:sysfs_usb:s0
+
+# sysfs - Battery / Power supply
+genfscon sysfs /class/power_supply u:object_r:sysfs_power_supply:s0
+
+# sysfs - LEDs
+genfscon sysfs /class/leds u:object_r:sysfs_leds:s0
+
+# sysfs - Input
+genfscon sysfs /class/input u:object_r:sysfs_input:s0
+
+# sysfs - Samsung SEC (hardware monitoring)
+genfscon sysfs /devices/platform/sec u:object_r:sysfs_sec:s0
+
+# sysfs - Vibrator / Haptic
+genfscon sysfs /devices/platform/vibrator u:object_r:sysfs_vibrator:s0
+
+# debugfs
+genfscon debugfs /exynos-ipa u:object_r:debugfs_ipa:s0
+genfscon debugfs /exynos-acme u:object_r:debugfs_acme:s0
+
+# tracefs
+genfscon tracefs / u:object_r:tracefs:s0

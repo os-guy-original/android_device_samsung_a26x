@@ -1,0 +1,30 @@
+{
+    "kernel_manifest": {
+        "remote": "https://github.com/os-guy-original/android_kernel_samsung_a26x",
+        "branch": "lineage-22.1",
+        "target_path": "kernel/samsung/a26x"
+    },
+    "vendor_manifest": {
+        "remote": "https://github.com/os-guy-original/android_vendor_samsung_a26x",
+        "branch": "lineage-22.1",
+        "target_path": "vendor/samsung/a26x"
+    },
+    "depend": [
+        {
+            "repository": "android_kernel_samsung_a26x",
+            "target_path": "kernel/samsung/a26x"
+        },
+        {
+            "repository": "android_vendor_samsung_a26x",
+            "target_path": "vendor/samsung/a26x"
+        },
+        {
+            "repository": "android_hardware_samsung",
+            "target_path": "hardware/samsung"
+        },
+        {
+            "repository": "android_device_samsung_slsi",
+            "target_path": "device/samsung/slsi"
+        }
+    ]
+}

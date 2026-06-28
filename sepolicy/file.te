@@ -72,3 +72,42 @@ type audio_config_file, file_type, vendor_file_type;
 
 # USB configuration
 type usb_config_file, file_type, vendor_file_type;
+
+# NFC data (ST21NFCA)
+type nfc_data_file, file_type, data_file_type;
+
+# USB data
+type usb_data_file, file_type, data_file_type;
+
+# Display configuration (Exynos DECON/DSIM)
+type display_config_file, file_type, vendor_file_type;
+
+# Media configuration
+type media_config_file, file_type, vendor_file_type;
+
+# WiFi configuration
+type wifi_config_file, file_type, vendor_file_type;
+
+# NFC configuration (ST21NFCA)
+type nfc_config_file, file_type, vendor_file_type;
+
+# Keylayout configuration
+type keylayout_file, file_type, vendor_file_type;
+
+# Samsung DPK (Device Policy) configuration
+type dpolicy_file, file_type, vendor_file_type;
+
+# Touchscreen firmware
+type touchscreen_fw_file, file_type, vendor_file_type;
+
+# Samsung A-Box (Audio DSP) firmware
+type abox_fw_file, file_type, vendor_file_type;
+
+# Samsung CSC (Customer Software Customization) data
+type csc_data_file, file_type, data_file_type;
+
+# VPNPP (Samsung VPN) data
+type vpnpp_data_file, file_type, data_file_type;
+
+# ADP/ASKS (Samsung security policy) data
+type adp_data_file, file_type, data_file_type;

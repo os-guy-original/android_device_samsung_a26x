@@ -53,17 +53,46 @@ sh_binary {
 }
 
 // Init configuration files
-// fstab
+// fstab for vendor/etc
 prebuilt_etc {
-    name: "fstab.ramplus",
-    src: "etc/fstab.ramplus",
+    name: "fstab.s5e8835",
+    src: "etc/fstab.s5e8835",
     vendor: true,
 }
 
-// fstab for vendor_ramdisk
+// fstab for ramdisk (recovery)
+prebuilt_etc {
+    name: "fstab.s5e8835.ramdisk",
+    src: "etc/fstab.s5e8835",
+    sub_dir: "",
+    ramdisk: true,
+}
+
+// fstab for vendor_ramdisk (first_stage_mount)
 prebuilt_etc {
     name: "fstab.s5e8835.vendor_ramdisk",
     src: "etc/fstab.s5e8835",
     sub_dir: "",
     vendor_ramdisk: true,
+}
+
+// Soong namespace for device tree
+soong_namespace {}
+
+// FT3419 touchscreen firmware (Samsung firmware-usher format)
+// Source: /vendor/firmware/ft3419_a26x.bin
+prebuilt_etc {
+    name: "ft3419_firmware",
+    src: "etc/firmware/ft3419_a26x.bin",
+    sub_dir: "firmware",
+    vendor: true,
+}
+
+// Samsung device policy (dpolicy) configuration
+// Source: /vendor/etc/dpolicy
+prebuilt_etc {
+    name: "dpolicy",
+    src: "etc/dpolicy/dpolicy",
+    sub_dir: "dpolicy",
+    vendor: true,
 }
