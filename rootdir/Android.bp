@@ -3,6 +3,9 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+// Soong namespace for device tree
+soong_namespace {}
+
 // Init scripts
 sh_binary {
     name: "gps.sh",
@@ -75,9 +78,6 @@ prebuilt_etc {
     sub_dir: "",
     vendor_ramdisk: true,
 }
-
-// Soong namespace for device tree
-soong_namespace {}
 
 // FT3419 touchscreen firmware (Samsung firmware-usher format)
 // Source: /vendor/firmware/ft3419_a26x.bin
