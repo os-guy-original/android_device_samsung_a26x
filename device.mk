@@ -94,105 +94,93 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.soundtrigger@2.3-impl
 
-# Bluetooth HIDL HAL packages (manifest declares bluetooth@1.1)
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.1-service
+# Bluetooth HAL
+# Samsung provides bluetooth HAL as vendor prebuilt
+# android.hardware.bluetooth@1.1-service does not exist as a build target
 
-# CAS HIDL HAL packages (manifest declares cas@1.2)
-PRODUCT_PACKAGES += \
-    android.hardware.cas@1.2-service
+# CAS HAL
+# Samsung provides CAS HAL as vendor prebuilt
+# android.hardware.cas@1.2-service does not exist as a build target
 
 # DRM AIDL HAL packages (manifest declares drm V1 — clearkey + widevine)
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
-# Gatekeeper HIDL HAL (manifest declares gatekeeper@1.0 with override)
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-service
+# Gatekeeper HAL
+# Samsung provides gatekeeper HAL as vendor prebuilt
+# android.hardware.gatekeeper@1.0-service does not exist as a build target in Android 15
 
-# Graphics HIDL HAL packages (manifest declares allocator@4.0, composer@2.4, mapper@4.0)
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@4.0-service \
-    android.hardware.graphics.composer@2.4-service \
-    android.hardware.graphics.mapper@4.0-impl
+# Graphics HAL packages
+# allocator@4.0, composer@2.4, mapper@4.0 are provided by vendor prebuilts
+# Screenflinger/HWC composer is provided by vendor gralloc implementation
 
-# Health AIDL HAL (manifest declares health V1)
-# Vendor provides vendor.samsung.hardware.health-service (Samsung AIDL wrapper)
-PRODUCT_PACKAGES += \
-    android.hardware.health-service.default \
-    vendor.samsung.hardware.health-service
+# Health HAL
+# vendor.samsung.hardware.health-service is a vendor prebuilt (PRODUCT_COPY_FILES)
+# AOSP health-service.default does not exist as a build target in Android 15
 
 # KeyMint AIDL HAL (manifest declares keymint V2 + secureclock + sharedsecret with override)
 PRODUCT_PACKAGES += \
     android.hardware.security.keymint-service
 
-# Media C2 HIDL HAL (manifest declares media.c2@1.2 with override, 2 instances)
-# Vendor provides samsung.hardware.media.c2@1.2-service (Samsung implementation)
-PRODUCT_PACKAGES += \
-    android.hardware.media.c2@1.2-service \
-    samsung.hardware.media.c2@1.2-service
+# Media C2 HAL
+# samsung.hardware.media.c2@1.2-service is a vendor prebuilt (PRODUCT_COPY_FILES)
+# android.hardware.media.c2@1.2-service does not exist as a build target in Android 15
 
-# Media OMX HIDL HAL (manifest declares media.omx@1.0)
-PRODUCT_PACKAGES += \
-    android.hardware.media.omx@1.0-service
+# Media OMX HAL
+# android.hardware.media.omx@1.0-service does not exist as a build target in Android 15
 
 # NFC HIDL HAL (manifest declares nfc@1.2)
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2-service
 
-# Power AIDL HAL (manifest declares power V2)
-# Vendor provides android.hardware.power.samsung-service (Samsung implementation)
-PRODUCT_PACKAGES += \
-    android.hardware.power-service.default \
-    android.hardware.power.samsung-service
+# Power HAL
+# android.hardware.power.samsung-service is a vendor prebuilt (PRODUCT_COPY_FILES)
+# AOSP power-service.default does not exist as a build target in Android 15
 
-# RenderScript HIDL HAL (manifest declares renderscript@1.0 passthrough)
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
+# RenderScript
+# android.hardware.renderscript@1.0-impl was removed in Android 15
 
-# Sensors HIDL HAL (manifest declares sensors@2.0)
-PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.0-service
+# Sensors HAL
+# Sensors service is provided by vendor prebuilts
+# android.hardware.sensors@2.0-service does not exist as a build target in Android 15
 
-# Thermal HIDL HAL (manifest declares thermal@1.0 + @2.0 with override)
-# Vendor provides vendor.samsung.hardware.thermal@1.0-service (Samsung @1.0 extension)
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service \
-    vendor.samsung.hardware.thermal@1.0-service
+# Thermal HAL
+# vendor.samsung.hardware.thermal@1.0-service is a vendor prebuilt (PRODUCT_COPY_FILES)
+# android.hardware.thermal@2.0-service does not exist as a build target in Android 15
 
-# USB HIDL HAL (manifest declares usb@1.3)
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.3-service
+# USB HAL
+# USB service is provided by vendor prebuilts
+# android.hardware.usb@1.3-service does not exist as a build target in Android 15
 
-# Weaver HIDL HAL (manifest declares weaver@1.0 with override)
-PRODUCT_PACKAGES += \
-    android.hardware.weaver@1.0-service
+# Weaver HAL
+# Weaver service is provided by vendor prebuilts / gatekeeper integration
+# android.hardware.weaver@1.0-service does not exist as a build target in Android 15
 
-# Wi-Fi HIDL HAL packages (manifest declares wifi@1.6, hostapd@1.3, supplicant@1.4)
-# Vendor provides android.hardware.wifi@1.0-service + vendor.samsung.hardware.wifi@2.0-service
-# AOSP builds wifi@1.6 from source; Samsung vendor service is a proprietary extension
+# Wi-Fi HAL
+# android.hardware.wifi@1.0-service and vendor.samsung.hardware.wifi@2.0-service
+# are vendor prebuilts (PRODUCT_COPY_FILES)
+# HIDL wifi@1.6-service, hostapd@1.3-service, supplicant@1.4-service
+# do not exist as build targets in Android 15
+# Use AOSP AIDL equivalents instead:
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.6-service \
-    android.hardware.wifi@1.0-service \
-    vendor.samsung.hardware.wifi@2.0-service \
-    android.hardware.wifi.hostapd@1.3-service \
-    android.hardware.wifi.supplicant@1.4-service
+    android.hardware.wifi-service \
+    hostapd \
+    wpa_supplicant
 
-# HIDL Allocator (required for VINTF compatibility with older FCM levels)
-PRODUCT_PACKAGES += \
-    android.hidl.allocator@1.0-service
+# HIDL allocator
+# android.hidl.allocator@1.0-service was removed in Android 15
 
 # AIDL HAL packages for Samsung vendor services
 # (Biometrics face/fingerprint, camera, dumpstate, gnss, light, memtrack,
 #  neuralnetworks, vibrator are provided by vendor APEXes and proprietary services)
 
 # Init files (defined in rootdir/Android.mk - use PRODUCT_PACKAGES)
+# fstab.ramplus is NOT a Soong module — installed via PRODUCT_COPY_FILES below
 PRODUCT_PACKAGES += \
     init.recovery.s5e8835.rc \
     init.recovery.samsung.rc \
     init.s5e8835.rc \
-    fstab.s5e8835 \
-    fstab.ramplus
+    fstab.s5e8835
 
 # Shell scripts (defined in rootdir/Android.bp - use PRODUCT_PACKAGES)
 PRODUCT_PACKAGES += \
@@ -212,7 +200,8 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
-    hardware/samsung
+    hardware/samsung \
+    vendor/samsung/a26x
 
 # Samsung Soong config
 SOONG_CONFIG_NAMESPACES += samsungExynosHalmgr

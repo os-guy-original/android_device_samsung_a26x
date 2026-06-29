@@ -4,4 +4,8 @@
 //
 
 soong_namespace {
+    imports: [
+        "hardware/samsung",
+        "vendor/samsung/a26x",
+    ],
 }

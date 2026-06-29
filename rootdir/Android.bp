@@ -4,7 +4,12 @@
 //
 
 // Soong namespace for device tree
-soong_namespace {}
+soong_namespace {
+    imports: [
+        "hardware/samsung",
+        "vendor/samsung/a26x",
+    ],
+}
 
 // Init scripts
 sh_binary {
